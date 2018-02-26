@@ -1,4 +1,4 @@
-<?php $helper = Mage::helper('myparcel_be'); ?>
+<?php $helper = Mage::helper('tig_myparcel'); ?>
 <style>
     /* Set base color */
     <?php $baseColor = $helper->getConfig('base_color', 'checkout');?>
