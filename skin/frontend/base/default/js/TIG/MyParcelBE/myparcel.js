@@ -132,11 +132,6 @@ MyParcel = {
      */
 
     bind: function () {
-        mypajQuery('#mypa-submit').on('click', function (e) {
-            e.preventDefault();
-            MyParcel.exportDeliveryOptionToWebshop();
-        });
-
         mypajQuery('#mypa-signature-selector').on('change', function (e) {
             MyParcel.toggleDeliveryOptions();
         });
@@ -908,22 +903,5 @@ MyParcel = {
                 MyParcel.hideSpinner();
                 MyParcel.hideMessage();
             });
-    },
-
-    /*
-     * exportDeliverOptionToWebshop
-     *
-     * Exports the selected deliveryoption to the webshop.
-     *
-     */
-
-    exportDeliveryOptionToWebshop: function () {
-        var deliveryOption = "";
-        var selected = mypajQuery("#mypa-delivery-option-form").find("input[type='radio']:checked");
-        if (selected.length > 0) {
-            deliveryOption = selected.val();
-        }
-
-        /* XXX Send to appropriate webshop field */
     }
 };

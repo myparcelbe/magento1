@@ -245,7 +245,6 @@
             <general>
                 <url>https://api.myparcel.nl/</url>
                 <active>0</active>
-                <test>0</test>
                 <print_orientation>A4</print_orientation>
                 <always_myparcel>1</always_myparcel>
                 <pakjegemak_use_shipment_address>1</pakjegemak_use_shipment_address>
