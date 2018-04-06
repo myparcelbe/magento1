@@ -25,13 +25,13 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
      */
     const PG_ADDRESS_TYPE = 'pakje_gemak';
 
+    const BOX_NL = 'bus';
+    const BOX_TRANSLATION_POSSIBILITIES = [' boîte', ' box', ' bte', ' Bus'];
+
 	/**
 	 * Regular expression used to split street name from house number.
-	 *
-	 * For the full description go to:
-	 * @link https://gist.github.com/RichardPerdaan/1e6ce1588f3990e856b55255572692d1
 	 */
-    const SPLIT_STREET_REGEX = '~(?P<street>.*?)\s?(?P<street_suffix>(?P<number>[\d]+)[\s-]{0,2}(?P<extension>[a-zA-Z/\s]{0,5}$|[0-9/]{0,5}$|\s[a-zA-Z]{1}[0-9]{0,3}$|\s[0-9]{2}[a-zA-Z]{0,3}$))$~';
+    const SPLIT_STREET_REGEX = '~(?P<street>.*?)\s(?P<street_suffix>(?P<number>[^\s]{1,8})\s?(?P<box_separator>' . self::BOX_NL . '?)?\s?(?P<box_number>\d{0,8}$))$~';
 
     /**
      * Log filename to log all non-specific MyParcel exceptions.
@@ -369,8 +369,8 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
             $fullStreet = $this->_getInternationalFullStreet($address);
             $streetData = array(
                 'streetname' => $fullStreet,
-                'housenumber' => '',
-                'housenumberExtension' => '',
+                'number' => '',
+                'box_number' => '',
                 'fullStreet' => $fullStreet,
             );
             return $streetData;
@@ -397,6 +397,9 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
      */
     protected function _getSplitStreetData($fullStreet, $throwException = true)
     {
+
+        $fullStreet = str_ireplace(self::BOX_TRANSLATION_POSSIBILITIES, ' ' . self::BOX_NL, $fullStreet);
+
         $fullStreet = preg_replace("/[\n\r]/", " ", $fullStreet);
 
         if (strlen($fullStreet) > 40 && $throwException) {
@@ -427,25 +430,25 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         $streetname = '';
-        $housenumber = '';
+        $number = '';
         if (isset($matches['street'])) {
             $streetname = $matches['street'];
         }
 
         if (isset($matches['number'])) {
-            $housenumber = $matches['number'];
+            $number = $matches['number'];
         }
 
-        if (isset($matches['extension'])) {
-            $housenumberExtension = $matches['extension'];
+        if (isset($matches['box_number'])) {
+            $boxNumber = $matches['box_number'];
         } else {
-            $housenumberExtension = '';
+            $boxNumber = '';
         }
 
         $streetData = array(
             'streetname' => $streetname,
-            'housenumber' => $housenumber,
-            'housenumberExtension' => $housenumberExtension,
+            'number' => $number,
+            'box_number' => $boxNumber,
             'fullStreet' => $fullStreet,
         );
 

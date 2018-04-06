@@ -326,7 +326,9 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
         if($method == 'POST'){
 
             //curl request string
-            $body = $this->requestString;
+            $body = json_decode($this->requestString, true);
+            $body['data']['shipments'][0]['recipient']['cc'] = 'be';
+            $body = json_encode($body);
 
             //complete request url
             $url = $this->apiUrl . $this->requestType;
@@ -334,6 +336,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
             // log the request url
             $helper->log($url);
             $helper->log(json_decode($body));
+
             $request->setConfig($config)
                 ->write(Zend_Http_Client::POST, $url, '1.1', $header, $body);
         } else {
@@ -352,6 +355,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
         //read the response
         $response = $request->read();
+
         $aResult = json_decode($response, true);
 
         if ($this->requestType == self::REQUEST_TYPE_SETUP_LABEL) {
@@ -566,7 +570,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
     {
         $data = array(
             'parent' => (int)$consignmentId,
-            'carrier' => 1,
+            'carrier' => 2,
             'email' => $shipment->getOrder()->getCustomerEmail(),
             'name' => $shipment->getOrder()->getCustomerName()
         );
@@ -654,16 +658,16 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
         $email           = $myParcelShipment->getOrder()->getCustomerEmail();
 
         $data = array(
-            'recipient'     => array(
-                'cc'    =>      $shippingAddress->getCountry(),
-                'person'        => trim($shippingAddress->getName()),
-                'company'       => (string) trim($shippingAddress->getCompany()),
-                'postal_code'  => trim($shippingAddress->getPostcode()),
-                'street'        => trim($streetData['streetname']),
-                'number'        => trim($streetData['housenumber']),
-                'number_suffix' => trim($streetData['housenumberExtension']),
-                'city'          => trim($shippingAddress->getCity()),
-                'email'         => $email,
+            'recipient'         => array(
+                'cc'                => $shippingAddress->getCountry(),
+                'person'            => trim($shippingAddress->getName()),
+                'company'           => (string) trim($shippingAddress->getCompany()),
+                'postal_code'       => trim($shippingAddress->getPostcode()),
+                'street'            => trim($streetData['streetname']),
+                'number'            => trim($streetData['number']),
+                'box_number'        => trim($streetData['box_number']),
+                'city'              => trim($shippingAddress->getCity()),
+                'email'             => $email,
             ),
             'options'    => $this->_getOptionsData($myParcelShipment, $checkoutData),
         );
@@ -672,11 +676,11 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
         if ($phone)
             $data['recipient']['phone'] = $phone;
 
-        if ($myParcelShipment->getShippingAddress()->getCountry() != 'NL') {
+        if ($myParcelShipment->getShippingAddress()->getCountry() != 'BE') {
             unset($streetData['fullStreet']);
             $data['recipient']['street'] = trim(str_replace('  ', ' ', implode(' ', $streetData)));
             unset($data['recipient']['number']);
-            unset($data['recipient']['number_suffix']);
+            unset($data['recipient']['box_number']);
         }
 
         // add customs data for EUR3 and World shipments
@@ -772,7 +776,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                 'postal_code'       => trim($pgAddress->getPostcode()),
                 'street'            => trim($pgStreetData['streetname']),
                 'city'              => trim($pgAddress->getCity()),
-                'number'            => trim($pgStreetData['housenumber']),
+                'number'            => trim($pgStreetData['number']),
                 'location_name'     => trim($pgAddress->getCompany()),
             );
 
@@ -782,7 +786,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
             }
         }
 
-        $data['carrier'] = 1;
+        $data['carrier'] = 2;
         return $data;
     }
 

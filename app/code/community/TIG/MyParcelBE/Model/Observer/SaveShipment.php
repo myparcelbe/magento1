@@ -135,7 +135,7 @@ class TIG_MyParcelBE_Model_Observer_SaveShipment
 
         $barcode = $myParcelShipment->getBarcode();
         if ($barcode) {
-            $carrierCode = TIG_MyParcelBE_Model_Shipment::MYPARCEL_CARRIER_CODE;
+            $carrierCode = TIG_MyParcelBE_Model_Shipment::MYPARCEL_CARRIER_CODE_TITLE;
 
             $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/name', $shipment->getStoreId());
             //if the other carrier-method is used, get the title

@@ -74,7 +74,7 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
     /**
      * Carrier code used by MyParcel.
      */
-    const MYPARCEL_CARRIER_CODE = 'myparcel';
+    const MYPARCEL_CARRIER_CODE_TITLE = 'myparcel';
 
     /**
      * Statusses used by MyParcel shipments.
@@ -616,7 +616,7 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
             );
         }
 
-        $carrierCode = self::MYPARCEL_CARRIER_CODE;
+        $carrierCode = self::MYPARCEL_CARRIER_CODE_TITLE;
         $carrierTitle = Mage::getStoreConfig('carriers/' . $carrierCode . '/name', $shipment->getStoreId());
 
         $data = array(

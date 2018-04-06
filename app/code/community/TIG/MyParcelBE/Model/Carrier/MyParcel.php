@@ -35,7 +35,7 @@ class TIG_MyParcelBE_Model_Carrier_MyParcel extends Mage_Shipping_Model_Carrier_
      *
      * @var string
      */
-    protected $_code = TIG_MyParcelBE_Model_Shipment::MYPARCEL_CARRIER_CODE;
+    protected $_code = TIG_MyParcelBE_Model_Shipment::MYPARCEL_CARRIER_CODE_TITLE;
 
     /**
      * Fixed price flag
