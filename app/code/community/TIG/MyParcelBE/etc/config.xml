@@ -278,7 +278,7 @@
             </delivery>
             <pickup>
                 <pickup_active>1</pickup_active>
-                <pickup_title>Ophalen bij een PostNL locatie</pickup_title>
+                <pickup_title>Ophalen bij een Bpost locatie</pickup_title>
                 <pickup_fee>0</pickup_fee>
             </pickup>
         </tig_myparcel>
