@@ -65,6 +65,9 @@ TIG_MyParcelBE::Home address only title,Alleen huisadres titel
 TIG_MyParcelBE::Home address only fee,Alleen huisadres prijs
 TIG_MyParcelBE::Signature on receipt title,Handtekening voor ontvangst titel
 TIG_MyParcelBE::Signature on receipt fee,Handtekening voor ontvangst prijs
+TIG_MyParcelBE::Saturday delivery,Zaterdaglevering
+TIG_MyParcelBE::Saturday delivery title,Zaterdaglevering titel
+TIG_MyParcelBE::Saturday delivery fee, Zaterdaglevering prijs
 TIG_MyParcelBE::Home address only and signature on receipt together fee,De prijs van handtekening voor ontvangst en alleen huisadres samen
 TIG_MyParcelBE::If both have been selected this price will be added to the regular shipping price. Leave empty for not using it.,Als beide geselecteerd zijn zal deze prijs bij de normale verzendkosten worden opgeteld. Laat leeg om dit niet te gebruiken.
 TIG_MyParcelBE::Morning delivery,Ochtendlevering
