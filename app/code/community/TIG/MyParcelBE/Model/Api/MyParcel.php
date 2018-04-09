@@ -327,7 +327,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
             //curl request string
             $body = json_decode($this->requestString, true);
-            $body['data']['shipments'][0]['recipient']['cc'] = 'be';
+            $body['data']['shipments'][0]['recipient']['cc'] = 'BE';
             $body = json_encode($body);
 
             //complete request url
@@ -726,16 +726,8 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
                     $price *= $qty;
 
-                    if(empty($customsContentType)){
-                        $customsContentTypeItem = $helper->getHsCode($item, $storeId);
-                    } else {
+                    if(!empty($customsContentType)){
                         $customsContentTypeItem = key_exists($i, $customsContentType) ? $customsContentType[$i] : $customsContentType[0];
-                    }
-                    if(!$customsContentTypeItem) {
-                        throw new TIG_MyParcelBE_Exception(
-                            $helper->__('No Customs Content HS Code found. Go to the MyParcel plugin settings to set this code.'),
-                            'MYPA-0026'
-                        );
                     }
 
                     $itemDescription = $item->getName();

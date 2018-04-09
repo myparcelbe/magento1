@@ -487,7 +487,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
-                    <comment><![CDATA[Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code.]]></comment>
+                    <comment><![CDATA[Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount.]]></comment>
                     <fields>
                         <signature_on_receipt translate="label comment">
                             <label>Signature on receipt</label>
@@ -525,16 +525,6 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </customs_type>
-                        <customs_hstariffnr translate="label comment">
-                            <label>Customs Content HS Code</label>
-                            <comment><![CDATA[Default content type for Cross Domestic products, see <a href="http://gebruikstarief.douane.nl" target="_blank">http://gebruikstarief.douane.nl</a>. HS codes can also be connected to categories. The data you enter here will be used as default.]]></comment>
-                            <frontend_type>text</frontend_type>
-                            <validate>validate-number validate-zero-or-greater</validate>
-                            <sort_order>80</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </customs_hstariffnr>
                     </fields>
                 </shipment>
             </groups>
