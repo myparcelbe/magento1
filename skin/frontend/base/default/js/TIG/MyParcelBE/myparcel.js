@@ -50,7 +50,6 @@ MyParcel = {
                             priceBpostSaturdayDelivery: data.general['saturday_delivery_fee'],
                             priceBpostAutograph: data.delivery['signature_fee'],
                             dropOffDelay: data.general['dropoff_delay'],
-                            deliverydaysWindow: data.general['deliverydays_window'],
                             excludeDeliveryType: excludeDeliveryTypes.length > 0 ? excludeDeliveryTypes.join(';') : null,
                             allowBpostAutograph:  data.delivery['signature_active'],
                             price: price
@@ -857,7 +856,6 @@ MyParcel = {
                 cutofff_time: myParcelConfig.cutoffTime,
                 dropoff_days: myParcelConfig.dropOffDays,
                 dropoff_delay: myParcelConfig.dropOffDelay,
-                deliverydays_window: myParcelConfig.deliverydaysWindow,
                 exclude_delivery_type: myParcelConfig.excludeDeliveryType
             })
             .done(function (data) {

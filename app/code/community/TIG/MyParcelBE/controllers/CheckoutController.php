@@ -71,11 +71,6 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
 
         $general['base_price'] =                    $basePrice;
         $general['cutoff_time'] =                   str_replace(',', ':', $helper->getConfig('cutoff_time', 'checkout'));
-        if ($data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC) {
-            $general['deliverydays_window'] = $helper->getConfig('deliverydays_window', 'checkout') == 'hide' ? 1 : $helper->getConfig('deliverydays_window', 'checkout');
-        } else {
-            $general['deliverydays_window'] = 1;
-        }
         $general['dropoff_days'] =                  str_replace(',', ';', $helper->getConfig('dropoff_days', 'checkout'));
         $general['saturday_delivery_active'] =      $helper->getConfig('saturday_delivery_active', 'checkout') == "1" ? true : false;
         $general['saturday_delivery_fee'] =         $this->getExtraPrice($basePrice, $this->getShippingPrice($helper->getConfig('saturday_delivery_fee', 'checkout'), $quote));
