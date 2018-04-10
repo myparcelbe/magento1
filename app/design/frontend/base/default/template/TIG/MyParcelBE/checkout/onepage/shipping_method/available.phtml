@@ -121,6 +121,11 @@ $useMyParcel = ($_shippingRateGroups && $country == 'BE');
             </dd>
             <?php if ($code == 'myparcel' && $useMyParcel): ?>
 <!--                <div id="mypa-load" style="--><?php //echo $_rate->getCode() !== $this->getAddressShippingMethod() ? 'display: none;' : ''; ?><!--">-->
+
+                <div id="mypa-spinner"></div>
+                <div id="mypa-message"></div>
+                <div id="mypa-location-details"></div>
+
                 <div id="mypa-load">
                     <legend id="mypa-send-per-carrier">
                         <div id="mypa-txt-send-per-carrier">Bezorgopties</div>
