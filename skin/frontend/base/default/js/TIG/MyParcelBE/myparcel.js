@@ -49,6 +49,7 @@ MyParcel = {
                             allowBpostSaturdayDelivery: data.general['saturday_delivery_active'],
                             priceBpostSaturdayDelivery: data.general['saturday_delivery_fee'],
                             priceBpostAutograph: data.delivery['signature_fee'],
+                            pricePickup: data.pickup['fee'],
                             dropOffDelay: data.general['dropoff_delay'],
                             excludeDeliveryType: excludeDeliveryTypes.length > 0 ? excludeDeliveryTypes.join(';') : null,
                             allowBpostAutograph:  data.delivery['signature_active'],
@@ -83,10 +84,10 @@ MyParcel = {
 
         /* Prices BPost */
         if (myParcelConfig.carrierCode == 2) {
-            mypajQuery('#mypa-price-bpost-signature').html(' +€' + myParcelConfig.priceBpostAutograph);
-            mypajQuery('#mypa-delivery-bpost-saturday-price').html(' +€' + myParcelConfig.priceBpostSaturdayDelivery);
+            mypajQuery('#mypa-price-bpost-signature').html(' (+€' + myParcelConfig.priceBpostAutograph + ')');
+            mypajQuery('#mypa-delivery-bpost-saturday-price').html(' (+€' + myParcelConfig.priceBpostSaturdayDelivery + ')');
             if (parseFloat(myParcelConfig.pricePickup) > 0) {
-                mypajQuery('#mypa-price-pickup').html(' +€' + myParcelConfig.pricePickup);
+                mypajQuery('#mypa-price-pickup').html(' (+€' + myParcelConfig.pricePickup + ')');
             }
         }
 
