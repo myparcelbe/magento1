@@ -189,6 +189,19 @@ MyParcel = {
         });
 
         /* External webshop triggers */
+
+        mypajQuery(triggerPostalCode).on('change', function(){
+            MyParcel.callDeliveryOptions();
+        });
+
+        mypajQuery(triggerHouseNumber).on('change', function(){
+            MyParcel.callDeliveryOptions();
+        });
+
+        mypajQuery(triggerStreetName).on('change', function(){
+            MyParcel.callDeliveryOptions();
+        });
+
         mypajQuery('#mypa-load').on('click', function () {
 
             mypajQuery('#mypa-signed').prop('checked', false);
@@ -711,7 +724,8 @@ MyParcel = {
      */
 
     showLocationDetails: function () {
-        var locationId = mypajQuery('#mypa-pickup-location').val();
+        var locationId 		= mypajQuery('#mypa-pickup-location').val();
+
         var currentLocation = MyParcel.getPickupByLocationId(MyParcel.storeDeliveryOptions.data.pickup, locationId);
         var startTime = currentLocation.start_time;
 
@@ -839,12 +853,22 @@ MyParcel = {
         MyParcel.showSpinner();
         MyParcel.clearPickUpLocations();
 
+        var postalCode       = mypajQuery(triggerPostalCode).val();
+        var houseNumber      = mypajQuery(triggerHouseNumber).val();
+        var houseNumberExtra = mypajQuery(triggerHouseNumberExtra).val();
+        var streetName       = mypajQuery(triggerStreetName).val();
+
+        if(houseNumberExtra){
+            houseNumber = houseNumber + houseNumberExtra;
+        }
+
         /* Don't call API unless both PC and House Number are set */
-        if (!myParcelConfig.number || !myParcelConfig.postalCode) {
+        if(!houseNumber || !postalCode) {
             MyParcel.hideSpinner();
             MyParcel.showFallBackDelivery();
             return;
         }
+
 
         /* add streetName for Belgium */
         mypajQuery.get(myParcelConfig.apiBaseUrl + "delivery_options",
