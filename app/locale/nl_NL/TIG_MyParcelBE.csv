@@ -18,7 +18,6 @@ TIG_MyParcelBE::Signature on receipt,Handtekening voor ontvangst
 TIG_MyParcelBE::Insured up to &euro; 500,Verzekerd tot &euro; 500
 TIG_MyParcelBE::Automatically next status,Automatisch volgende status
 TIG_MyParcelBE::Turn the order automatically to the next status after creating a label,Zet de status van een order automatisch naar de volgende status bij het aanmaken van een label
-TIG_MyParcelBE::Customs Shipment Type,Douane verzend type
 TIG_MyParcelBE::Edit options,Opties bewerken
 "TIG_MyParcelBE::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount.","Vul hier uw standaard voorkeuren in voor uw verzendopties. Deze instellingen worden als default op al uw zendingen toegepast, indien van toepassing. Deze opties zijn later, per zending, uiteraard nog wel aan te passen tijdens het verwerken.<br/><br/> Deze waardes kunt u nog aanpassen wanneer u uw zending verwerkt."
 TIG_MyParcelBE::Retourlink e-mail Template,Retourlink e-mail Template

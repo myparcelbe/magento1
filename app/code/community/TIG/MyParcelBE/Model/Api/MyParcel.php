@@ -695,8 +695,6 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
             $data['customs_declaration']                        = array();
             $data['customs_declaration']['items']               = array();
             $data['customs_declaration']['invoice']             = $order->getIncrementId();
-            $customType = (int)$helper->getConfig('customs_type', 'shipment', $storeId);
-            $data['customs_declaration']['contents']            = $customType == 0 ? 1 : $customType;
 
             $totalWeight = 0;
             $items = $myParcelShipment->getOrder()->getAllItems();

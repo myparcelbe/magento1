@@ -17,7 +17,6 @@ TIG_MyParcelBE::Home address only,Home address only
 TIG_MyParcelBE::Signature on receipt,Signature on receipt
 TIG_MyParcelBE::Insured up to &euro; 500,Insured up to &euro; 500
 "TIG_MyParcelBE::For NL shipping only, shipments inside the EU insured default is &euro; 500","For NL shipping only, shipments inside the EU insured default is &euro; 500"
-TIG_MyParcelBE::Customs Shipment Type,Customs Shipment Type
 "TIG_MyParcelBE::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount.","Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount."
 TIG_MyParcelBE::Retourlink e-mail Template,Retourlink e-mail Template
 TIG_MyParcelBE::PLACEHOLDER,PLACEHOLDER

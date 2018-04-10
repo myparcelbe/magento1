@@ -155,24 +155,6 @@ class TIG_MyParcelBE_Block_Adminhtml_Sales_Order_Shipment_ShippingInfo extends M
     }
 
     /**
-     * Check if shipment country needs customs
-     *
-     * @return bool
-     */
-    public function countryNeedsCustoms()
-    {
-        $shipment = $this->getShipment();
-        $helper = Mage::helper('tig_myparcel');
-
-        $shippingAddress = $shipment->getShippingAddress();
-
-        $countryCode = $shippingAddress->getCountry();
-
-        return $helper->countryNeedsCustoms($countryCode);
-
-    }
-
-    /**
      * Get this shipment's country of destination;
      *
      * @return mixed
