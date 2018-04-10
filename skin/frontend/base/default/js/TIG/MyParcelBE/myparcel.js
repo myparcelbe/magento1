@@ -38,7 +38,7 @@ MyParcel = {
 
                     if (address['street']) {
                         myParcelConfig = {
-                            apiBaseUrl: "https://api.myparcel.nl/",
+                            apiBaseUrl: "https://api.staging.myparcel.nl/",
                             carrierCode: "2",
                             postalCode: address['postal_code'].replace(/ /g, ""),
                             countryCode: address['country'],
