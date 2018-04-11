@@ -189,19 +189,6 @@ MyParcel = {
         });
 
         /* External webshop triggers */
-
-        mypajQuery(triggerPostalCode).on('change', function(){
-            MyParcel.callDeliveryOptions();
-        });
-
-        mypajQuery(triggerHouseNumber).on('change', function(){
-            MyParcel.callDeliveryOptions();
-        });
-
-        mypajQuery(triggerStreetName).on('change', function(){
-            MyParcel.callDeliveryOptions();
-        });
-
         mypajQuery('#mypa-load').on('click', function () {
 
             mypajQuery('#mypa-signed').prop('checked', false);
@@ -736,13 +723,14 @@ MyParcel = {
 
 
         var html = '<div class="mypa-close-message"><span class="fas fa-times-circle"></span></div>';
-        html += '<span class="mypa-pickup-location-details-location"><h3>' + currentLocation.location + '</h3></span>'
+        html += '<span class="mypa-pickup-location-details-close">Sluiten</span>';
+        html += '<span class="mypa-pickup-location-details-location"><h3>' + currentLocation.location + '</h3></span>';
         html += '<span class="mypa-pickup-location-details-street">' + currentLocation.street + '&nbsp;' + currentLocation.number + '</span>';
         html += '<span class="mypa-pickup-location-details-city">' + currentLocation.postal_code + '&nbsp;' + currentLocation.city + '</span>';
         if (currentLocation.phone_number) {
-            html += '<span class="mypa-pickup-location-details-phone">&nbsp;' + currentLocation.phone_number + '</span>'
+            html += '<span class="mypa-pickup-location-details-phone">&nbsp;' + currentLocation.phone_number + '</span>';
         }
-        html += '<span class="mypa-pickup-location-details-time">Ophalen vanaf:&nbsp;' + startTime + '</span>'
+        html += '<span class="mypa-pickup-location-details-time">Ophalen vanaf:&nbsp;' + startTime + '</span>';
         html += '<h3>Openingstijden</h3>';
         mypajQuery.each(
             currentLocation.opening_hours, function (weekday, value) {
@@ -787,8 +775,8 @@ MyParcel = {
      */
 
     retryPostalcodeHouseNumber: function () {
-        mypajQuery(triggerPostalCode).val(mypajQuery('#mypa-error-postcode').val());
-        mypajQuery(triggerHouseNumber).val(mypajQuery('#mypa-error-number').val());
+        myParcelConfig.countryCode = mypajQuery('#mypa-error-postcode').val();
+        myParcelConfig.number = mypajQuery('#mypa-error-number').val();
         MyParcel.hideMessage();
         MyParcel.callDeliveryOptions();
         mypajQuery('#mypa-deliver-pickup-deliver').click();
@@ -822,10 +810,10 @@ MyParcel = {
             '<h3>Huisnummer/postcode combinatie onbekend</h3>' +
             '<div class="full-width mypa-error">' +
             '<label for="mypa-error-postcode">Postcode</label>' +
-            '<input type="text" name="mypa-error-postcode" id="mypa-error-postcode" value="' + mypajQuery(triggerPostalCode).val() + '">' +
+            '<input type="text" name="mypa-error-postcode" id="mypa-error-postcode" value="' + myParcelConfig.countryCode + '">' +
             '</div><div class="full-width mypa-error">' +
             '<label for="mypa-error-number">Huisnummer</label>' +
-            '<input type="text" name="mypa-error-number" id="mypa-error-number" value="' + mypajQuery(triggerHouseNumber).val() + '">' +
+            '<input type="text" name="mypa-error-number" id="mypa-error-number" value="' + myParcelConfig.number + '">' +
             '<br><button id="mypa-error-try-again">Opnieuw</button>' +
             '</div>';
         MyParcel.showMessage(html);
@@ -853,17 +841,8 @@ MyParcel = {
         MyParcel.showSpinner();
         MyParcel.clearPickUpLocations();
 
-        var postalCode       = mypajQuery(triggerPostalCode).val();
-        var houseNumber      = mypajQuery(triggerHouseNumber).val();
-        var houseNumberExtra = mypajQuery(triggerHouseNumberExtra).val();
-        var streetName       = mypajQuery(triggerStreetName).val();
-
-        if(houseNumberExtra){
-            houseNumber = houseNumber + houseNumberExtra;
-        }
-
         /* Don't call API unless both PC and House Number are set */
-        if(!houseNumber || !postalCode) {
+        if (!myParcelConfig.number || !myParcelConfig.postalCode) {
             MyParcel.hideSpinner();
             MyParcel.showFallBackDelivery();
             return;
