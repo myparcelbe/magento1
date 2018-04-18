@@ -327,7 +327,6 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
             //curl request string
             $body = json_decode($this->requestString, true);
-            $body['data']['shipments'][0]['recipient']['cc'] = 'BE';
             $body = json_encode($body);
 
             //complete request url
