@@ -57,6 +57,7 @@ class TIG_MyParcelBE_Model_Checkout_Service
                      * is pickup
                      */
                     $this->savePgAddress($data, $quote);
+	                $data['price_comment'] = 'retail';
                 } else {
                     $signed = $request->getPost('mypa-signed', '') === 'on' ? 1 : false;
                     if ($signed) {
@@ -65,7 +66,6 @@ class TIG_MyParcelBE_Model_Checkout_Service
 
                     $this->removePgAddress($quote);
                 }
-
                 $quote->setMyparcelData(json_encode($data))->save();
 
             } else {

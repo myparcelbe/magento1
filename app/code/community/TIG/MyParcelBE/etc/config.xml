@@ -256,17 +256,8 @@
                 <signature_on_receipt>0</signature_on_receipt>
                 <automatically_next_status>1</automatically_next_status>
                 <insured_500>0</insured_500>
-                <customs_type>1</customs_type>
                 <customs_hstariffnr></customs_hstariffnr>
             </shipment>
-            <checkout>
-                <deliverydays_window>5</deliverydays_window>
-                <cutoff_time>15,30,00</cutoff_time>
-                <dropoff_days>1,2,3,4,5,6</dropoff_days>
-                <dropoff_delay>0</dropoff_delay>
-                <base_color>01bbc5</base_color>
-                <select_color>3399cc</select_color>
-            </checkout>
             <delivery>
                 <delivery_title>Thuis of op het werk bezorgd</delivery_title>
                 <signature_active>1</signature_active>
@@ -278,7 +269,7 @@
             </delivery>
             <pickup>
                 <pickup_active>1</pickup_active>
-                <pickup_title>Ophalen bij een PostNL locatie</pickup_title>
+                <pickup_title>Ophalen bij een bpost locatie</pickup_title>
                 <pickup_fee>0</pickup_fee>
             </pickup>
         </tig_myparcel>
@@ -425,11 +416,6 @@
                 <url/>
                 <type>error</type>
             </MYPA-0025>
-            <MYPA-0026>
-                <message>No Customs Content HS Code found. Go to the MyParcel plugin settings to set this code.</message>
-                <url/>
-                <type>error</type>
-            </MYPA-0026>
             <MYPA-0027>
                 <message>International shipments can not be sent by letter box</message>
                 <url/>

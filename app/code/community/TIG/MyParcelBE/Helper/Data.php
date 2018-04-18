@@ -516,56 +516,6 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
 
         return true;
     }
-    
-    /**
-     * Get multiple HS codes from categories or default settings
-     *
-     * @param $products
-     * @param $_storeId
-     *
-     * @return string
-     */
-    public function getHsCodes($products, $_storeId)
-    {
-        $hs = array();
-        /** @var Mage_Sales_Model_Order_Item $item */
-        foreach ($products as $item) {
-            $hs[$this->getHsCode($item, $_storeId)] = $this->getHsCode($item, $_storeId);
-        }
-
-        if (empty($hs)) {
-            return $this->getConfig('customs_type', 'shipment', $_storeId);
-        } else {
-            return implode(',', $hs);
-        }
-    }
-
-    /**
-     * Get HS code from categories or default settings
-     *
-     * @param $item
-     * @param $_storeId
-     *
-     * @return string
-     */
-    public function getHsCode($item, $_storeId)
-    {
-        $hs = '';
-        /** @var Mage_Sales_Model_Order_Item $item */
-        /** @var Mage_Catalog_Model_Category $category */
-        foreach ($item->getProduct()->getCategoryIds() as $categoryId) {
-            $cat = Mage::getModel('catalog/category')->load($categoryId);
-            if ($cat->getHs() && $cat->getHs() > 1000 && $cat->getHs() < 9999) {
-                $hs = $cat->getHs();
-            }
-        }
-
-        if ($hs == '') {
-            return $this->getConfig('customs_type', 'shipment', $_storeId);
-        } else {
-            return $hs;
-        }
-    }
 
     /**
      * Generate the entire global address at two address fields

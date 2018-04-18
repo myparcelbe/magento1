@@ -18,11 +18,8 @@ TIG_MyParcelBE::Signature on receipt,Handtekening voor ontvangst
 TIG_MyParcelBE::Insured up to &euro; 500,Verzekerd tot &euro; 500
 TIG_MyParcelBE::Automatically next status,Automatisch volgende status
 TIG_MyParcelBE::Turn the order automatically to the next status after creating a label,Zet de status van een order automatisch naar de volgende status bij het aanmaken van een label
-TIG_MyParcelBE::Customs Shipment Type,Douane verzend type
-TIG_MyParcelBE::Customs Content HS Code,Douane goederen HS code
-"TIG_MyParcelBE::Default content type for Cross Domestic products, see <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a>". HS codes can also be connected to categories. The data you enter here will be used as default.,"Standaard goederen type voor Cross Domestic producten, zie <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a> voor de juiste HS code. Maximaal 4 karakters. HS codes kan ook gekoppeld worden per categorie. De gegevens die je hier invoert zal als standaard waarde gebruikt worden."
 TIG_MyParcelBE::Edit options,Opties bewerken
-"TIG_MyParcelBE::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code.","Vul hier uw standaard voorkeuren in voor uw verzendopties. Deze instellingen worden als default op al uw zendingen toegepast, indien van toepassing. Deze opties zijn later, per zending, uiteraard nog wel aan te passen tijdens het verwerken.<br/><br/>Indien u zendingen naar landen buiten de EU verstuurt, kunt u optioneel voor deze zendingen een standaard waarde invullen bij het Douane verzendtype en de Douane goederen HS code. Deze waardes kunt u nog aanpassen wanneer u uw zending verwerkt."
+"TIG_MyParcelBE::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount.","Vul hier uw standaard voorkeuren in voor uw verzendopties. Deze instellingen worden als default op al uw zendingen toegepast, indien van toepassing. Deze opties zijn later, per zending, uiteraard nog wel aan te passen tijdens het verwerken.<br/><br/> Deze waardes kunt u nog aanpassen wanneer u uw zending verwerkt."
 TIG_MyParcelBE::Retourlink e-mail Template,Retourlink e-mail Template
 TIG_MyParcelBE::PLACEHOLDER,PLACEHOLDER
 TIG_MyParcelBE::Track&amp;Trace email template,Track&amp;Trace e-mail Template
@@ -37,7 +34,6 @@ TIG_MyParcelBE::Basic settings,Basis instellingen
 TIG_MyParcelBE::Checkout settings,Checkout instellingen
 TIG_MyParcelBE::Cut-off time,Het laatste bestelmoment
 "TIG_MyParcelBE::If a request is made for the delivery options between Friday after, and Monday before, cut-off time then Tuesday will be shown as the next possible delivery date.","Als een bestelling tussen vrijdag na, en maandag voor, het opgegeven bestelmoment wordt gedaan dan zal dinsdag worden getoond als eerstvolgende afleverdag."
-TIG_MyParcelBE::Numbers of days,Aantal dagen vooruit
 TIG_MyParcelBE::day,dag
 TIG_MyParcelBE::days,dagen
 TIG_MyParcelBE::Hide days,Dagen verbergen
@@ -67,6 +63,9 @@ TIG_MyParcelBE::Home address only title,Alleen huisadres titel
 TIG_MyParcelBE::Home address only fee,Alleen huisadres prijs
 TIG_MyParcelBE::Signature on receipt title,Handtekening voor ontvangst titel
 TIG_MyParcelBE::Signature on receipt fee,Handtekening voor ontvangst prijs
+TIG_MyParcelBE::Saturday delivery,Zaterdaglevering
+TIG_MyParcelBE::Saturday delivery title,Zaterdaglevering titel
+TIG_MyParcelBE::Saturday delivery fee, Zaterdaglevering prijs
 TIG_MyParcelBE::Home address only and signature on receipt together fee,De prijs van handtekening voor ontvangst en alleen huisadres samen
 TIG_MyParcelBE::If both have been selected this price will be added to the regular shipping price. Leave empty for not using it.,Als beide geselecteerd zijn zal deze prijs bij de normale verzendkosten worden opgeteld. Laat leeg om dit niet te gebruiken.
 TIG_MyParcelBE::Morning delivery,Ochtendlevering

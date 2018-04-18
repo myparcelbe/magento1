@@ -38,7 +38,7 @@ MyParcel = {
 
                     if (address['street']) {
                         myParcelConfig = {
-                            apiBaseUrl: "https://api.myparcel.nl/",
+                            apiBaseUrl: "https://api.staging.myparcel.nl/",
                             carrierCode: "2",
                             postalCode: address['postal_code'].replace(/ /g, ""),
                             countryCode: address['country'],
@@ -49,8 +49,8 @@ MyParcel = {
                             allowBpostSaturdayDelivery: data.general['saturday_delivery_active'],
                             priceBpostSaturdayDelivery: data.general['saturday_delivery_fee'],
                             priceBpostAutograph: data.delivery['signature_fee'],
+                            pricePickup: data.pickup['fee'],
                             dropOffDelay: data.general['dropoff_delay'],
-                            deliverydaysWindow: data.general['deliverydays_window'],
                             excludeDeliveryType: excludeDeliveryTypes.length > 0 ? excludeDeliveryTypes.join(';') : null,
                             allowBpostAutograph:  data.delivery['signature_active'],
                             price: price
@@ -84,10 +84,10 @@ MyParcel = {
 
         /* Prices BPost */
         if (myParcelConfig.carrierCode == 2) {
-            mypajQuery('#mypa-price-bpost-signature').html(' +€' + myParcelConfig.priceBpostAutograph);
-            mypajQuery('#mypa-delivery-bpost-saturday-price').html(' +€' + myParcelConfig.priceBpostSaturdayDelivery);
+            mypajQuery('#mypa-price-bpost-signature').html(' (+€' + myParcelConfig.priceBpostAutograph + ')');
+            mypajQuery('#mypa-delivery-bpost-saturday-price').html(' (+€' + myParcelConfig.priceBpostSaturdayDelivery + ')');
             if (parseFloat(myParcelConfig.pricePickup) > 0) {
-                mypajQuery('#mypa-price-pickup').html(' +€' + myParcelConfig.pricePickup);
+                mypajQuery('#mypa-price-pickup').html(' (+€' + myParcelConfig.pricePickup + ')');
             }
         }
 
@@ -711,7 +711,8 @@ MyParcel = {
      */
 
     showLocationDetails: function () {
-        var locationId = mypajQuery('#mypa-pickup-location').val();
+        var locationId 		= mypajQuery('#mypa-pickup-location').val();
+
         var currentLocation = MyParcel.getPickupByLocationId(MyParcel.storeDeliveryOptions.data.pickup, locationId);
         var startTime = currentLocation.start_time;
 
@@ -722,13 +723,14 @@ MyParcel = {
 
 
         var html = '<div class="mypa-close-message"><span class="fas fa-times-circle"></span></div>';
-        html += '<span class="mypa-pickup-location-details-location"><h3>' + currentLocation.location + '</h3></span>'
+        html += '<span class="mypa-pickup-location-details-close">Sluiten</span>';
+        html += '<span class="mypa-pickup-location-details-location"><h3>' + currentLocation.location + '</h3></span>';
         html += '<span class="mypa-pickup-location-details-street">' + currentLocation.street + '&nbsp;' + currentLocation.number + '</span>';
         html += '<span class="mypa-pickup-location-details-city">' + currentLocation.postal_code + '&nbsp;' + currentLocation.city + '</span>';
         if (currentLocation.phone_number) {
-            html += '<span class="mypa-pickup-location-details-phone">&nbsp;' + currentLocation.phone_number + '</span>'
+            html += '<span class="mypa-pickup-location-details-phone">&nbsp;' + currentLocation.phone_number + '</span>';
         }
-        html += '<span class="mypa-pickup-location-details-time">Ophalen vanaf:&nbsp;' + startTime + '</span>'
+        html += '<span class="mypa-pickup-location-details-time">Ophalen vanaf:&nbsp;' + startTime + '</span>';
         html += '<h3>Openingstijden</h3>';
         mypajQuery.each(
             currentLocation.opening_hours, function (weekday, value) {
@@ -773,8 +775,8 @@ MyParcel = {
      */
 
     retryPostalcodeHouseNumber: function () {
-        mypajQuery(triggerPostalCode).val(mypajQuery('#mypa-error-postcode').val());
-        mypajQuery(triggerHouseNumber).val(mypajQuery('#mypa-error-number').val());
+        myParcelConfig.countryCode = mypajQuery('#mypa-error-postcode').val();
+        myParcelConfig.number = mypajQuery('#mypa-error-number').val();
         MyParcel.hideMessage();
         MyParcel.callDeliveryOptions();
         mypajQuery('#mypa-deliver-pickup-deliver').click();
@@ -808,10 +810,10 @@ MyParcel = {
             '<h3>Huisnummer/postcode combinatie onbekend</h3>' +
             '<div class="full-width mypa-error">' +
             '<label for="mypa-error-postcode">Postcode</label>' +
-            '<input type="text" name="mypa-error-postcode" id="mypa-error-postcode" value="' + mypajQuery(triggerPostalCode).val() + '">' +
+            '<input type="text" name="mypa-error-postcode" id="mypa-error-postcode" value="' + myParcelConfig.countryCode + '">' +
             '</div><div class="full-width mypa-error">' +
             '<label for="mypa-error-number">Huisnummer</label>' +
-            '<input type="text" name="mypa-error-number" id="mypa-error-number" value="' + mypajQuery(triggerHouseNumber).val() + '">' +
+            '<input type="text" name="mypa-error-number" id="mypa-error-number" value="' + myParcelConfig.number + '">' +
             '<br><button id="mypa-error-try-again">Opnieuw</button>' +
             '</div>';
         MyParcel.showMessage(html);
@@ -846,6 +848,7 @@ MyParcel = {
             return;
         }
 
+
         /* add streetName for Belgium */
         mypajQuery.get(myParcelConfig.apiBaseUrl + "delivery_options",
             {
@@ -857,7 +860,6 @@ MyParcel = {
                 cutofff_time: myParcelConfig.cutoffTime,
                 dropoff_days: myParcelConfig.dropOffDays,
                 dropoff_delay: myParcelConfig.dropOffDelay,
-                deliverydays_window: myParcelConfig.deliverydaysWindow,
                 exclude_delivery_type: myParcelConfig.excludeDeliveryType
             })
             .done(function (data) {

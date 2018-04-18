@@ -71,11 +71,6 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
 
         $general['base_price'] =                    $basePrice;
         $general['cutoff_time'] =                   str_replace(',', ':', $helper->getConfig('cutoff_time', 'checkout'));
-        if ($data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC) {
-            $general['deliverydays_window'] = $helper->getConfig('deliverydays_window', 'checkout') == 'hide' ? 1 : $helper->getConfig('deliverydays_window', 'checkout');
-        } else {
-            $general['deliverydays_window'] = 1;
-        }
         $general['dropoff_days'] =                  str_replace(',', ';', $helper->getConfig('dropoff_days', 'checkout'));
         $general['saturday_delivery_active'] =      $helper->getConfig('saturday_delivery_active', 'checkout') == "1" ? true : false;
         $general['saturday_delivery_fee'] =         $this->getExtraPrice($basePrice, $this->getShippingPrice($helper->getConfig('saturday_delivery_fee', 'checkout'), $quote));
@@ -88,7 +83,7 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
         $delivery['signature_active'] =             $helper->getConfig('signature_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
         $delivery['signature_title'] =              $helper->getConfig('signature_title', 'delivery');
         $delivery['signature_fee'] =                $this->getShippingPrice($helper->getConfig('signature_fee', 'delivery'), $quote);
-        $delivery['saturday_delivery_active'] =             $helper->getConfig('saturday_delivery_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
+        $delivery['saturday_delivery_active'] =     $helper->getConfig('saturday_delivery_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
         $delivery['saturday_delivery_title'] =      $helper->getConfig('saturday_delivery_title', 'delivery');
         $delivery['saturday_delivery_fee'] =        $this->getShippingPrice($helper->getConfig('saturday_delivery_fee', 'delivery'), $quote);
         $data['delivery'] = (object)$delivery;
@@ -96,7 +91,7 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
         if ($data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC) {
             $pickup['active'] = $helper->getConfig('pickup_active', 'pickup') == "1" ? true : false;
             $pickup['title'] = $helper->getConfig('pickup_title', 'pickup');
-            $pickup['fee'] = $this->getExtraPrice($basePrice, $this->getShippingPrice($helper->getConfig('pickup_fee', 'pickup'), $quote));
+            $pickup['fee'] = $this->getShippingPrice($helper->getConfig('pickup_fee', 'pickup'), $quote);
             $data['pickup'] = (object)$pickup;
         }
 

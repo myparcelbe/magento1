@@ -170,15 +170,6 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <deliverydays_window translate="label" module="tig_myparcel">
-                            <label>Numbers of days</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>tig_myparcel/system_config_source_windowDays</source_model>
-                            <sort_order>110</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </deliverydays_window>
                         <cutoff_time translate="label comment">
                             <label>Cut-off time</label>
                             <comment>If a request is made for the delivery options between Friday after, and Monday before, cut-off time then Tuesday will be shown as the next possible delivery date.</comment>
@@ -487,7 +478,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
-                    <comment><![CDATA[Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code.]]></comment>
+                    <comment><![CDATA[Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount.]]></comment>
                     <fields>
                         <signature_on_receipt translate="label comment">
                             <label>Signature on receipt</label>
@@ -515,26 +506,6 @@
                             <sort_order>65</sort_order>
                             <show_in_default>1</show_in_default>
                         </automatically_next_status>
-                        <customs_type translate="label comment">
-                            <label>Customs Shipment Type</label>
-                            <comment>Default shipment type for Cross Domestic shipments</comment>
-                            <frontend_type>select</frontend_type>
-                            <source_model>tig_myparcel/system_config_source_customs</source_model>
-                            <sort_order>70</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </customs_type>
-                        <customs_hstariffnr translate="label comment">
-                            <label>Customs Content HS Code</label>
-                            <comment><![CDATA[Default content type for Cross Domestic products, see <a href="http://gebruikstarief.douane.nl" target="_blank">http://gebruikstarief.douane.nl</a>. HS codes can also be connected to categories. The data you enter here will be used as default.]]></comment>
-                            <frontend_type>text</frontend_type>
-                            <validate>validate-number validate-zero-or-greater</validate>
-                            <sort_order>80</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </customs_hstariffnr>
                     </fields>
                 </shipment>
             </groups>

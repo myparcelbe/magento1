@@ -86,7 +86,10 @@
 .fa-question {
     text-decoration: none;
 }
-
+.fa-clock{
+    width: 16px;
+    margin-bottom: -3px;
+}
 #mypa-shop-mock {
     margin-top: 500px;
     background-color: #ccc;
