@@ -66,7 +66,6 @@ class TIG_MyParcelBE_Model_Checkout_Service
 
                     $this->removePgAddress($quote);
                 }
-	            $data['price_comment'] = 'standard';
                 $quote->setMyparcelData(json_encode($data))->save();
 
             } else {
