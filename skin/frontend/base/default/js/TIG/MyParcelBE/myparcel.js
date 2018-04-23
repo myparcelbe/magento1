@@ -686,8 +686,10 @@ MyParcel = {
     showPickUpLocations: function (deliveryOptions) {
         var html = "";
         mypajQuery.each(deliveryOptions.data.pickup, function (key, value) {
+            var distance = parseFloat(Math.round(value.distance)/1000).toFixed(2) + ' KM';
+            
             html += '<option value="' + value.location_code + '">' + value.location + ', ' + value.street +
-                ' ' + value.number + ", " + value.city + " (" + value.distance + " M) </option>\n";
+                ' ' + value.number + ", " + value.city + " (" + distance + ") </option>\n";
         });
         mypajQuery('#mypa-pickup-location').html(html);
         mypajQuery('#mypa-pickup-location-selector').show();
