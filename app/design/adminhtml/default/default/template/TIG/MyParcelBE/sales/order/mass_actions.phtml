@@ -276,12 +276,12 @@
             });
 
             /* Add return button */
-            var returnSubmit = document.createElement('button');
+            /*var returnSubmit = document.createElement('button');
             returnSubmit.id = 'myparcel_return_open_dialog';
             returnSubmit.type = 'button';
             returnSubmit.name = 'myparcel_return_open_dialog';
             returnSubmit.appendChild(document.createTextNode("<?php echo $helper->__('Mail return label');?>"));
-
+            */
             $$('td.form-buttons')[0].appendChild(returnSubmit);
 
             $('myparcel_return_open_dialog').observe('click', function () {
