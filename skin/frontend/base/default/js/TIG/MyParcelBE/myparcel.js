@@ -97,9 +97,9 @@ MyParcel = {
             }
         }
 
-        /* Prices PostNL */
+        /* Prices bpost */
         else if (myParcelConfig.carrierCode == 1) {
-            MyParcel.showPostNlPrices();
+            MyParcel.showbpostPrices();
         }
 
         /* Call delivery options */
@@ -117,7 +117,7 @@ MyParcel = {
             MyParcel.showBpostSignature();
         }
 
-        // PostNL delivery Options
+        // bpost delivery Options
         if (myParcelConfig.carrierCode == 1) {
             mypajQuery('#mypa-delivery-selectors-be').css('display', 'none');
 
@@ -126,7 +126,7 @@ MyParcel = {
 
             mypajQuery('#mypa-bpost-flat-fee-delivery').hide();
             MyParcel.showDelivery();
-            MyParcel.showPostNlDeliveryDates();
+            MyParcel.showbpostDeliveryDates();
         }
 
     },
@@ -156,8 +156,8 @@ MyParcel = {
             MyParcel.hideDelivery();
         });
 
-        mypajQuery('#mypa-delivery-date-postnl').on('change', function () {
-            MyParcel.showPostNlDeliveryTimes()
+        mypajQuery('#mypa-delivery-date-bpost').on('change', function () {
+            MyParcel.showbpostDeliveryTimes()
         });
 
         /* Mobile specific triggers */
@@ -305,22 +305,22 @@ MyParcel = {
         }
     },
 
-    showPostNlPrices: function () {
+    showbpostPrices: function () {
         var priceMap = {
-            "pricePostNLFlatrate": "mypa-postnl-flatrate-price",
-            "pricePostNLSignature": "mypa-postnl-signature-price",
-            "pricePostNLRecipientOnly": "mypa-postnl-recipient-only-price",
-            "pricePostNLRecipientOnlySignature": "mypa-postnl-recipient-only-signature-price",
-            "pricePostNLEvening": "mypa-postnl-evening-price",
-            "pricePostNLPickupExpresse": "mypa-postnl-pickup-express-price",
-            "pricePostNLMorning": "mypa-postnl-morning-price",
-            "pricePostNLMorningSignature": "mypa-postnl-morning-signature-price",
+            "pricebpostFlatrate": "mypa-bpost-flatrate-price",
+            "pricebpostSignature": "mypa-bpost-signature-price",
+            "pricebpostRecipientOnly": "mypa-bpost-recipient-only-price",
+            "pricebpostRecipientOnlySignature": "mypa-bpost-recipient-only-signature-price",
+            "pricebpostEvening": "mypa-bpost-evening-price",
+            "pricebpostPickupExpresse": "mypa-bpost-pickup-express-price",
+            "pricebpostMorning": "mypa-bpost-morning-price",
+            "pricebpostMorningSignature": "mypa-bpost-morning-signature-price",
 
-            "pricePostNLEveningSignature": "mypa-postnl-evening-signature-price",
+            "pricebpostEveningSignature": "mypa-bpost-evening-signature-price",
 
-            "pricePostNLMorning": "mypa-postnl-morning-price",
-            "pricePostNLFlatrate": "mypa-postnl-standard-price",
-            "pricePostNLEvening": "mypa-postnl-avond-price", /* yes, this one is dutch :( */
+            "pricebpostMorning": "mypa-bpost-morning-price",
+            "pricebpostFlatrate": "mypa-bpost-standard-price",
+            "pricebpostEvening": "mypa-bpost-avond-price", /* yes, this one is dutch :( */
         };
 
         mypajQuery.each(priceMap, function (config, cssId) {
@@ -338,7 +338,7 @@ MyParcel = {
     },
 
 
-    showPostNlDeliveryDates: function () {
+    showbpostDeliveryDates: function () {
         if (typeof(MyParcel.storeDeliveryOptions) === 'undefined') {
             return;
         }
@@ -349,16 +349,16 @@ MyParcel = {
 
             html += '<option value="' + value.date + '">' + MyParcel.dateToString(value.date) + '</option>';
         });
-        mypajQuery('#mypa-delivery-date-postnl').html(html);
+        mypajQuery('#mypa-delivery-date-bpost').html(html);
 
 
     },
 
-    showPostNlDeliveryTimes: function () {
+    showbpostDeliveryTimes: function () {
         if (typeof(MyParcel.storeDeliveryOptions) === 'undefined') {
             return;
         }
-        var selectedDate = mypajQuery('#mypa-delivery-date-postnl').val();
+        var selectedDate = mypajQuery('#mypa-delivery-date-bpost').val();
         var deliveryDates = MyParcel.storeDeliveryOptions.data.delivery;
 
         var timesForSelectedDates = [];
@@ -371,16 +371,16 @@ MyParcel = {
         var html = '';
         mypajQuery.each(timesForSelectedDates, function (key, value) {
             html += '<div class="mypa-delivery-time-div">';
-            html += '<input type="radio" id="mypa-delivery-time-postnl-select-' + value.price_comment + '" name="mypa-delivery-time-postnl" value="';
+            html += '<input type="radio" id="mypa-delivery-time-bpost-select-' + value.price_comment + '" name="mypa-delivery-time-bpost" value="';
             html += value.price_comment + '">';
-            html += '<label class="mypa-delivery-time-postnl-label" for="mypa-delivery-time-postnl-select-' + value.price_comment + '">';
-            html += '<span class="mypa-delivery-time-postnl-comment">' + translateENtoNL[value.price_comment] + '</span>';
-            html += '<span class="mypa-delivery-time-postnl-time">(' + value.start.slice(0, -3) + '-' + value.end.slice(0, -3) + ')</span>';
-            html += '<span class="mypa-method-price mypa-delivery-time-postnl-price mypa-postnl-' + value.price_comment + '-price"></span>';
+            html += '<label class="mypa-delivery-time-bpost-label" for="mypa-delivery-time-bpost-select-' + value.price_comment + '">';
+            html += '<span class="mypa-delivery-time-bpost-comment">' + translateENtoNL[value.price_comment] + '</span>';
+            html += '<span class="mypa-delivery-time-bpost-time">(' + value.start.slice(0, -3) + '-' + value.end.slice(0, -3) + ')</span>';
+            html += '<span class="mypa-method-price mypa-delivery-time-bpost-price mypa-bpost-' + value.price_comment + '-price"></span>';
             html += '</label>';
             html += '</div>';
         });
-        mypajQuery('#mypa-delivery-time-postnl').html(html);
+        mypajQuery('#mypa-delivery-time-bpost').html(html);
         mypajQuery('#mypa-delivery-selector').css('height', '190px');
     },
 
@@ -488,69 +488,69 @@ MyParcel = {
     },
 
     /*
-         * shopwPostnlSignatureAndRecipientOnly
+         * shopwbpostSignatureAndRecipientOnly
      *
-         * Shows the postnl signature and recipient only delivery option.
+         * Shows the bpost signature and recipient only delivery option.
          *
          */
 
-    showPostNlSignatureAndRecipientOnly: function () {
-        mypajQuery('#mypa-postnl-signature-recipient-only').show();
+    showbpostSignatureAndRecipientOnly: function () {
+        mypajQuery('#mypa-bpost-signature-recipient-only').show();
     },
 
     /*
-         * hidePostnlSignatureAndRecipientOnly
+         * hidebpostSignatureAndRecipientOnly
      *
-         * Shows the postnl signature and recipient only delivery option.
+         * Shows the bpost signature and recipient only delivery option.
          *
          */
 
-    hidePostNlSignatureAndRecipientOnly: function () {
-        mypajQuery('#mypa-postnl-signature-recipient-only').hide();
+    hidebpostSignatureAndRecipientOnly: function () {
+        mypajQuery('#mypa-bpost-signature-recipient-only').hide();
     },
 
     /*
-         * showPostNlRecipientOnly
+         * showbpostRecipientOnly
      *
-         * Shows the postnl recipient only delivery option.
+         * Shows the bpost recipient only delivery option.
          *
          */
 
-    showPostNlRecipientOnly: function () {
-        mypajQuery('#mypa-postnl-recipient-only').show();
+    showbpostRecipientOnly: function () {
+        mypajQuery('#mypa-bpost-recipient-only').show();
     },
 
     /*
-         * hidePostNlRecipientOnly
+         * hidebpostRecipientOnly
      *
-         * Hide the postnl recipient only delivery option
+         * Hide the bpost recipient only delivery option
          *
          */
 
-    hidePostNlRecipientOnly: function () {
-        mypajQuery('#mypa-postnl-recipient-only').hide();
+    hidebpostRecipientOnly: function () {
+        mypajQuery('#mypa-bpost-recipient-only').hide();
     },
 
     /*
-         * showPostNlSignature
+         * showbpostSignature
      *
-         * Shows the postnl signature delivery option 
+         * Shows the bpost signature delivery option
          *
          */
 
-    showPostNlSignature: function () {
-        mypajQuery('#mypa-postnl-signature').show();
+    showbpostSignature: function () {
+        mypajQuery('#mypa-bpost-signature').show();
     },
 
     /*
-         * hidePostNlSignature
+         * hidebpostSignature
      *
-         * Shows the postnl signature delivery option
+         * Shows the bpost signature delivery option
          *
          */
 
-    hidePostNlSignature: function () {
-        mypajQuery('#mypa-postnl-signature').hide();
+    hidebpostSignature: function () {
+        mypajQuery('#mypa-bpost-signature').hide();
     },
 
     /* 
@@ -905,11 +905,11 @@ MyParcel = {
                     MyParcel.storeDeliveryOptions = data;
 
                     if (myParcelConfig.carrierCode == '1') {
-                        MyParcel.showPostNlDeliveryDates();
-                        MyParcel.showPostNlDeliveryTimes();
+                        MyParcel.showbpostDeliveryDates();
+                        MyParcel.showbpostDeliveryTimes();
                         mypajQuery('#mypa-deliver-pickup-deliver').click();
-                        mypajQuery('#mypa-delivery-time-postnl-select-standard').click();
-                        MyParcel.showPostNlPrices();
+                        mypajQuery('#mypa-delivery-time-bpost-select-standard').click();
+                        MyParcel.showbpostPrices();
                     }
 
                     if (myParcelConfig.carrierCode == '2') {

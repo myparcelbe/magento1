@@ -270,13 +270,13 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
     }
 
     /**
-     * Get the Magento version and MyParcel version
+     * Get the Magento version and MyParcel BE version
      *
      * @return string
      */
     protected function _getUserAgent()
     {
-        //Get Magento and MyParcel versions
+        //Get Magento and MyParcel BE versions
         $userAgents = [
             'Magento/'. Mage::getVersion(),
             'MyParcel-Magento/'. (string) Mage::getConfig()->getModuleConfig("TIG_MyParcelBE")->version

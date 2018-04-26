@@ -77,7 +77,7 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
     const MYPARCEL_CARRIER_CODE_TITLE = 'myparcel';
 
     /**
-     * Statusses used by MyParcel shipments.
+     * Statusses used by MyParcelBe shipments.
      */
     const STATUS_NEW        = 1;
 
@@ -101,7 +101,7 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Gets the Magento shipment associated with this MyParcel shipment.
+     * Gets the Magento shipment associated with this MyParcelBE shipment.
      *
      * @return Mage_Sales_Model_Order_Shipment
      */
@@ -139,7 +139,7 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Gets the Magento order associated with this MyParcel shipment.
+     * Gets the Magento order associated with this MyParcelBE shipment.
      *
      * @return Mage_Sales_Model_Order
      */
@@ -207,7 +207,7 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
     public function getOrderTotal()
     {
         /**
-         * Check if this MyParcel shipment has a linked Mage_Sales_Model_Order_Shipment object
+         * Check if this MyParcelBE shipment has a linked Mage_Sales_Model_Order_Shipment object
          */
         $shipment = $this->getShipment();
         if (!$shipment) {
@@ -241,7 +241,7 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
     }
 
     /**
-     * Gets the MyParcel API object.
+     * Gets the MyParcelBE API object.
      *
      * @return TIG_MyParcelBE_Model_Api_MyParcel
      */

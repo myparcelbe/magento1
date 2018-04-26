@@ -101,7 +101,7 @@ class TIG_MyParcelBE_Model_Checkout_Service
             ->setCountryId($data['cc'])
             ->setPostcode($data['postal_code'])
             ->setCompany($data['location'])
-            ->setFirstname('Ophalen op een PostNL locatie')
+            ->setFirstname('Ophalen op een bpost locatie')
             ->setLastname('')
             ->setTelephone($data['phone_number'])
             ->setStreet($data['street'] . "\n" . $data['number']);
