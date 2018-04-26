@@ -72,12 +72,12 @@
 class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
 {
     /**
-     * Carrier code used by MyParcel.
+     * Carrier code used by MyParcel BE.
      */
     const MYPARCEL_CARRIER_CODE_TITLE = 'myparcel';
 
     /**
-     * Statusses used by MyParcelBe shipments.
+     * Statusses used by MyParcel BE shipments.
      */
     const STATUS_NEW        = 1;
 
