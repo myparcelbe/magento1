@@ -50,8 +50,8 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Localised track and trace base URL's
      */
-    const bpost_TRACK_AND_TRACE_NL_BASE_URL = 'https://mijnpakket.bpost.nl/Inbox/Search?';
-    const bpost_TRACK_AND_TRACE_INT_BASE_URL = 'https://www.internationalparceltracking.com/Main.aspx#/track';
+    const BPOST_TRACK_AND_TRACE_NL_BASE_URL = 'https://mijnpakket.bpost.nl/Inbox/Search?';
+    const BPOST_TRACK_AND_TRACE_INT_BASE_URL = 'https://www.internationalparceltracking.com/Main.aspx#/track';
 
     /**
      * List of MyParcel shipping methods.
@@ -315,7 +315,7 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
                 && $countryCode == 'BE'
             )
         ) {
-            $barcodeUrl = self::bpost_TRACK_AND_TRACE_NL_BASE_URL
+            $barcodeUrl = self::BPOST_TRACK_AND_TRACE_NL_BASE_URL
                 . '&b=' . $barcode;
             /**
              * For dutch shipments add the postcode. For international shipments add an 'international' flag.
@@ -335,7 +335,7 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
         /**
          * Get a general track & trace URL for all other destinations.
          */
-        $barcodeUrl = self::bpost_TRACK_AND_TRACE_INT_BASE_URL
+        $barcodeUrl = self::BPOST_TRACK_AND_TRACE_INT_BASE_URL
             . '/' . $barcode
             . '/' . $countryCode;
 
