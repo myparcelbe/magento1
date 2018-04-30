@@ -12,7 +12,7 @@
                             <config>
                                 <children>
                                     <tig_myparcel translate="title">
-                                        <title>MyParcel</title>
+                                        <title>MyParcel BE</title>
                                         <sort_order>0</sort_order>
                                     </tig_myparcel>
                                 </children>
@@ -20,7 +20,7 @@
                         </children>
                     </system>
                     <tig_myparcel>
-                        <title>MyParcel</title>
+                        <title>MyParcel BE</title>
                         <sort_order>300</sort_order>
                     </tig_myparcel>
                 </children>

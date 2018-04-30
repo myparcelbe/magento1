@@ -5,7 +5,7 @@
  *
  *
  *  @author     Reindert Vetter <info@sendmyparcel.be>
- *  @copyright  2016 MyParcelNL
+ *  @copyright  2016 MyParcelBE
  *  @since      File available since Release 1.5.0
  *  @license    http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
  */

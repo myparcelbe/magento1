@@ -60,7 +60,7 @@ class TIG_MyParcelBE_Block_Adminhtml_Sales_Order_View_ShippingInfo extends Mage_
         {
             if(is_array($data) && key_exists('location', $data)){
 
-                $html .= $this->__('PostNL location: ');
+                $html .= $this->__('bpost location: ');
 
                 if ($pgAddress->getCountryId() != 'BE') {
                     $dateTime = date('d-m-Y H:i', strtotime($data['date'] . ' ' . $data['start_time']));
@@ -74,7 +74,7 @@ class TIG_MyParcelBE_Block_Adminhtml_Sales_Order_View_ShippingInfo extends Mage_
                 $html .= $data['location']. ', ' . $data['city']. ' (' . $data['postal_code']. ')';
             } else {
                 /** Old data from orders before version 1.6.0 */
-                $html .= $this->__('PostNL location:') . ' ' . $pgAddress->getCompany() . ' ' . $pgAddress->getCity();
+                $html .= $this->__('bpost location:') . ' ' . $pgAddress->getCompany() . ' ' . $pgAddress->getCity();
             }
         } else {
 

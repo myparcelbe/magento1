@@ -97,7 +97,7 @@ MyParcel = {
             }
         }
 
-        /* Prices PostNL */
+        /* Prices bpost */
         else if (myParcelConfig.carrierCode == 1) {
             MyParcel.showPostNlPrices();
         }
@@ -117,7 +117,7 @@ MyParcel = {
             MyParcel.showBpostSignature();
         }
 
-        // PostNL delivery Options
+        // bpost delivery Options
         if (myParcelConfig.carrierCode == 1) {
             mypajQuery('#mypa-delivery-selectors-be').css('display', 'none');
 
@@ -373,14 +373,14 @@ MyParcel = {
             html += '<div class="mypa-delivery-time-div">';
             html += '<input type="radio" id="mypa-delivery-time-postnl-select-' + value.price_comment + '" name="mypa-delivery-time-postnl" value="';
             html += value.price_comment + '">';
-            html += '<label class="mypa-delivery-time-postnl-label" for="mypa-delivery-time-postnl-select-' + value.price_comment + '">';
+            html += '<label class="mypa-delivery-time-postnl-label" for="mypa-delivery-time-bpost-select-' + value.price_comment + '">';
             html += '<span class="mypa-delivery-time-postnl-comment">' + translateENtoNL[value.price_comment] + '</span>';
             html += '<span class="mypa-delivery-time-postnl-time">(' + value.start.slice(0, -3) + '-' + value.end.slice(0, -3) + ')</span>';
-            html += '<span class="mypa-method-price mypa-delivery-time-postnl-price mypa-postnl-' + value.price_comment + '-price"></span>';
+            html += '<span class="mypa-method-price mypa-delivery-time-postnl-price mypa-bpost-' + value.price_comment + '-price"></span>';
             html += '</label>';
             html += '</div>';
         });
-        mypajQuery('#mypa-delivery-time-postnl').html(html);
+        mypajQuery('#mypa-delivery-time-bpost').html(html);
         mypajQuery('#mypa-delivery-selector').css('height', '190px');
     },
 
@@ -487,89 +487,89 @@ MyParcel = {
         mypajQuery('#mypa-spinner').hide();
     },
 
-    /*
-         * shopwPostnlSignatureAndRecipientOnly
-     *
-         * Shows the postnl signature and recipient only delivery option.
-         *
-         */
+   /*
+    * shopwPostnlSignatureAndRecipientOnly
+    *
+    * Shows the postnl signature and recipient only delivery option.
+    *
+    */
 
     showPostNlSignatureAndRecipientOnly: function () {
         mypajQuery('#mypa-postnl-signature-recipient-only').show();
     },
 
-    /*
-         * hidePostnlSignatureAndRecipientOnly
-     *
-         * Shows the postnl signature and recipient only delivery option.
-         *
-         */
+   /*
+    * hidePostnlSignatureAndRecipientOnly
+    *
+    * Shows the postnl signature and recipient only delivery option.
+    *
+    */
 
     hidePostNlSignatureAndRecipientOnly: function () {
         mypajQuery('#mypa-postnl-signature-recipient-only').hide();
     },
 
-    /*
-         * showPostNlRecipientOnly
-     *
-         * Shows the postnl recipient only delivery option.
-         *
-         */
+   /*
+    * showPostNlRecipientOnly
+    *
+    * Shows the postnl recipient only delivery option.
+    *
+    */
 
     showPostNlRecipientOnly: function () {
         mypajQuery('#mypa-postnl-recipient-only').show();
     },
 
-    /*
-         * hidePostNlRecipientOnly
-     *
-         * Hide the postnl recipient only delivery option
-         *
-         */
+   /*
+    * hidePostNlRecipientOnly
+    *
+    * Hide the postnl recipient only delivery option
+    *
+    */
 
     hidePostNlRecipientOnly: function () {
         mypajQuery('#mypa-postnl-recipient-only').hide();
     },
 
-    /*
-         * showPostNlSignature
-     *
-         * Shows the postnl signature delivery option 
-         *
-         */
+   /*
+    * showPostNlSignature
+    *
+    * Shows the postnl signature delivery option
+    *
+    */
 
     showPostNlSignature: function () {
         mypajQuery('#mypa-postnl-signature').show();
     },
 
-    /*
-         * hidePostNlSignature
-     *
-         * Shows the postnl signature delivery option
-         *
-         */
+   /*
+    * hidePostNlSignature
+    *
+    * Shows the postnl signature delivery option
+    *
+    */
 
     hidePostNlSignature: function () {
         mypajQuery('#mypa-postnl-signature').hide();
     },
 
-    /* 
-         * showBpostSignature
-         *
-         * Shows the Bpost signature delivery option
-         *
-         */
+    /*
+     * showBpostSignature
+     *
+     * Shows the Bpost signature delivery option
+     *
+     */
 
     showBpostSignature: function () {
         mypajQuery('#mypa-delivery-selectors-be').show();
     },
 
-    /* 
-         * hideBpostSignature
-         *
-         * Hides the Bpost signature delivery option
-         *
-         */
+   /*
+    * hideBpostSignature
+    *
+    * Hides the Bpost signature delivery option
+    *
+    */
 
     hideBpostSignature: function () {
         mypajQuery('#mypa-delivery-selectors-be').hide();
@@ -761,11 +761,11 @@ MyParcel = {
 
 
     /*
-         * getPickupByLocationId
-         *
-         * Find the location by id and return the object.
-         *
-         */
+     * getPickupByLocationId
+     *
+     * Find the location by id and return the object.
+     *
+     */
 
     getPickupByLocationId: function (obj, locationId) {
         var object;

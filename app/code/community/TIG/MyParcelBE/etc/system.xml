@@ -5,7 +5,7 @@
         <carriers translate="label" module="shipping">
             <groups>
                 <myparcel translate="label">
-                    <label>MyParcel</label>
+                    <label>MyParcel BE</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>0</sort_order>
                     <show_in_default>1</show_in_default>
@@ -138,7 +138,7 @@
         </carriers>
         <!-- add the configuration page as seperate page to the backend -->
         <tig_myparcel translate="label" module="tig_myparcel">
-            <label>MyParcel</label>
+            <label>MyParcel BE</label>
             <tab>sales</tab>
             <frontend_type>text</frontend_type>
             <class>tig_myparcel-tab</class>
@@ -195,7 +195,7 @@
                             <label>Dropoff-delay</label>
                             <frontend_type>select</frontend_type>
                             <source_model>tig_myparcel/system_config_source_delayDays</source_model>
-                            <comment>This options allows you to set the number of days it takes you to pick, pack and hand in your parcels at PostNL when ordered before the cutoff time.</comment>
+                            <comment>This options allows you to set the number of days it takes you to pick, pack and hand in your parcels at bpost when ordered before the cutoff time.</comment>
                             <sort_order>140</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -318,7 +318,7 @@
                     </fields>
                 </delivery>
                 <pickup translate="label comment" module="tig_myparcel">
-                    <label>Pickup at PostNL location</label>
+                    <label>Pickup at bpost location</label>
                     <sort_order>20</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
@@ -365,11 +365,11 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
-                    <comment>To get your personal API credentials you should contact MyParcel.</comment>
+                    <comment>To get your personal API credentials you should contact MyParcel BE.</comment>
                     <fields>
                         <key translate="label comment">
                             <label>API Key</label>
-                            <comment>The API Key given by MyParcel.</comment>
+                            <comment>The API Key given by MyParcel BE.</comment>
                             <frontend_type>text</frontend_type>
                             <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
                             <sort_order>20</sort_order>
@@ -408,8 +408,8 @@
                             <show_in_store>1</show_in_store>
                         </tracktrace_template>
                         <always_myparcel translate="label comment tooltip">
-                            <label>Always use MyParcel</label>
-                            <comment>Select 'No' in order to set the shipping methods that must be regarded as MyParcel.</comment>
+                            <label>Always use MyParcel BE</label>
+                            <comment>Select 'No' in order to set the shipping methods that must be regarded as MyParcel BE.</comment>
                             <frontend_type>select</frontend_type>
                             <source_model>tig_myparcel/system_config_source_yesno</source_model>
                             <sort_order>55</sort_order>
@@ -432,8 +432,8 @@
                             </depends>
                         </myparcel_shipping_methods>
                         <pakjegemak_use_shipment_address translate="label comment">
-                            <label>Use shipment address for PostNL location</label>
-                            <comment>Use shipment address for 'Ophalen op een PostNL locatie'. The customer will see the address on the invoice. Set to 'No' if you are using AfterPay.</comment>
+                            <label>Use shipment address for bpost location</label>
+                            <comment>Use shipment address for 'Ophalen op een bpost locatie'. The customer will see the address on the invoice. Set to 'No' if you are using AfterPay.</comment>
                             <frontend_type>select</frontend_type>
                             <source_model>tig_myparcel/system_config_source_yesno</source_model>
                             <sort_order>65</sort_order>

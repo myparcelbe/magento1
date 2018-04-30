@@ -211,7 +211,7 @@ class TIG_MyParcelBE_Model_Adminhtml_Observer_OrderGrid extends Varien_Object
             ->addItem(
                 'myparcel_print_labels',
                 array(
-                    'label' => $helper->__('MyParcel - Create labels'),
+                    'label' => $helper->__('MyParcel BE - Create labels'),
                     'url'   => $adminhtmlHelper->getUrl('adminhtml/myparcelAdminhtml_shipment/massPrintLabels'),
                     'additional' => array(
                         'create_consignment' => array(
