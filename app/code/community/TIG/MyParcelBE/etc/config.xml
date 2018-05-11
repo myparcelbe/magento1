@@ -243,7 +243,7 @@
                 <key/>
             </api>
             <general>
-                <url>https://api.sendmyparcel.be/</url>
+                <url>https://api.myparcel.nl/</url>
                 <active>0</active>
                 <print_orientation>A4</print_orientation>
                 <always_myparcel>1</always_myparcel>
