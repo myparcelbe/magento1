@@ -112,7 +112,7 @@ class TIG_MyParcelBE_Block_Adminhtml_Sales_Order_View_ShippingInfo extends Mage_
         /** @var $myParcelShipment TIG_MyParcelBE_Model_Shipment */
         foreach ($this->_myParcelShipments as $myParcelShipment) {
             $shipmentUrl = Mage::helper('adminhtml')->getUrl("*/sales_shipment/view", array('shipment_id'=>$myParcelShipment->getShipment()->getId()));
-            $editUrl = "https://backoffice.myparcel.nl/shipmentform?shipment=" . $myParcelShipment->getConsignmentId();
+            $editUrl = "https://backoffice.sendmyparcel.be/shipmentform?shipment=" . $myParcelShipment->getConsignmentId();
             if ($myParcelShipment->getStatus() == 1) {
                 $editLink = '<a href="' . $editUrl . '" target="myparcel">' . $this->__("Edit options") . '</a>';
             } else {

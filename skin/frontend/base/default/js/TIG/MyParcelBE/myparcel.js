@@ -38,7 +38,7 @@ MyParcel = {
 
                     if (address['street']) {
                         myParcelConfig = {
-                            apiBaseUrl: "https://api.myparcel.nl/",
+                            apiBaseUrl: "https://api.sendmyparcel.be/",
                             carrierCode: "2",
                             postalCode: address['postal_code'].replace(/ /g, ""),
                             countryCode: address['country'],
@@ -397,6 +397,7 @@ MyParcel = {
      */
 
     showMessage: function (message) {
+        console.log('showMessage');
         var html = '<div class="mypa-close-message"><span class="fas fa-times-circle"></span></div>' + message;
         mypajQuery('#mypa-message').html(html);
         mypajQuery('#mypa-message').show();
@@ -742,7 +743,6 @@ MyParcel = {
         mypajQuery('#mypa-location-details').show();
     },
 
-
     /*
          * getPickupByLocationId
          *
@@ -773,8 +773,8 @@ MyParcel = {
      */
 
     retryPostalcodeHouseNumber: function () {
-        mypajQuery(triggerPostalCode).val(mypajQuery('#mypa-error-postcode').val());
-        mypajQuery(triggerHouseNumber).val(mypajQuery('#mypa-error-number').val());
+        // mypajQuery(triggerPostalCode).val(mypajQuery('#mypa-error-postcode').val());
+        // mypajQuery(triggerHouseNumber).val(mypajQuery('#mypa-error-number').val());
         MyParcel.hideMessage();
         MyParcel.callDeliveryOptions();
         mypajQuery('#mypa-deliver-pickup-deliver').click();
@@ -808,10 +808,10 @@ MyParcel = {
             '<h3>Huisnummer/postcode combinatie onbekend</h3>' +
             '<div class="full-width mypa-error">' +
             '<label for="mypa-error-postcode">Postcode</label>' +
-            '<input type="text" name="mypa-error-postcode" id="mypa-error-postcode" value="' + mypajQuery(triggerPostalCode).val() + '">' +
+            '<input type="text" name="mypa-error-postcode" id="mypa-error-postcode" value="' + myParcelConfig.postalCode + '">' +
             '</div><div class="full-width mypa-error">' +
             '<label for="mypa-error-number">Huisnummer</label>' +
-            '<input type="text" name="mypa-error-number" id="mypa-error-number" value="' + mypajQuery(triggerHouseNumber).val() + '">' +
+            '<input type="text" name="mypa-error-number" id="mypa-error-number" value="' + myParcelConfig.number + '">' +
             '<br><button id="mypa-error-try-again">Opnieuw</button>' +
             '</div>';
         MyParcel.showMessage(html);
@@ -863,8 +863,7 @@ MyParcel = {
             .done(function (data) {
                 if (data.errors) {
                     mypajQuery.each(data.errors, function (key, value) {
-                        /* Postalcode housenumber combination not found or not
-                   recognised. */
+                        /* Postalcode housenumber combination not found or not recognised. */
                         if (value.code == '3212' || value.code == '3505') {
                             MyParcel.showRetry();
                         }
