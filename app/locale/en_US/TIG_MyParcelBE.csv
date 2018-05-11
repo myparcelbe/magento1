@@ -4,8 +4,8 @@ TIG_MyParcelBE::Method Name,Method Name
 TIG_MyParcelBE::Rate Type,Rate Type
 TIG_MyParcelBE::Type,Type
 TIG_MyParcelBE::Price,Price
-TIG_MyParcelBE::PostNL location active,PostNL location active
-TIG_MyParcelBE::PostNL location fee,PostNL location fee
+TIG_MyParcelBE::bpost location active,bpost location active
+TIG_MyParcelBE::bpost location fee,bpost location fee
 TIG_MyParcelBE::Condition,Condition
 TIG_MyParcelBE::Calculate Handling Fee,Calculate Handling Fee
 TIG_MyParcelBE::Handling Fee,Handling Fee
@@ -17,10 +17,7 @@ TIG_MyParcelBE::Home address only,Home address only
 TIG_MyParcelBE::Signature on receipt,Signature on receipt
 TIG_MyParcelBE::Insured up to &euro; 500,Insured up to &euro; 500
 "TIG_MyParcelBE::For NL shipping only, shipments inside the EU insured default is &euro; 500","For NL shipping only, shipments inside the EU insured default is &euro; 500"
-TIG_MyParcelBE::Customs Shipment Type,Customs Shipment Type
-TIG_MyParcelBE::Customs Content HS Code,Customs Content HS Code
-"TIG_MyParcelBE::Default content type for Cross Domestic products, see <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a>. HS codes can also be connected to categories. The data you enter here will be used as default.","Default content type for Cross Domestic products, see <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a>. HS codes can also be connected to categories. The data you enter here will be used as default."
-"TIG_MyParcelBE::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code.","Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount. When shipping outside of the EU you can set default values for customs type and customs goods HS code."
+"TIG_MyParcelBE::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount.","Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount."
 TIG_MyParcelBE::Retourlink e-mail Template,Retourlink e-mail Template
 TIG_MyParcelBE::PLACEHOLDER,PLACEHOLDER
 TIG_MyParcelBE::Track&amp;Trace email template,Track&amp;Trace email template
@@ -34,8 +31,8 @@ TIG_MyParcelBE::Enable or disable the MyParcel module.,Enable or disable the MyP
 TIG_MyParcelBE::Selecting 'No' will overrule all individual settings.,Selecting 'No' will overrule all individual settings.
 TIG_MyParcelBE::General Settings,General Settings
 TIG_MyParcelBE::API Key,API Key
-TIG_MyParcelBE::The API Key given by MyParcel.,The API Key given by MyParcel.
-TIG_MyParcelBE::To get your personal API credentials please contact MyParcel.,To get your personal API credentials please contact MyParcel.
+TIG_MyParcelBE::The API Key given by MyParcel BE.,The API Key given by MyParcel BE.
+TIG_MyParcelBE::To get your personal API credentials please contact MyParcel BE.,To get your personal API credentials please contact MyParcel BE.
 TIG_MyParcelBE::API settings,API settings
 TIG_MyParcelBE::Version &amp; Support,Version &amp; Support
 TIG_MyParcelBE::The log files cannot be downloaded.,The log files cannot be downloaded.
@@ -66,7 +63,7 @@ TIG_MyParcelBE::Download log files,Download log files
 TIG_MyParcelBE::Unknown rate type specified: %s.,Unknown rate type specified: %s.
 TIG_MyParcelBE::Flat,Flat
 TIG_MyParcelBE::Table,Table
-TIG_MyParcelBE::Invalid PakjeGemak address.,Invalid 'Ship to PostNL location' address.
+TIG_MyParcelBE::Invalid PakjeGemak address.,Invalid 'Ship to bpost location' address.
 TIG_MyParcelBE::Invalid phone number.,Invalid phone number.
 TIG_MyParcelBE::Invalid housenumber extension.,Invalid housenumber extension.
 TIG_MyParcelBE::A4,A4
@@ -81,7 +78,7 @@ TIG_MyParcelBE::No,No
 TIG_MyParcelBE::Myparcel Consignment Options,Myparcel Consignment Options
 TIG_MyParcelBE::Insured amount,Insured amount
 TIG_MyParcelBE::Insured,Insured
-TIG_MyParcelBE::MyParcel version %s,MyParcel version %s
+TIG_MyParcelBE::MyParcel BE version %s,MyParcel BE version %s
 TIG_MyParcelBE::Magento &amp; 3rd party version compatibility,Magento &amp; 3rd party version compatibility
 TIG_MyParcelBE::Magento Community Edition version,Magento Community Edition version
 TIG_MyParcelBE::Magento Enterprise Edition version,Magento Enterprise Edition version
@@ -91,7 +88,7 @@ TIG_MyParcelBE::IWD's OnePageCheckout version,IWD's OnePageCheckout version
 TIG_MyParcelBE::Support,Support
 TIG_MyParcelBE::The extension is developed by Total Internet Group.,The extension is developed by Total Internet Group.
 TIG_MyParcelBE::MyParcel account questions and information,MyParcel account questions and information
-TIG_MyParcelBE::For questions related to your MyParcel account, configuration problems, extension conflicts and bugs, please contact MyParcel.,For questions related to your MyParcel account, configuration problems, extension conflicts and bugs, please contact MyParcel.
+TIG_MyParcelBE::For questions related to your MyParcel BE account, configuration problems, extension conflicts and bugs, please contact MyParcel BE.,For questions related to your MyParcel BE account, configuration problems, extension conflicts and bugs, please contact MyParcel BE.
 TIG_MyParcelBE::Phone,Phone
 TIG_MyParcelBE::Online knowledgebase,Online knowledgebase
 TIG_MyParcelBE::Request help directly,Request help directly
@@ -125,14 +122,14 @@ TIG_MyParcelBE::Street line #%s,Street line #%s
 TIG_MyParcelBE::This will be added to the regular shipping price,This will be added to the regular shipping price
 TIG_MyParcelBE::Default shipment type for Cross Domestic shipments,Default shipment type for Cross Domestic shipments
 "TIG_MyParcelBE::When changing the address, you need to cancel the current MyParcel shipment(s) linked to this order and create new MyParcel shipments.","When changing the address, you need to cancel the current MyParcel shipment(s) linked to this order and create new MyParcel shipments."
-"TIG_MyParcelBE::To read the instructions for the MyParcel Magento extension, click <a target=""_blank"" href=""%s"">here</a>.","To read the instructions for the MyParcel Magento extension, click <a target=""_blank"" href=""%s"">here</a>."
+"TIG_MyParcelBE::To read the instructions for the MyParcel BE Magento extension, click <a target=""_blank"" href=""%s"">here</a>.","To read the instructions for the MyParcel BE Magento extension, click <a target=""_blank"" href=""%s"">here</a>."
 TIG_MyParcelBE::When using the extension please note:,When using the extension please note:
-TIG_MyParcelBE::To be able to configure the extension you need to possess and use an active MyParcel account.,To be able to configure the extension you need to possess and use an active MyParcel account.
-"TIG_MyParcelBE::During the transition phase the old Magento MyParcel extension can remain active. However, you do need to turn off PakjeGemak in the old MyParcel extension.","During the transition phase the old Magento MyParcel extension can remain active. However, you do need to turn off PakjeGemak in the old MyParcel extension."
-TIG_MyParcelBE::We cannot guarantee perfect functionality of the MyParcel extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact MyParcel.<br><br>Supported extensions:,We cannot guarantee perfect functionality of the MyParcel extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact MyParcel.<br><br>Supported extensions:
+TIG_MyParcelBE::To be able to configure the extension you need to possess and use an active MyParcel BE account.,To be able to configure the extension you need to possess and use an active MyParcel BE account.
+"TIG_MyParcelBE::During the transition phase the old Magento MyParcel BE extension can remain active. However, you do need to turn off PakjeGemak in the old MyParcel extension.","During the transition phase the old Magento MyParcel BE extension can remain active. However, you do need to turn off PakjeGemak in the old MyParcel extension."
+TIG_MyParcelBE::We cannot guarantee perfect functionality of the MyParcel BE extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact MyParcel BE.<br><br>Supported extensions:,We cannot guarantee perfect functionality of the MyParcel BE extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact MyParcel BE.<br><br>Supported extensions:
 TIG_MyParcelBE::Installation and configuration instructions,Installation and configuration instructions
 TIG_MyParcelBE::Overview articles in knowledge base,View all articles in the knowledgebase
-TIG_MyParcelBE::Questions and information about your MyParcel account,Questions and information about your MyParcel account
+TIG_MyParcelBE::Questions and information about your MyParcel BE account,Questions and information about your MyParcel BE account
 "TIG_MyParcelBE::Shipments will not be delivered at the neighbours, only on house address.","Shipments will not be delivered at the neighbours, only on house address."
 TIG_MyParcelBE::Shipments will not go the a pickup point but will be returned directly after multiple delivery attempts.,Shipments will not go the a pickup point but will be returned directly after multiple delivery attempts.
 TIG_MyParcelBE::Unable to save check_status cron expression: %s,Unable to save check_status cron expression: %s
@@ -151,19 +148,19 @@ TIG_MyParcelBE::Zipcode,Zipcode
 TIG_MyParcelBE::Housenumber,Housenumber
 TIG_MyParcelBE::Search,Search
 TIG_MyParcelBE::Nearest myparcel pickup points,Nearest myparcel pickup points
-TIG_MyParcelBE::PostNL location Method Name,PostNL location Method Name
+TIG_MyParcelBE::bpost location Method Name,bpost location Method Name
 TIG_MyParcelBE::Unpaid,Unpaid
 TIG_MyParcelBE::The consignment is already credited.,The consignment is already credited.
-TIG_MyParcelBE::MyParcel - Create labels,MyParcel - Create labels
+TIG_MyParcelBE::MyParcel BE - Create labels,MyParcel BE - Create labels
 TIG_MyParcelBE::Select,Select
 TIG_MyParcelBE::Insured up to:,Insured up to:
 TIG_MyParcelBE::Close,Close
-TIG_MyParcelBE::Choose a PostNL pickup location,Choose a PostNL pickup location
-"TIG_MyParcelBE::The selected shipment-type cannot be used, Pakjegemak-shipments can only be created with the normal shipment type.","The selected shipment-type cannot be used, 'Ship to PostNL location' can only be created with the normal shipment type."
+TIG_MyParcelBE::Choose a bpost pickup location,Choose a bpost pickup location
+"TIG_MyParcelBE::The selected shipment-type cannot be used, Pakjegemak-shipments can only be created with the normal shipment type.","The selected shipment-type cannot be used, 'Ship to bpost location' can only be created with the normal shipment type."
 TIG_MyParcelBE::MyParcel - Create Magento shipments (no labels),MyParcel - Create Magento shipments (no labels)
 TIG_MyParcelBE::Insured up to &euro;%s,Insured up to &euro;%s
 TIG_MyParcelBE::Post Office Address,Post Office Address
-"TIG_MyParcelBE::The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a MyParcel shipment, select a different shipment type or go to the shipment page to create a single MyParcel shipment. <a target=""_blank"" href=""%s"">View shipment</a>","The selected shipment type cannot be used. 'Ship to PostNL location' shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a MyParcel shipment, select a different shipment type or go to the shipment page to create a single MyParcel shipment. <a target=""_blank"" href=""%s"">View shipment</a>"
+"TIG_MyParcelBE::The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a MyParcel shipment, select a different shipment type or go to the shipment page to create a single MyParcel shipment. <a target=""_blank"" href=""%s"">View shipment</a>","The selected shipment type cannot be used. 'Ship to bpost location' shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a MyParcel shipment, select a different shipment type or go to the shipment page to create a single MyParcel shipment. <a target=""_blank"" href=""%s"">View shipment</a>"
 TIG_MyParcelBE::Only for dutch shipments,Only for dutch shipments
 "TIG_MyParcelBE::Only for dutch shipments, shipments to outside of the EU are standard ensured up to &euro 200","Only for dutch shipments, shipments to outside of the EU are standard ensured up to &euro 200"
 
@@ -193,7 +190,7 @@ TIG_MyParcelBE::status_39,Inactive - Return shipment delivered
 TIG_MyParcelBE::status_40,Inactive - Return shipment pickup location
 TIG_MyParcelBE::status_99,Inactive - Unknown
 
-TIG_MyParcelBE::PostNL location:,to PostNL location:
+TIG_MyParcelBE::bpost location:,to bpost location:
 TIG_MyParcelBE::deliver:,deliver:
 TIG_MyParcelBE::TYPE_morning,Morning
 TIG_MyParcelBE::TYPE_avond,Avondlevering

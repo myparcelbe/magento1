@@ -137,21 +137,6 @@ class TIG_MyParcelBE_Block_Adminhtml_Sales_Order_Shipment_Create_ConsignmentOpti
     }
 
     /**
-     * Check if shipment country needs customs
-     *
-     * @return bool
-     */
-    public function countryNeedsCustoms()
-    {
-        $helper = Mage::helper('tig_myparcel');
-
-        $countryCode = $this->getDestinationCountry();
-
-        return $helper->countryNeedsCustoms($countryCode);
-
-    }
-
-    /**
      * get storeid from where the order was placed
      *
      * @return int

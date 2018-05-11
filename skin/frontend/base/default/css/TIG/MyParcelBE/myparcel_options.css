@@ -1,9 +1,4 @@
-.mypa-fieldset {
-    border-radius: 3px;
-    border: 0;
-    padding: 0;
-    margin: 0;
-}
+
 
 .mypa-time {
     margin-left: 5px;
@@ -86,7 +81,14 @@
 .fa-question {
     text-decoration: none;
 }
-
+.fa-clock{
+    width: 16px;
+    margin-bottom: -3px;
+}
+.fa-times{
+    width: 16px;
+    float: right;
+}
 #mypa-shop-mock {
     margin-top: 500px;
     background-color: #ccc;

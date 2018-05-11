@@ -39,7 +39,6 @@
  * @var TIG_MyParcelBE_Block_Adminhtml_Sales_Order_Shipment_Create_ConsignmentOptions $this
  */
 /** @var $_helper TIG_MyParcelBE_Helper_Data */
-$_countryNeedsCustoms       = $this->countryNeedsCustoms();
 $_storeId                   = $this->getOrderStoreId();
 $_helper                    = Mage::helper('tig_myparcel');
 $_signatureSelected         = $this->getIsSignatureOnReceipt();
@@ -50,8 +49,6 @@ $_insuredUpTo               = '';
 $_insuredAmount             = 0;
 
 $_customsTypeOptions        = $this->getCustomsTypeOptions();
-$_defaultCustomsCode        = $_helper->getConfig('customs_type', 'shipment', $_storeId);
-$_defaultCustomsContentCode = $_helper->getHsCodes($this->getShipment()->getOrder()->getAllVisibleItems(), $_storeId);
 
 $tmpInsured = 1000;
 
@@ -89,38 +86,12 @@ if(true == $_isPakjegemak){
                 <input id="tig_myparcel_insured" type="checkbox" value="1" name="tig_myparcel[insured]" <?php echo $_insuredSelected;?> />
 
             </p>
-            <?php if ($this->getDestinationCountry() == 'NL'): ?>
+            <?php if ($this->getDestinationCountry() == 'BE'): ?>
                 <p>
                     <label for="tig_myparcel_signature_on_receipt" class="normal"><?php echo $this->__('Signature on receipt');?></label>
                     <input id="tig_myparcel_signature_on_receipt" type="checkbox" value="1" name="tig_myparcel[signature_on_receipt]" <?php echo $_signatureSelected;?> />
                 </p>
 
-            <?php elseif($_countryNeedsCustoms): ?>
-                <p>
-                    <label for="tig_myparcel_customs_type" class="normal"><?php echo $this->__('Customs Shipment Type');?></label>
-                    <select id="tig_myparcel_customs_type" class="select required-entry" name="tig_myparcel[customs_type]">
-                        <?php foreach($_customsTypeOptions as $_option):?>
-                            <?php $_selected = ''; ?>
-                            <?php if ($_option['value'] == $_defaultCustomsCode): ?>
-                                <?php $_selected = 'selected="selected"'; ?>
-                            <?php endif; ?>
-
-                            <option value="<?php echo $_option['value']; ?>" <?php echo $_selected ?>>
-                                <?php echo $this->__($_option['label']); ?>
-                            </option>
-                        <?php endforeach;?>
-                    </select>
-                </p>
-                <p>
-                    <label for="tig_myparcel_customs_content_code" class="normal"><?php echo $this->__('Customs Content HS Code');?></label>
-                    <input id="tig_myparcel_customs_content_code" type="text" value="<?php echo $_defaultCustomsContentCode;?>" name="tig_myparcel[customs_content_type]" />
-                </p>
-                <p>
-                    <small><?php echo $this->__('Select content type for Cross Domestic products, see <a href="http://gebruikstarief.douane.nl" target="_blank">http://gebruikstarief.douane.nl</a>');?></small>
-                </p>
-                <p>
-                    <small><?php echo $this->__('Shipment insured up to &euro; %s purchase value', TIG_MyParcelBE_Model_Api_MyParcel::INSURED_AMOUNT);?></small>
-                </p>
             <?php endif;?>
         </div>
     </div>

@@ -53,7 +53,7 @@ skin/adminhtml/default/default/js/TIG/MyParcelBE/jscolor/hv.png            skin/
 skin/adminhtml/default/default/js/TIG/MyParcelBE/jscolor/jscolor.js            skin/adminhtml/default/default/js/TIG/MyParcelBE/jscolor/jscolor.js
 skin/frontend/base/default/images/TIG/MyParcel/checkout/loader_mini.gif            skin/frontend/base/default/images/TIG/MyParcel/checkout/loader_mini.gif
 skin/frontend/base/default/images/TIG/MyParcel/checkout/logo_myparcel.png            skin/frontend/base/default/images/TIG/MyParcel/checkout/logo_myparcel.png
-skin/frontend/base/default/images/TIG/MyParcel/checkout/logo_postnl.png            skin/frontend/base/default/images/TIG/MyParcel/checkout/logo_postnl.png
+skin/frontend/base/default/images/TIG/MyParcel/checkout/logo_bpost.png            skin/frontend/base/default/images/TIG/MyParcel/checkout/logo_bpost.png
 skin/frontend/base/default/js/TIG/MyParcelBE/checkout.js            skin/frontend/base/default/js/TIG/MyParcelBE/checkout.js
 skin/frontend/base/default/js/TIG/MyParcelBE/checkout_type/onestepcheckout_index_index.js            skin/frontend/base/default/js/TIG/MyParcelBE/checkout_type/onestepcheckout_index_index.js
 skin/frontend/base/default/js/TIG/MyParcelBE/checkout_type/opc_index_index.js            skin/frontend/base/default/js/TIG/MyParcelBE/checkout_type/opc_index_index.js

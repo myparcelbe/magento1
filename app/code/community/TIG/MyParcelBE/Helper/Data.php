@@ -50,8 +50,8 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * Localised track and trace base URL's
      */
-    const POSTNL_TRACK_AND_TRACE_NL_BASE_URL = 'https://mijnpakket.postnl.nl/Inbox/Search?';
-    const POSTNL_TRACK_AND_TRACE_INT_BASE_URL = 'https://www.internationalparceltracking.com/Main.aspx#/track';
+    const BPOST_TRACK_AND_TRACE_NL_BASE_URL = 'https://mijnpakket.bpost.nl/Inbox/Search?';
+    const BPOST_TRACK_AND_TRACE_INT_BASE_URL = 'https://www.internationalparceltracking.com/Main.aspx#/track';
 
     /**
      * List of MyParcel shipping methods.
@@ -315,7 +315,7 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
                 && $countryCode == 'BE'
             )
         ) {
-            $barcodeUrl = self::POSTNL_TRACK_AND_TRACE_NL_BASE_URL
+            $barcodeUrl = self::BPOST_TRACK_AND_TRACE_NL_BASE_URL
                 . '&b=' . $barcode;
             /**
              * For dutch shipments add the postcode. For international shipments add an 'international' flag.
@@ -335,7 +335,7 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
         /**
          * Get a general track & trace URL for all other destinations.
          */
-        $barcodeUrl = self::POSTNL_TRACK_AND_TRACE_INT_BASE_URL
+        $barcodeUrl = self::BPOST_TRACK_AND_TRACE_INT_BASE_URL
             . '/' . $barcode
             . '/' . $countryCode;
 
@@ -478,7 +478,7 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
     /**
      * @param bool $getAdminTitle
      * @return int|string               package = 1, mailbox = 2, letter = 3
-     * @todo remove parameters from MyParcelNL
+     * @todo remove parameters from MyParcelBE
      *
      */
     public function getPackageType($getAdminTitle = false)
@@ -515,56 +515,6 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         return true;
-    }
-    
-    /**
-     * Get multiple HS codes from categories or default settings
-     *
-     * @param $products
-     * @param $_storeId
-     *
-     * @return string
-     */
-    public function getHsCodes($products, $_storeId)
-    {
-        $hs = array();
-        /** @var Mage_Sales_Model_Order_Item $item */
-        foreach ($products as $item) {
-            $hs[$this->getHsCode($item, $_storeId)] = $this->getHsCode($item, $_storeId);
-        }
-
-        if (empty($hs)) {
-            return $this->getConfig('customs_type', 'shipment', $_storeId);
-        } else {
-            return implode(',', $hs);
-        }
-    }
-
-    /**
-     * Get HS code from categories or default settings
-     *
-     * @param $item
-     * @param $_storeId
-     *
-     * @return string
-     */
-    public function getHsCode($item, $_storeId)
-    {
-        $hs = '';
-        /** @var Mage_Sales_Model_Order_Item $item */
-        /** @var Mage_Catalog_Model_Category $category */
-        foreach ($item->getProduct()->getCategoryIds() as $categoryId) {
-            $cat = Mage::getModel('catalog/category')->load($categoryId);
-            if ($cat->getHs() && $cat->getHs() > 1000 && $cat->getHs() < 9999) {
-                $hs = $cat->getHs();
-            }
-        }
-
-        if ($hs == '') {
-            return $this->getConfig('customs_type', 'shipment', $_storeId);
-        } else {
-            return $hs;
-        }
     }
 
     /**

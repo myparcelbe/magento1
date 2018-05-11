@@ -41,13 +41,13 @@
 <?php $_version = (string) Mage::getConfig()->getModuleConfig("TIG_MyParcelBE")->version; ?>
 <tr>
     <td>
-        <h2 class="content-heading"><?php echo $_helper->__('MyParcel version %s', $_version);?></h2>
+        <h2 class="content-heading"><?php echo $_helper->__('MyParcel BE version %s', $_version);?></h2>
         <table id="supportWrap" cellpadding="0" cellspacing="0">
             <tr>
                 <td colspan="3">
                     <div class="text-box">
-                        <?php $url = 'https://myparcelnl.github.io/magento1/';?>
-                        <h4><?php echo $_helper->__('To read the instructions for the MyParcel Magento extension, click <a target="_blank" href="%s">here</a>.',$url); ?></h4>
+                        <?php $url = 'https://myparcelbe.github.io/magento1/';?>
+                        <h4><?php echo $_helper->__('To read the instructions for the MyParcel BE Magento extension, click <a target="_blank" href="%s">here</a>.',$url); ?></h4>
                     </div>
                 </td>
             </tr>
@@ -58,16 +58,16 @@
                         <h3><?php echo $_helper->__('When using the extension please note:');?></h3>
                         <ol>
                             <li>
-                                <?php echo $_helper->__('To be able to configure the extension you need to possess and use an active MyParcel account.');?>
+                                <?php echo $_helper->__('To be able to configure the extension you need to possess and use an active MyParcel BE account.');?>
                             </li>
                             <li>
-                                <?php echo $_helper->__('During the transition phase the old Magento MyParcel extension can remain active. However, you do need to turn off PakjeGemak in the old MyParcel extension.');?>
+                                <?php echo $_helper->__('During the transition phase the old Magento MyParcel BE extension can remain active. However, you do need to turn off PakjeGemak in the old MyParcel BE extension.');?>
                             </li>
                         </ol>
                     </div>
                     <div class="text-box">
                         <h3><?php echo $_helper->__('Magento &amp; 3rd party version compatibility');?></h3>
-                        <p><?php echo $_helper->__('We cannot guarantee perfect functionality of the MyParcel extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact MyParcel.<br><br>Supported extensions:'); ?></p>
+                        <p><?php echo $_helper->__('We cannot guarantee perfect functionality of the MyParcel BE extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact MyParcel BE.<br><br>Supported extensions:'); ?></p>
                         <ul>
                             <li><?php echo $_helper->__('Magento Community Edition version');?> v1.6, v1.7, v1.8 &amp; v1.9</li>
                             <li><?php echo $_helper->__("Idev's OneStepCheckout version");?> v4.0, v4.1 &amp; v4.5</li>
@@ -82,11 +82,11 @@
                 <td class="col-right">
                     <div class="text-box">
                         <h3><?php echo $_helper->__('Support');?></h3>
-                        <h4><?php echo $_helper->__('Questions and information about your MyParcel account');?></h4>
-                        <p><?php echo $_helper->__('For questions related to your MyParcel account, configuration problems, extension conflicts and bugs, please contact MyParcel.');?></p>
+                        <h4><?php echo $_helper->__('Questions and information about your MyParcel BE account');?></h4>
+                        <p><?php echo $_helper->__('For questions related to your MyParcel BE account, configuration problems, extension conflicts and bugs, please contact MyParcel BE.');?></p>
                         <table class="contact tig">
                             <tr>
-                                <td class="first"><?php echo $_helper->__('MyParcel');?>:</td>
+                                <td class="first"><?php echo $_helper->__('MyParcel BE');?>:</td>
                                 <td class="last">
                                     <a target="_blank" href="http://www.sendmyparcel.be">www.sendmyparcel.be</a>
                                 </td>
@@ -98,7 +98,7 @@
                             </tr>
                             <tr>
                                 <td class="first"><?php echo $_helper->__('Phone');?>:</td>
-                                <td class="last">023 - 30 30 315</td>
+                                <td class="last">03 808 18 20</td>
 
                             </tr>
                             <tr>
@@ -111,33 +111,33 @@
                         <h3><?php echo $_helper->__('Documents');?></h3>
                         <ul>
                             <li>
-                                <a class="link" target="_blank" href="https://github.com/myparcelnl/magento1/releases/latest" title="<?php echo $_helper->__('Latest stable release');?>">
+                                <a class="link" target="_blank" href="https://github.com/myparcelbe/magento1/releases/latest" title="<?php echo $_helper->__('Latest stable release');?>">
                                     <?php echo $_helper->__('Latest stable release');?>
                                 </a>  <span id="current_version"></span>
                                 <script>
-                                    mypajQuery.get('https://api.github.com/repos/myparcelnl/magento1/releases/latest', function (data) {
+                                    mypajQuery.get('https://api.github.com/repos/myparcelbe/magento1/releases/latest', function (data) {
                                         mypajQuery('#current_version').html('(' + data.name + ')');
                                     });
                                 </script>
                             </li>
                             <li>
-                                <a class="link" target="_blank" href="https://github.com/myparcelnl/magento1/releases" title="<?php echo $_helper->__('Full changelog');?>">
+                                <a class="link" target="_blank" href="https://github.com/myparcelbe/magento1/releases" title="<?php echo $_helper->__('Full changelog');?>">
                                     <?php echo $_helper->__('Full changelog');?>
                                 </a>
                             </li>
                             <li>
-                                <a class="link" target="_blank" href="https://myparcelnl.github.io/magento1/" title="<?php echo $_helper->__('Installation and configuration instructions');?>">
+                                <a class="link" target="_blank" href="https://myparcelbe.github.io/magento1/" title="<?php echo $_helper->__('Installation and configuration instructions');?>">
                                     <?php echo $_helper->__('Installation and configuration instructions');?>
                                 </a>
                             </li>
                             <li>
-                                <a class="link" target="_blank" href="https://myparcelnl.github.io/magento1/#6" title="<?php echo $_helper->__('Overview articles in knowledge base');?>">
+                                <a class="link" target="_blank" href="https://myparcelbe.github.io/magento1/#6" title="<?php echo $_helper->__('Overview articles in knowledge base');?>">
                                     <?php echo $_helper->__('Overview articles in knowledge base');?>
                                 </a>
                             </li>
                             <li>
-                                <a class="link" target="_blank" href="https://backoffice.sendmyparcel.be/settings" title="<?php echo $_helper->__('MyParcel backoffice');?>">
-                                    <?php echo $_helper->__('MyParcel backoffice');?>
+                                <a class="link" target="_blank" href="https://backoffice.sendmyparcel.be/settings" title="<?php echo $_helper->__('MyParcel BE backoffice');?>">
+                                    <?php echo $_helper->__('MyParcel BE backoffice');?>
                                 </a>
                             </li>
                         </ul>
