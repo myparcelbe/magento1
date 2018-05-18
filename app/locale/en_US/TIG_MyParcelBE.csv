@@ -32,7 +32,7 @@ TIG_MyParcelBE::Selecting 'No' will overrule all individual settings.,Selecting 
 TIG_MyParcelBE::General Settings,General Settings
 TIG_MyParcelBE::API Key,API Key
 TIG_MyParcelBE::The API Key given by MyParcel BE.,The API Key given by MyParcel BE.
-TIG_MyParcelBE::To get your personal API credentials please contact MyParcel BE.,To get your personal API credentials please contact MyParcel BE.
+TIG_MyParcelBE::To get your personal API credentials please contact MyParcel Belgium.,To get your personal API credentials please contact MyParcel Belgium.
 TIG_MyParcelBE::API settings,API settings
 TIG_MyParcelBE::Version &amp; Support,Version &amp; Support
 TIG_MyParcelBE::The log files cannot be downloaded.,The log files cannot be downloaded.
