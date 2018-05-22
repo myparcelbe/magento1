@@ -89,7 +89,7 @@ TIG_MyParcelBE::Pickup Belgium title,Ophalen België titel
 TIG_MyParcelBE::Pickup Belgium fee,Ophalen België prijs
 TIG_MyParcelBE::API Key,API Key,
 TIG_MyParcelBE::The API Key given by MyParcel BE.,Stel hier de API key in die is ontvangen vanuit MyParcel BE.
-TIG_MyParcelBE::To get your personal API credentials please contact MyParcel BE.,Neem contact op met MyParcel BE om de API gegevens te ontvangen.
+TIG_MyParcelBE::To get your personal API credentials please contact MyParcel Belgium.,Neem contact op met MyParcel België om de API gegevens te ontvangen.
 TIG_MyParcelBE::API settings,API Instellingen
 TIG_MyParcelBE::"Wrong API key. Go to MyParcel settings to set the API key.","Verkeerde API key. Ga naar de instellingen van de MyParcel plugin om de juiste API key in te vullen."
 TIG_MyParcelBE::Version &amp; Support,Versie &amp; Support
@@ -250,7 +250,7 @@ TIG_MyParcelBE::Post Office Address,Gekozen afhaallocatie
 "TIG_MyParcelBE::The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a MyParcel shipment, select a different shipment type or go to the shipment page to create a single MyParcel shipment. <a target=""_blank"" href=""%s"">View shipment</a>","De geselecteerde zending type kan niet gebruikt worden. 'bpost locatie' zendingen kunnen enkel aangemaakt worden middels de normale verzendtype. <br/>De Magento zending is aangemaakt zonder een MyParcel zending, selecteer een ander verzend type of ga naar de Magento zending pagina en maak daar een MyParcel zending aan. <a target=""_blank"" href=""%s"">Bekijk zending</a>"
 TIG_MyParcelBE::Only for dutch shipments,Alleen voor Nederlandse verzendingen
 "TIG_MyParcelBE::Only for dutch shipments, shipments to outside of the EU are standard ensured up to &euro 200","Alleen voor Nederlandse verzendingen, zendingen naar landen buiten de EU zijn standaard verzekerd tot &euro; 200"
-TIG_MyParcelBE::Always use MyParcel,Gebruik MyParcel voor alle verzendmethodes
+TIG_MyParcelBE::Always use MyParcel BE,Gebruik MyParcel voor alle verzendmethodes
 "TIG_MyParcelBE::Select 'No' in order to set the shipping methods that must be regarded as MyParcel BE.","Selecteer 'Nee' om de verzendmethodes in te stellen die als MyParcel BE beschouwd moet worden."
 TIG_MyParcelBE::Use shipment address for bpost location,Voeg bpost locatie toe aan het afleveradres
 TIG_MyParcelBE::Use shipment address for 'Ophalen op een bpost locatie'. The customer will see the address on the invoice. Set to 'No' if you are using AfterPay.,Gebruik het afleveradres voor 'Ophalen op een bpost locatie'. De klant zal het adres op het factuur zien. Stel in op 'Nee' als je bijvoorbeeld AfterPay gebruikt.
