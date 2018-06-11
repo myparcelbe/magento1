@@ -35,7 +35,8 @@ setTimeout(function () {
         "input[id='billing:street1']",
         "input[id='billing:street2']",
         "input[id='billing:postcode_housenumber']",
-        "input[id='billing:postcode']"
+        "input[id='billing:postcode']",
+        "input[id='billing:city']"
     ].join()).on('change', function () {
         setTimeout(function () {
             $('billing:country_id').triggerEvent('change');
