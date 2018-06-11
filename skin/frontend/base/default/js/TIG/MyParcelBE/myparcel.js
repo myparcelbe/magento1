@@ -9,7 +9,6 @@ MyParcel = {
             success: function (response) {
 
                 data = response.data;
-
                 price = [];
 
                 price['default'] = '&#8364; ' + data.general['base_price'].toFixed(2).replace(".", ",");
@@ -44,6 +43,7 @@ MyParcel = {
                             countryCode: address['country'],
                             street: address['street'],
                             number: address['number'],
+                            city: address['city'],
                             cutoffTime: data.general['cutoff_time'],
                             dropOffDays: data.general['dropoff_days'],
                             allowBpostSaturdayDelivery: data.delivery['saturday_delivery_active'] ? 1 : 0,
@@ -872,6 +872,7 @@ MyParcel = {
                 cc: myParcelConfig.countryCode,
                 street: myParcelConfig.street,
                 number: myParcelConfig.number,
+                city: myParcelConfig.city,
                 cutoff_time: myParcelConfig.cutoffTime,
                 dropoff_days: myParcelConfig.dropOffDays,
                 dropoff_delay: myParcelConfig.dropOffDelay,
