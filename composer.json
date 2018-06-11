@@ -1,10 +1,10 @@
 {
-    "name": "tig/myparcel2014",
-    "description": "Magento MyParcel plug-in",
+    "name": "tig/myparcelbe",
+    "description": "Magento MyParcel BE plug-in",
     "type": "magento-module",
     "license": "GNU",
     "minimum-stability": "stable",
-    "homepage": "https://github.com/myparcelnl/magento1",
+    "homepage": "https://github.com/myparcelbe/magento1",
     "require": {
         "magento-hackathon/magento-composer-installer": "*"
     }
