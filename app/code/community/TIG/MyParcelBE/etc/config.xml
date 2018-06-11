@@ -2,7 +2,7 @@
 <config>
     <modules>
         <TIG_MyParcelBE>
-            <version>2.0.0</version>
+            <version>1.15.0</version>
         </TIG_MyParcelBE>
     </modules>
     <global>
