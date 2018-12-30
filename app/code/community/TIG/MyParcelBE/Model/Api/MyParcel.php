@@ -798,7 +798,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
         if ($pgAddress && $helper->shippingMethodIsPakjegemak($shippingMethod)) {
             $pgStreetData      = $helper->getStreetData($pgAddress);
-            $data['options']['signature'] = 1;
+            $data['options']['signature'] = 0;
             $data['pickup'] = array(
                 'postal_code'       => trim($pgAddress->getPostcode()),
                 'street'            => trim($pgStreetData['streetname']),

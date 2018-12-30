@@ -210,8 +210,8 @@ MyParcel = {
         });
     },
     getDeliveryTime: function (configDeliveryTitel, deliveryMoment, deliveryTitel, startTime, endTime) {
-        startTime = startTime.replace(/(.*)\D\d+/, '$1');
-        endTime = endTime.replace(/(.*)\D\d+/, '$1');
+        // startTime = startTime.replace(/(.*)\D\d+/, '$1');
+        // endTime = endTime.replace(/(.*)\D\d+/, '$1');
 
         mypajQuery('#mypa-'+deliveryMoment+'-titel').html(deliveryTitel);
 
