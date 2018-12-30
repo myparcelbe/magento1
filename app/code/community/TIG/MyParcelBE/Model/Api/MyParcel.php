@@ -715,7 +715,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
             }
 
             if($data['options']['package_type'] == 2){
-                throw new TIG_MyParcel2014_Exception(
+                throw new TIG_MyParcelBE_Exception(
                     $helper->__('International shipments can not be sent by') . ' ' . strtolower($helper->__('Letter box')),
                     'MYPA-0027'
                 );
@@ -759,7 +759,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                         $customsContentTypeItem = key_exists($i, $customsContentType) ? $customsContentType[$i] : $customsContentType[0];
                     }
                     if(!$customsContentTypeItem) {
-                        throw new TIG_MyParcel2014_Exception(
+                        throw new TIG_MyParcelBE_Exception(
                             $helper->__('No Customs Content HS Code found. Go to the MyParcel plugin settings to set this code.'),
                             'MYPA-0026'
                         );
