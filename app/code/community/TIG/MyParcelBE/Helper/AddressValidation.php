@@ -1,5 +1,24 @@
 <?php
 /**
+ *                  ___________       __            __
+ *                  \__    ___/____ _/  |_ _____   |  |
+ *                    |    |  /  _ \\   __\\__  \  |  |
+ *                    |    | |  |_| ||  |   / __ \_|  |__
+ *                    |____|  \____/ |__|  (____  /|____/
+ *                                              \/
+ *          ___          __                                   __
+ *         |   |  ____ _/  |_   ____ _______   ____    ____ _/  |_
+ *         |   | /    \\   __\_/ __ \\_  __ \ /    \ _/ __ \\   __\
+ *         |   ||   |  \|  |  \  ___/ |  | \/|   |  \\  ___/ |  |
+ *         |___||___|  /|__|   \_____>|__|   |___|  / \_____>|__|
+ *                  \/                           \/
+ *                  ________
+ *                 /  _____/_______   ____   __ __ ______
+ *                /   \  ___\_  __ \ /  _ \ |  |  \\____ \
+ *                \    \_\  \|  | \/|  |_| ||  |  /|  |_| |
+ *                 \______  /|__|    \____/ |____/ |   __/
+ *                        \/                       |__|
+ *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Creative Commons License.
@@ -131,8 +150,9 @@ class TIG_MyParcelBE_Helper_AddressValidation extends TIG_MyParcelBE_Helper_Data
                     return $address;
 
                 $address['street'] = $streetData['fullStreet'];
-                $address['number'] = $streetData['number'];
+                $address['number'] = $streetData['housenumber'];
                 $address['city'] = $quote->getBillingAddress()->getCity();
+
             }
         } else {
 			$address['full_street'] = $quote->getShippingAddress()->getStreetFull();
@@ -150,7 +170,7 @@ class TIG_MyParcelBE_Helper_AddressValidation extends TIG_MyParcelBE_Helper_Data
                     return $address;
 
                 $address['street'] = $streetData['fullStreet'];
-                $address['number'] = $streetData['number'];
+                $address['number'] = $streetData['housenumber'];
                 $address['city'] = $quote->getShippingAddress()->getCity();
             }
         }
@@ -172,7 +192,7 @@ class TIG_MyParcelBE_Helper_AddressValidation extends TIG_MyParcelBE_Helper_Data
                     return $address;
 
                 $address['street'] = $streetData['fullStreet'];
-                $address['number'] = $streetData['number'];
+                $address['number'] = $streetData['housenumber'];
                 $address['city'] = $tmpAddress->getCity();
             }
         }

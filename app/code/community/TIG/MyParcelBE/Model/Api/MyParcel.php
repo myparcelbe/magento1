@@ -1,5 +1,24 @@
 <?php
 /**
+ *                  ___________       __            __
+ *                  \__    ___/____ _/  |_ _____   |  |
+ *                    |    |  /  _ \\   __\\__  \  |  |
+ *                    |    | |  |_| ||  |   / __ \_|  |__
+ *                    |____|  \____/ |__|  (____  /|____/
+ *                                              \/
+ *          ___          __                                   __
+ *         |   |  ____ _/  |_   ____ _______   ____    ____ _/  |_
+ *         |   | /    \\   __\_/ __ \\_  __ \ /    \ _/ __ \\   __\
+ *         |   ||   |  \|  |  \  ___/ |  | \/|   |  \\  ___/ |  |
+ *         |___||___|  /|__|   \_____>|__|   |___|  / \_____>|__|
+ *                  \/                           \/
+ *                  ________
+ *                 /  _____/_______   ____   __ __ ______
+ *                /   \  ___\_  __ \ /  _ \ |  |  \\____ \
+ *                \    \_\  \|  | \/|  |_| ||  |  /|  |_| |
+ *                 \______  /|__|    \____/ |____/ |   __/
+ *                        \/                       |__|
+ *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Creative Commons License.
@@ -52,6 +71,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
      * Shipment v2 endpoint active from x number of orders
      */
     const SHIPMENT_V2_ACTIVE_FROM = 25;
+    const MAX_STREET_LENGTH = 40;
 
     /**
      * @var string
@@ -322,6 +342,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
         }
 
         $header = $this->requestHeader;
+
         //do the curl request
         if($method == 'POST'){
 
@@ -656,27 +677,30 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
         $email           = $myParcelShipment->getOrder()->getCustomerEmail();
 
         $data = array(
-            'recipient'         => array(
-                'cc'                => $shippingAddress->getCountry(),
-                'person'            => trim($shippingAddress->getName()),
-                'company'           => (string) trim($shippingAddress->getCompany()),
-                'postal_code'       => trim($shippingAddress->getPostcode()),
-                'street'            => trim($streetData['streetname']),
-                'number'            => trim($streetData['number']),
-                'box_number'        => trim($streetData['box_number']),
-                'city'              => trim($shippingAddress->getCity()),
-                'email'             => $email,
+            'recipient'     => array(
+                'cc'    =>      $shippingAddress->getCountry(),
+                'person'        => trim($shippingAddress->getName()),
+                'company'       => (string) trim($shippingAddress->getCompany()),
+                'postal_code'  => trim($shippingAddress->getPostcode()),
+                'street'        => trim($streetData['streetname']),
+                'number'        => trim($streetData['housenumber']),
+                'box_number' => trim($streetData['housenumberExtension']),
+                'city'          => trim($shippingAddress->getCity()),
+                'email'         => $email,
             ),
             'options'    => $this->_getOptionsData($myParcelShipment, $checkoutData),
         );
 
-        $phone           = $order->getBillingAddress()->getTelephone();
-        if ($phone)
-            $data['recipient']['phone'] = $phone;
-
         if ($myParcelShipment->getShippingAddress()->getCountry() != 'BE') {
-            unset($streetData['fullStreet']);
-            $data['recipient']['street'] = trim(str_replace('  ', ' ', implode(' ', $streetData)));
+            $phone           = $order->getBillingAddress()->getTelephone();
+            if ($phone)
+                $data['recipient']['phone'] = $phone;
+
+            $streetParts = $this->getInternationalStreetParts($streetData);
+            $data['recipient']['street'] = $streetParts[0];
+            if (isset($streetParts[1])) {
+                $data['recipient']['street_additional_info'] = $streetParts[1];
+            }
             unset($data['recipient']['number']);
             unset($data['recipient']['box_number']);
         }
@@ -690,9 +714,18 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                 $customsContentType = explode(',', $myParcelShipment->getCustomsContentType());
             }
 
+            if($data['options']['package_type'] == 2){
+                throw new TIG_MyParcel2014_Exception(
+                    $helper->__('International shipments can not be sent by') . ' ' . strtolower($helper->__('Letter box')),
+                    'MYPA-0027'
+                );
+            }
+
             $data['customs_declaration']                        = array();
             $data['customs_declaration']['items']               = array();
             $data['customs_declaration']['invoice']             = $order->getIncrementId();
+            $customType = (int)$helper->getConfig('customs_type', 'shipment', $storeId);
+            $data['customs_declaration']['contents']            = $customType == 0 ? 1 : $customType;
 
             $totalWeight = 0;
             $items = $myParcelShipment->getOrder()->getAllItems();
@@ -724,6 +757,12 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
                     if(!empty($customsContentType)){
                         $customsContentTypeItem = key_exists($i, $customsContentType) ? $customsContentType[$i] : $customsContentType[0];
+                    }
+                    if(!$customsContentTypeItem) {
+                        throw new TIG_MyParcel2014_Exception(
+                            $helper->__('No Customs Content HS Code found. Go to the MyParcel plugin settings to set this code.'),
+                            'MYPA-0026'
+                        );
                     }
 
                     $itemDescription = $item->getName();
@@ -764,7 +803,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                 'postal_code'       => trim($pgAddress->getPostcode()),
                 'street'            => trim($pgStreetData['streetname']),
                 'city'              => trim($pgAddress->getCity()),
-                'number'            => trim($pgStreetData['number']),
+                'number'            => trim($pgStreetData['housenumber']),
                 'location_name'     => trim($pgAddress->getCompany()),
             );
 
@@ -803,8 +842,9 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
             case $myParcelShipment::TYPE_NORMAL:
             default:
                 $packageType = 1;
-			break;
+                break;
         }
+
 
         $data = array(
             'package_type'          => $packageType,
@@ -832,6 +872,11 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                     $nextDeliveryDay = $this->getNextDeliveryDay($currentDateTime);
                     $data['delivery_date'] = $nextDeliveryDay->format('Y-m-d 00:00:00');
                 }
+
+                if ((int) $helper->getConfig('deliverydays_window', 'checkout') > 1) {
+                    $dateTime = date_parse($checkoutData['date']);
+                    $data['label_description'] = $data['label_description'] . ' (' . $dateTime['day'] . '-' . $dateTime['month'] . ')';
+                }
             }
         }
 
@@ -840,7 +885,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
             $data['insurance']['currency'] = 'EUR';
         }
 
-		if ($myParcelShipment->getShippingAddress()->getCountry() != 'NL') {
+		if ($myParcelShipment->getShippingAddress()->getCountry() != 'BE') {
 			// strip all Dutch domestic options if shipment is not NL
 			unset($data['signature']);
 			unset($data['delivery_date']);
@@ -919,4 +964,22 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
         return implode(';',$aPositions);
     }
+
+	/**
+	 * Wraps a street to max street lenth
+	 *
+	 * @param $streetData
+	 *
+	 * @return array
+	 */
+	private function getInternationalStreetParts ($streetData)
+	{
+		unset($streetData['fullStreet']);
+
+		// replace double whitespaces
+		$street = trim( str_replace( '  ', ' ', implode( ' ', $streetData ) ) );
+
+		// split street in 2 parts
+		return explode("\n", wordwrap($street, self::MAX_STREET_LENGTH));
+	}
 }
