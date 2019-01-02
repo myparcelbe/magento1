@@ -264,7 +264,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
         $header[] = $requestHeader . 'charset=utf-8';
         $header[] = 'Authorization: basic ' . base64_encode($this->apiKey);
         $header[] = 'User-Agent:'. $this->_getUserAgent();
-        
+
         $this->requestHeader   = $header;
 
         return $this;
@@ -355,7 +355,6 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
         //read the response
         $response = $request->read();
-
         $aResult = json_decode($response, true);
 
         if ($this->requestType == self::REQUEST_TYPE_SETUP_LABEL) {
@@ -825,53 +824,42 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                 $packageType = 1;
                 break;
         }
-
-
+        
         $data = array(
             'package_type'          => $packageType,
             'signature'             => (int)$myParcelShipment->isSignatureOnReceipt(),
             'label_description' => $myParcelShipment->getOrder()->getIncrementId(),
         );
-
         if ($checkoutData !== null) {
-
             if (key_exists('time', $checkoutData) && key_exists('price_comment', $checkoutData['time'][0]) && $checkoutData['time'][0]['price_comment'] !== null) {
                 $data['delivery_type'] = self::TYPE_STANDARD;
             } elseif (key_exists('price_comment', $checkoutData) && $checkoutData['price_comment'] !== null) {
                 $data['delivery_type'] = self::TYPE_RETAIL;
             }
-
-            if (key_exists('date', $checkoutData) && $checkoutData['date'] !== null) {
-
-                $checkoutDateTime = $checkoutData['date'] . ' 00:00:00';
-                $currentDateTime = $currentDate = new dateTime();
-                $currentDate = $currentDate->format('Y-m-d') . ' 00:00:00';
-                if (date_parse($checkoutDateTime) > date_parse($currentDate)) {
-                    $data['delivery_date'] = $checkoutDateTime;
-                } else {
-                    $currentDateTime->modify('+1 day');
-                    $nextDeliveryDay = $this->getNextDeliveryDay($currentDateTime);
-                    $data['delivery_date'] = $nextDeliveryDay->format('Y-m-d 00:00:00');
-                }
-
-                if ((int) $helper->getConfig('deliverydays_window', 'checkout') > 1) {
-                    $dateTime = date_parse($checkoutData['date']);
-                    $data['label_description'] = $data['label_description'] . ' (' . $dateTime['day'] . '-' . $dateTime['month'] . ')';
-                }
-            }
+            // For BE it is not possible to send a delivery date. This option will be possible later.
+            //  if (key_exists('date', $checkoutData) && $checkoutData['date'] !== null) {
+            //      $checkoutDateTime = $checkoutData['date'] . ' 00:00:00';
+            //      $currentDateTime = $currentDate = new dateTime();
+            //      $currentDate = $currentDate->format('Y-m-d') . ' 00:00:00';
+            //      if (date_parse($checkoutDateTime) > date_parse($currentDate)) {
+            //          $data['delivery_date'] = $checkoutDateTime;
+            //      } else {
+            //          $currentDateTime->modify('+1 day');
+            //          $nextDeliveryDay = $this->getNextDeliveryDay($currentDateTime);
+            //          $data['delivery_date'] = $nextDeliveryDay->format('Y-m-d 00:00:00');
+            //      }
+            //  }
         }
-
         if ((int)$myParcelShipment->getInsured() === 1 && $data['package_type'] != 2) {
             $data['insurance']['amount'] = $this->_getInsuredAmount($myParcelShipment) * 100;
             $data['insurance']['currency'] = 'EUR';
         }
 
-		if ($myParcelShipment->getShippingAddress()->getCountry() != 'BE') {
-			// strip all Dutch domestic options if shipment is not NL
-			unset($data['signature']);
-			unset($data['delivery_date']);
-		}
-
+        if ($myParcelShipment->getShippingAddress()->getCountry() != 'BE') {
+            // strip all Dutch domestic options if shipment is not BE
+            unset($data['signature']);
+            // unset($data['delivery_date']);
+        }
         return $data;
     }
 
