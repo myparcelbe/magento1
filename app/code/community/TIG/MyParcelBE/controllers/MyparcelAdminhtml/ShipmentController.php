@@ -659,8 +659,8 @@ class TIG_MyParcelBE_MyparcelAdminhtml_ShipmentController extends Mage_Adminhtml
         if ($error == null) {
 
             $data = array(
-                'cc' => 'NL',
-                'carrier' => 1,
+                'cc' => 'BE',
+                'carrier' => 2,
                 'email' => $email,
                 'name' => $name,
                 'options' => array(
