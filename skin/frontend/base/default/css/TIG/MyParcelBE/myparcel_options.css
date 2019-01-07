@@ -232,9 +232,8 @@
     display: inline-block;
     width: 90px;
     height: 90px;
-    border-top: 3px solid #ff8c00;
+    border-top: 3px solid #ef2736;
     border-radius: 100%;
-    border-top-color: #ff8c00;
     animation: mypa-spin 1.2s linear infinite;
 
 }
