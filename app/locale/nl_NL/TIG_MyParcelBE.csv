@@ -32,6 +32,7 @@ TIG_MyParcelBE::General settings,Algemene instellingen
 TIG_MyParcelBE::Basic settings,Basis instellingen
 TIG_MyParcelBE::Checkout settings,Checkout instellingen
 TIG_MyParcelBE::Cut-off time,Het laatste bestelmoment
+TIG_MyParcelBE::Show delivery date,Bezorgdatum laten zien
 "TIG_MyParcelBE::If a request is made for the delivery options between Friday after, and Monday before, cut-off time then Tuesday will be shown as the next possible delivery date.","Als een bestelling tussen vrijdag na, en maandag voor, het opgegeven bestelmoment wordt gedaan dan zal dinsdag worden getoond als eerstvolgende afleverdag."
 TIG_MyParcelBE::day,dag
 TIG_MyParcelBE::days,dagen
