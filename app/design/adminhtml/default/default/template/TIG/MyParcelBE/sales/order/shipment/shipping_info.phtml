@@ -25,7 +25,6 @@ $_storeId                   = $this->getOrderStoreId();
 $_helper                    = Mage::helper('tig_myparcel');
 $_shipment                  = $this->getShipment();
 $_customsTypeOptions        = $this->getCustomsTypeOptions();
-$_defaultCustomsContentCode = $_helper->getConfig('customs_hstariffnr', 'shipment', $_storeId);
 $_homeSelected              = $this->getIsHomeSelected();
 $_signatureSelected         = $this->getIsSignatureOnReceipt();
 $_returnNoAnswerSelected    = $this->getIsReturnOnNoAnswer();

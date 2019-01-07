@@ -527,12 +527,6 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
      */
     protected function _getInternationalFullStreet($address)
     {
-        if (!$address->getStreet2() ||
-            $this->getConfig('prefix_street2_international_addresses', 'shipment') === '0'
-        ) {
-            return preg_replace("/[\n\r]/", " ", $address->getStreetFull());
-        }
-
         $numberBeforeStreetCountry = array('CN', 'FR', 'GR', 'IE', 'IL', 'JP', 'LU', 'MY', 'MA', 'NZ', 'SG', 'GB', 'US', 'VS');
         if (in_array($address->getCountry(), $numberBeforeStreetCountry)) {
             return $address->getStreet2() . ' ' . $address->getStreet1();

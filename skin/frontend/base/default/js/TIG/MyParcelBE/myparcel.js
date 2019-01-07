@@ -155,11 +155,8 @@ MyParcel = {
         }
 
         /* Prices */
-        mypajQuery('#mypa-morning-delivery').html(MyParcel.getPriceHtml(this.data.config.priceMorningDelivery));
-        mypajQuery('#mypa-evening-delivery').html(MyParcel.getPriceHtml(this.data.config.priceEveningDelivery));
         mypajQuery('#mypa-normal-delivery').html(MyParcel.getPriceHtml(this.data.config.priceNormalDelivery));
         mypajQuery('#mypa-signature-price').html(MyParcel.getPriceHtml(this.data.config.priceSignature));
-        mypajQuery('#mypa-only-recipient-price').html(MyParcel.getPriceHtml(this.data.config.priceOnlyRecipient));
         mypajQuery('#mypa-pickup-price').html(MyParcel.getPriceHtml(this.data.config.pricePickup));
 
         /* Call delivery options */
@@ -196,9 +193,6 @@ MyParcel = {
 
         var selectedDate 	= mypajQuery('#mypa-select-date').val();
         var selectDateKey 	= MyParcel.storeDeliveryOptions.data.delivery[selectedDate]['time'];
-
-        MyParcel.hideMorningDelivery();
-        MyParcel.hideEveningDelivery();
 
         mypajQuery.each(selectDateKey, function(key, value){
 
@@ -254,10 +248,6 @@ MyParcel = {
             MyParcel.showPickUpLocations();
         });
 
-        mypajQuery('#method-myparcel-delivery-morning, #method-myparcel-delivery-evening').on('click', function(){
-            MyParcel.defaultCheckCheckbox('mypa-only-recipient');
-        });
-
         /* Mobile specific triggers */
         if(isMobile){
             mypajQuery('#mypa-show-location-details').on('click', function(){
@@ -306,35 +296,10 @@ MyParcel = {
 
     mapExternalWebshopTriggers: function () {
         MyParcel.DELIVERY_SIGNED = 0;
-        MyParcel.DELIVERY_ONLY_RECIPIENT = 0;
         MyParcel.removeStyleFromPrice();
 
         if (typeof MyParcel.data.deliveryOptions === 'undefined') {
             console.info('MyParcel.data.deliveryOptions not found');
-            return;
-        }
-
-        /**
-         * Morning delivery
-         *
-         */
-        if (mypajQuery('#method-myparcel-delivery-morning').prop('checked'))
-        {
-            mypajQuery('#s_method_myparcel_morning').click();
-            MyParcel.DELIVERY_ONLY_RECIPIENT = 1;
-            MyParcel.addStyleToPrice('#mypa-morning-delivery, #mypa-only-recipient-price');
-
-            /**
-             * Signature
-             */
-            if (mypajQuery('#mypa-signature-selector').prop('checked'))
-            {
-                mypajQuery('#s_method_myparcel_morning_signature').click();
-                MyParcel.DELIVERY_SIGNED = 1;
-                MyParcel.addStyleToPrice('#mypa-signature-price');
-            }
-
-            MyParcel.addDeliveryToMagentoInput(MyParcel.DELIVERY_MORNING);
             return;
         }
 
@@ -347,17 +312,6 @@ MyParcel = {
             MyParcel.addStyleToPrice('#mypa-normal-delivery');
 
             /**
-             * Signature and only recipient
-             */
-            if (mypajQuery('#mypa-signature-selector').prop('checked') && mypajQuery('#mypa-only-recipient-selector').prop('checked'))
-            {
-                mypajQuery('#s_method_myparcel_delivery_signature_and_only_recipient_fee').click();
-                MyParcel.DELIVERY_SIGNED = 1;
-                MyParcel.DELIVERY_ONLY_RECIPIENT = 1;
-                MyParcel.addStyleToPrice('#mypa-signature-price, #mypa-only-recipient-price');
-            } else
-
-            /**
              * Signature
              */
             if (mypajQuery('#mypa-signature-selector').prop('checked'))
@@ -365,17 +319,6 @@ MyParcel = {
                 mypajQuery('#s_method_myparcel_delivery_signature').click();
                 MyParcel.DELIVERY_SIGNED = 1;
                 MyParcel.addStyleToPrice('#mypa-signature-price');
-
-            } else
-
-            /**
-             * Only recipient
-             */
-            if (mypajQuery('#mypa-only-recipient-selector').prop('checked'))
-            {
-                mypajQuery('#s_method_myparcel_delivery_only_recipient').click();
-                MyParcel.DELIVERY_ONLY_RECIPIENT = 1;
-                MyParcel.addStyleToPrice('#mypa-only-recipient-price');
 
             } else {
                 mypajQuery('#s_method_myparcel_flatrate, #s_method_myparcel_tablerate').click();
@@ -386,47 +329,12 @@ MyParcel = {
         }
 
         /**
-         * Evening delivery
-         *
-         */
-        if (mypajQuery('#method-myparcel-delivery-evening').prop('checked'))
-        {
-            mypajQuery('#s_method_myparcel_evening').click();
-            MyParcel.DELIVERY_ONLY_RECIPIENT = 1;
-            MyParcel.addStyleToPrice('#mypa-evening-delivery, #mypa-only-recipient-price');
-
-            /**
-             * Signature
-             */
-            if (mypajQuery('#mypa-signature-selector').prop('checked'))
-            {
-                mypajQuery('#s_method_myparcel_evening_signature').click();
-                MyParcel.DELIVERY_SIGNED = 1;
-                MyParcel.addStyleToPrice('#mypa-signature-price');
-            }
-
-            MyParcel.addDeliveryToMagentoInput(MyParcel.DELIVERY_NIGHT);
-            return;
-        }
-
-        /**
          * Pickup
          *
          */
         if (mypajQuery('#mypa-pickup-delivery').prop('checked') || mypajQuery('#mypa-pickup-selector').prop('checked'))
         {
-            /**
-             * Early morning pickup
-             */
-            if (mypajQuery('#mypa-pickup-express-selector').prop('checked'))
-            {
-                mypajQuery('#s_method_myparcel_pickup_express').click();
-                MyParcel.addPickupToMagentoInput('retailexpress');
-                MyParcel.addStyleToPrice('#mypa-pickup-express-price');
-                return;
-            }else{
-                MyParcel.addStyleToPrice('#mypa-pickup-price');
-            }
+            MyParcel.addStyleToPrice('#mypa-pickup-price');
 
             mypajQuery('#s_method_myparcel_pickup').click();
             MyParcel.addPickupToMagentoInput('retail');
@@ -466,7 +374,6 @@ MyParcel = {
 
         if (currentDeliveryData !== null) {
             currentDeliveryData.signed = MyParcel.DELIVERY_SIGNED;
-            currentDeliveryData.only_recipient = MyParcel.DELIVERY_ONLY_RECIPIENT
             mypajQuery('#mypa-input').val(JSON.stringify(currentDeliveryData));
         }
         if (typeof window.mypa != 'undefined') {
@@ -595,8 +502,6 @@ MyParcel = {
         MyParcel.hideNormalDelivery();
         MyParcel.hideSignature();
         MyParcel.hideOnlyRecipient();
-        MyParcel.hideMorningDelivery();
-        MyParcel.hideEveningDelivery();
 
     },
 
@@ -653,16 +558,6 @@ MyParcel = {
         mypajQuery('#mypa-spinner-model').hide();
     },
 
-    showMorningDelivery: function()
-    {
-        mypajQuery('#method-myparcel-delivery-morning-div').show();
-    },
-
-    hideMorningDelivery: function()
-    {
-        mypajQuery('#method-myparcel-delivery-morning-div').hide();
-    },
-
     showNormalDelivery: function()
     {
         mypajQuery('#mypa-pre-selectors-' +      this.data.address.cc.toLowerCase()).show();
@@ -677,16 +572,6 @@ MyParcel = {
         mypajQuery('#mypa-delivery').parent().parent().hide();
 
 
-    },
-
-    showEveningDelivery: function()
-    {
-        mypajQuery('#method-myparcel-delivery-evening-div').show();
-    },
-
-    hideEveningDelivery: function()
-    {
-        mypajQuery('#method-myparcel-delivery-evening-div').hide();
     },
 
     showSignature: function()

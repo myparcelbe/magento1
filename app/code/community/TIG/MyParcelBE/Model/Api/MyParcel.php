@@ -688,12 +688,6 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
         // add customs data for EUR3 and World shipments
         if($helper->countryNeedsCustoms($shippingAddress->getCountry()))
         {
-
-            $customsContentType = null;
-            if($myParcelShipment->getCustomsContentType()){
-                $customsContentType = explode(',', $myParcelShipment->getCustomsContentType());
-            }
-
             if($data['options']['package_type'] == 2){
                 throw new TIG_MyParcelBE_Exception(
                     $helper->__('International shipments can not be sent by') . ' ' . strtolower($helper->__('Letter box')),
@@ -704,8 +698,6 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
             $data['customs_declaration']                        = array();
             $data['customs_declaration']['items']               = array();
             $data['customs_declaration']['invoice']             = $order->getIncrementId();
-            $customType = (int)$helper->getConfig('customs_type', 'shipment', $storeId);
-            $data['customs_declaration']['contents']            = $customType == 0 ? 1 : $customType;
 
             $totalWeight = 0;
             $items = $myParcelShipment->getOrder()->getAllItems();
@@ -735,16 +727,6 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
 
                     $price *= $qty;
 
-                    if(!empty($customsContentType)){
-                        $customsContentTypeItem = key_exists($i, $customsContentType) ? $customsContentType[$i] : $customsContentType[0];
-                    }
-                    if(!$customsContentTypeItem) {
-                        throw new TIG_MyParcelBE_Exception(
-                            $helper->__('No Customs Content HS Code found. Go to the MyParcel plugin settings to set this code.'),
-                            'MYPA-0026'
-                        );
-                    }
-
                     $itemDescription = $item->getName();
 
                     if (strlen($itemDescription) > 50) {
@@ -756,7 +738,6 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                         'amount'            => $qty,
                         'weight'            => (int)$weight * 1000,
                         'item_value'        => array('amount' => $price * 100, 'currency' => 'EUR'),
-                        'classification'      => $customsContentTypeItem,
                         'country' => Mage::getStoreConfig('general/country/default', $storeId),
 
                     );
