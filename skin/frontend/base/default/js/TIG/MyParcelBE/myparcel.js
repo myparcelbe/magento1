@@ -178,6 +178,10 @@ MyParcel = {
             var price = '+ &euro; ' + Number(priceOfDeliveryOption).toFixed(2).replace(".", ",");
         }
 
+        if (parseFloat(priceOfDeliveryOption) < 0) {
+            price = "<p class='colorGreen'>"+'- &euro; ' + Number(priceOfDeliveryOption).toFixed(2).replace(/-|\./g,function(match) {return (match==".")?",":""})+"</p>";
+        }
+
         if (priceOfDeliveryOption && isNaN(parseFloat(priceOfDeliveryOption))){
             var price = priceOfDeliveryOption ;
         }
@@ -455,8 +459,6 @@ MyParcel = {
         if (selected.length > 0) {
             deliveryOption = selected.val();
         }
-
-        /* XXX Send to appropriate webshop field */
     },
 
 
@@ -499,6 +501,7 @@ MyParcel = {
 
     hideDelivery: function()
     {
+        mypajQuery('#mypa-delivery-date-select, #mypa-delivery-date-text').hide();
         MyParcel.hideNormalDelivery();
         MyParcel.hideSignature();
         MyParcel.hideOnlyRecipient();
@@ -515,6 +518,7 @@ MyParcel = {
     showDelivery: function()
     {
         MyParcel.showNormalDelivery();
+        MyParcel.showDeliveryDates();
 
         MyParcel.hideSignature();
         if(this.data.config.allowSignature){
@@ -524,11 +528,6 @@ MyParcel = {
         MyParcel.hideOnlyRecipient();
         if(this.data.config.allowOnlyRecipient){
             MyParcel.showOnlyRecipient();
-        }
-
-        if(MyParcel.data.address.cc === 'BE'){
-            mypajQuery('#mypa-delivery-titel').html(MyParcel.data.config.BelgiumdeliveryTitel);
-            mypajQuery('#mypa-delivery-date-text,#mypa-delivery-date-select').hide();
         }
     },
 
@@ -627,10 +626,10 @@ MyParcel = {
         mypajQuery.each(MyParcel.data.deliveryOptions.data.delivery, function(key, value){
             html += '<option value="' + key + '">' + MyParcel.dateToString(value.date) + ' </option>\n';
         });
-
+        console.log(deliveryWindow);
         /* Hide the day selector when the value of the deliverydaysWindow is 0*/
         if (deliveryWindow === 0){
-            mypajQuery('#mypa-select-date').hide();
+            mypajQuery('#mypa-delivery-date-select, #mypa-select-date, #mypa-delivery-date-text').hide();
         }
 
         /* When deliverydaysWindow is 1, hide the day selector and show a div to show the date */

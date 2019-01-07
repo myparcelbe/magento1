@@ -210,6 +210,10 @@
     font-weight: bold;
 }
 
+.colorGreen{
+    color: green;
+}
+
 #mypa-spinner-model {
     position: relative;
     display: table;
@@ -233,10 +237,6 @@
     border-top-color: #ff8c00;
     animation: mypa-spin 1.2s linear infinite;
 
-}
-
-.mypa-bold-price{
-    font-weight: bold;
 }
 @media only screen and (max-width: 600px) {
 
