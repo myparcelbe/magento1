@@ -298,3 +298,15 @@ TIG_MyParcelBE::bpost location minimum order total enabled,bpost locatie minimum
 TIG_MyParcelBE::bpost location:,bpost locatie:
 TIG_MyParcelBE::deliver:,bezorgen:
 TIG_MyParcelBE::TYPE_standard,Middaglevering
+
+TIG_MyParcelBE::Opening hours,Openingstijden
+TIG_MyParcelBE::Address details are not entered,Adresgegevens zijn niet ingevuld
+TIG_MyParcelBE::Pick up from,Ophalen vanaf
+TIG_MyParcelBE::Opening hours,Openingstijden
+TIG_MyParcelBE::Closed,Gesloten
+TIG_MyParcelBE::Postcode,Postcode
+TIG_MyParcelBE::House number,Huisnummer
+TIG_MyParcelBE::City,Stad
+TIG_MyParcelBE::Again,Opnieuw
+TIG_MyParcelBE::House number/city combination unknown,Huisnummer/stad combinatie onbekend
+
