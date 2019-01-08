@@ -63,23 +63,14 @@ MyParcel = {
                                 city: address['city']
                             },
                             txtWeekDays: [
-                                'Zondag',
-                                'Maandag',
-                                'Dinsdag',
-                                'Woensdag',
-                                'Donderdag',
-                                'Vrijdag',
-                                'Zaterdag'
+                                'sunday',
+                                'monday',
+                                'tuesday',
+                                'wednesday',
+                                'thursday',
+                                'friday',
+                                'saturday'
                             ],
-                            translateENtoNL: {
-                                'monday': 'maandag',
-                                'tuesday': 'dindsag',
-                                'wednesday': 'woensdag',
-                                'thursday': 'donderdag',
-                                'friday': 'vrijdag',
-                                'saturday': 'zaterdag',
-                                'sunday': 'zondag'
-                            },
                             config: {
                                 "apiBaseUrl": "https://api.myparcel.nl/",
                                 "carrier": "2",
@@ -99,21 +90,29 @@ MyParcel = {
                                 "dropoffDelay":data.general['dropoff_delay']
                             },
                             textToTranslate: {
-                                "deliveryTitel": data.checkoutText['delivery_title'],
-                                "deliveryStandardTitel": data.checkoutText['standard_delivery_titel'],
-                                "signatureTitel": data.checkoutText['signature_title'],
-                                "saturdayDeliveryTitle": data.checkoutText['saturday_delivery_title'],
-                                "pickupTitel": data.checkoutText['pickup_title'],
+                                "deliveryTitel": data.checkout_text['delivery_title'],
+                                "deliveryStandardTitel": data.checkout_text['standard_delivery_titel'],
+                                "signatureTitel": data.checkout_text['signature_title'],
+                                "saturdayDeliveryTitle": data.checkout_text['saturday_delivery_title'],
+                                "pickupTitel": data.checkout_text['pickup_title'],
 
-                                "allDataNotFound": data.checkoutText['all_data_not_found'],
-                                "pickUpFrom": data.checkoutText['pick_up_from'],
-                                "openingHours": data.checkoutText['opening_hours'],
-                                "closed": data.checkoutText['closed'],
-                                "postcode": data.checkoutText['postcode'],
-                                "houseNumber": data.checkoutText['houseNumber'],
-                                "city": data.checkoutText['city'],
-                                "again": data.checkoutText['again'],
-                                "wrongHouseNumberCity": data.checkoutText['wrong_house_number_city']
+                                "allDataNotFound": data.checkout_text['all_data_not_found'],
+                                "pickUpFrom": data.checkout_text['pick_up_from'],
+                                "openingHours": data.checkout_text['opening_hours'],
+                                "closed": data.checkout_text['closed'],
+                                "postcode": data.checkout_text['postcode'],
+                                "houseNumber": data.checkout_text['house_number'],
+                                "city": data.checkout_text['city'],
+                                "again": data.checkout_text['again'],
+                                "wrongHouseNumberCity": data.checkout_text['wrong_house_number_city'],
+
+                                'sunday': data.checkout_text['sunday'],
+                                'monday': data.checkout_text['monday'],
+                                'tuesday': data.checkout_text['tuesday'],
+                                'wednesday': data.checkout_text['wednesday'],
+                                'thursday': data.checkout_text['thursday'],
+                                'friday': data.checkout_text['friday'],
+                                'saturday': data.checkout_text['saturday']
                             }
                         };
 
@@ -623,7 +622,9 @@ MyParcel = {
         var day				= ("0" + (dateObj.getDate())).slice(-2);
         var month        	= ("0" + (dateObj.getMonth() + 1)).slice(-2);
 
-        return this.data.txtWeekDays[dateObj.getDay()] + " " + day + "-" + month + "-" + dateObj.getFullYear();
+        console.log(MyParcel.data.textToTranslate[this.data.txtWeekDays[dateObj.getDay()]]);
+
+        return MyParcel.data.textToTranslate[this.data.txtWeekDays[dateObj.getDay()]] + " " + day + "-" + month + "-" + dateObj.getFullYear();
     },
 
     /*
@@ -765,8 +766,8 @@ MyParcel = {
 
         mypajQuery.each(
             currentLocation.opening_hours, function(weekday, value){
-                console.log(MyParcel.data.translateENtoNL[weekday]);
-                html += '<span class="mypa-pickup-location-details-day">' + MyParcel.data.translateENtoNL[weekday] + "</span> ";
+                console.log(MyParcel.data.textToTranslate[weekday]);
+                html += '<span class="mypa-pickup-location-details-day">' + MyParcel.data.textToTranslate[weekday] + "</span> ";
 
                 if(value[0] === undefined ){
                     html +=  '<span class="mypa-time">' + MyParcel.data.textToTranslate.closed + '</span>';
@@ -884,7 +885,7 @@ MyParcel = {
 
         if (!number || !postalCode){
             MyParcel.showMessage(
-                '<h3>Adres gegevens zijn niet ingevuld</h3>'
+                '<h3>' + MyParcel.data.textToTranslate.allDataNotFound + '</h3>'
             );
             return;
         }

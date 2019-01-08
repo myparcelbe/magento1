@@ -38,12 +38,6 @@ TIG_MyParcelBE::day,dag
 TIG_MyParcelBE::days,dagen
 TIG_MyParcelBE::Hide days,Dagen verbergen
 TIG_MyParcelBE::Drop-off days,Verzenddagen
-"TIG_MyParcelBE::Monday","Maandag"
-TIG_MyParcelBE::Tuesday,Dinsdag
-TIG_MyParcelBE::Wednesday,Woensdag
-TIG_MyParcelBE::Thursday,Donderdag
-TIG_MyParcelBE::Friday,Vrijdag
-TIG_MyParcelBE::Saturday,Zaterdag
 TIG_MyParcelBE::Saturday delivery,Zaterdagbezorging
 TIG_MyParcelBE::Saturday delivery title,Zaterdagbezorging titel
 TIG_MyParcelBE::Saturday delivery fee,Zaterdagbezorging prijs
@@ -310,3 +304,10 @@ TIG_MyParcelBE::City,Stad
 TIG_MyParcelBE::Again,Opnieuw
 TIG_MyParcelBE::House number/city combination unknown,Huisnummer/stad combinatie onbekend
 
+TIG_MyParcelBE::Monday,maandag
+TIG_MyParcelBE::Tuesday,dinsdag
+TIG_MyParcelBE::Wednesday,woensdag
+TIG_MyParcelBE::Thursday,donderdag
+TIG_MyParcelBE::Friday,vrijdag
+TIG_MyParcelBE::Saturday,zaterdag
+TIG_MyParcelBE::Sunday,zondag

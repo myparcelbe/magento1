@@ -84,17 +84,25 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
         $checkoutText['signature_title'] =              $helper->getConfig('signature_title', 'delivery');
         $checkoutText['saturday_delivery_title'] =      $helper->getConfig('saturday_delivery_title', 'delivery');
         $checkoutText['pickup_title'] =                 $helper->getConfig('pickup_title', 'pickup');
-        
+
         $checkoutText['all_data_not_found'] =           $this->__('Address details are not entered');
         $checkoutText['pick_up_from'] =                 $this->__('Pick up from');
         $checkoutText['opening_hours'] =                $this->__('Opening hours');
         $checkoutText['closed'] =                       $this->__('Closed');
         $checkoutText['postcode'] =                     $this->__('Postcode');
-        $checkoutText['houseNumber'] =                  $this->__('House number');
+        $checkoutText['house_number'] =                  $this->__('House number');
         $checkoutText['city'] =                         $this->__('City');
         $checkoutText['again'] =                        $this->__('Again');
         $checkoutText['wrong_house_number_city'] =      $this->__('House number/city combination unknown');
-        $data['checkoutText'] = (object)$checkoutText;
+
+        $checkoutText['monday'] =                       $this->__('Monday');
+        $checkoutText['tuesday'] =                      $this->__('Tuesday');
+        $checkoutText['wednesday'] =                    $this->__('Wednesday');
+        $checkoutText['thursday'] =                     $this->__('Thursday');
+        $checkoutText['friday'] =                       $this->__('Friday');
+        $checkoutText['saturday'] =                     $this->__('Saturday');
+        $checkoutText['sunday'] =                       $this->__('Sunday');
+        $data['checkout_text'] = (object)$checkoutText;
 
         $delivery['signature_active'] =             $helper->getConfig('signature_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
         $delivery['signature_fee'] =                $this->getShippingPrice($helper->getConfig('signature_fee', 'delivery'), $quote);
