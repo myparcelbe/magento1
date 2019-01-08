@@ -871,19 +871,11 @@ MyParcel = {
         var number 			= this.data.address.number;
         var city 			= this.data.address.city;
 
-        if (!number || !postalCode){
+        if (!postalCode || !city){
             MyParcel.showMessage(
                 '<h3>' + MyParcel.data.textToTranslate.allDataNotFound + '</h3>'
             );
             return;
-        }
-        if (cc === "BE") {
-            var numberExtra 	= this.data.address.numberExtra;
-            var street 			= this.data.address.street;
-        }
-
-        if(numberExtra){
-            number = number + numberExtra;
         }
 
         /* Check if the deliverydaysWindow == 0 and hide the select input*/
@@ -896,7 +888,7 @@ MyParcel = {
         /* Make the api request */
         mypajQuery.get(this.data.config.apiBaseUrl + "delivery_options",
             {
-                cc           			:this.data.address.cc,
+                cc           			:cc,
                 postal_code  			:postalCode,
                 number       			:number,
                 city					:city,
