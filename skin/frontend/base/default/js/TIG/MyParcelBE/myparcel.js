@@ -42,11 +42,12 @@ MyParcel = {
                     excludeDeliveryTypes.push('4');
                 }
 
+                /* check if postcode and city exist */
                 var address = data['address'];
+                if (!address['postal_code'] || !address['city']) {
 
-                if (null === address['full_street'] || address['postal_code'] === '' || address['number'] === ''){
                     MyParcel.showMessage(
-                        '<h3>Adres is nog niet volledig</h3>'
+                        '<h4>' + MyParcel.data.checkout_text['all_data_not_found'] + '</h4>'
                     );
                     return;
                 }
@@ -118,16 +119,6 @@ MyParcel = {
 
                         MyParcel.init(myParcelConfig);
 
-                    }
-
-                    /* check if address and address numver exist*/
-                    var address = data['address'];
-                    if (!address || !address['number']) {
-
-                        MyParcel.showMessage(
-                            '<h4>' + MyParcel.data.textToTranslate.allDataNotFound + '</h4>'
-                        );
-                        return;
                     }
                 }
             }
@@ -498,7 +489,6 @@ MyParcel = {
 
     showMessage: function(message)
     {
-        MyParcel.hideSpinner();
         mypajQuery('.mypa-message-model').show();
         mypajQuery('#mypa-message').html(message).show();
         mypajQuery('#mypa-delivery-option-form').hide();
@@ -621,8 +611,6 @@ MyParcel = {
         var dateObj      	= new Date(dateArr[0],dateArr[1]-1,dateArr[2]);
         var day				= ("0" + (dateObj.getDate())).slice(-2);
         var month        	= ("0" + (dateObj.getMonth() + 1)).slice(-2);
-
-        console.log(MyParcel.data.textToTranslate[this.data.txtWeekDays[dateObj.getDay()]]);
 
         return MyParcel.data.textToTranslate[this.data.txtWeekDays[dateObj.getDay()]] + " " + day + "-" + month + "-" + dateObj.getFullYear();
     },
@@ -812,7 +800,7 @@ MyParcel = {
     retryPostalcodeHouseNumber: function()
     {
         this.data.address.postalCode = mypajQuery('#mypa-error-postcode').val();
-        this.data.address.number = mypajQuery('#mypa-error-number').val();
+        this.data.address.number = mypajQuery('#mypa-error-city').val();
         MyParcel.callDeliveryOptions();
         mypajQuery('#mypa-select-delivery').click();
     },
@@ -849,8 +837,8 @@ MyParcel = {
             '<label for="mypa-error-postcode">' + MyParcel.data.textToTranslate.postcode + '</label>' +
             '<input type="text" name="mypa-error-postcode" id="mypa-error-postcode" value="'+ MyParcel.data.address.postalCode +'">' +
             '</div><div class="mypa-full-width mypa-error">' +
-            '<label for="mypa-error-number">' + MyParcel.data.textToTranslate.houseNumber + '</label>' +
-            '<input type="text" name="mypa-error-number" id="mypa-error-number" value="'+ MyParcel.data.address.number +'">' +
+            '<label for="mypa-error-city">' + MyParcel.data.textToTranslate.city + '</label>' +
+            '<input type="text" name="mypa-error-number" id="mypa-error-city" value="'+ MyParcel.data.address.city +'">' +
             '<br><div id="mypa-error-try-again" class="button btn"><span>' + MyParcel.data.textToTranslate.again + '</span></div>' +
             '</div>'
         );
