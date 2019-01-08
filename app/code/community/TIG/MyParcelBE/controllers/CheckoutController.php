@@ -84,8 +84,7 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
         $checkoutText['signature_title'] =              $helper->getConfig('signature_title', 'delivery');
         $checkoutText['saturday_delivery_title'] =      $helper->getConfig('saturday_delivery_title', 'delivery');
         $checkoutText['pickup_title'] =                 $helper->getConfig('pickup_title', 'pickup');
-
-
+        
         $checkoutText['all_data_not_found'] =           $this->__('Address details are not entered');
         $checkoutText['pick_up_from'] =                 $this->__('Pick up from');
         $checkoutText['opening_hours'] =                $this->__('Opening hours');
@@ -97,14 +96,9 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
         $checkoutText['wrong_house_number_city'] =      $this->__('House number/city combination unknown');
         $data['checkoutText'] = (object)$checkoutText;
 
-
-//        $delivery['delivery_title'] =               $helper->getConfig('delivery_title', 'delivery');
-//        $delivery['standard_delivery_titel'] =      $helper->getConfig('standard_delivery_titel', 'delivery');
         $delivery['signature_active'] =             $helper->getConfig('signature_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
-//        $delivery['signature_title'] =              $helper->getConfig('signature_title', 'delivery');
         $delivery['signature_fee'] =                $this->getShippingPrice($helper->getConfig('signature_fee', 'delivery'), $quote);
         $delivery['saturday_delivery_active'] =     $helper->getConfig('saturday_delivery_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
-//        $delivery['saturday_delivery_title'] =      $helper->getConfig('saturday_delivery_title', 'delivery');
         $delivery['saturday_delivery_fee'] =        $this->getShippingPrice($helper->getConfig('saturday_delivery_fee', 'delivery'), $quote);
         $data['delivery'] = (object)$delivery;
 

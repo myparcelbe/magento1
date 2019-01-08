@@ -765,6 +765,7 @@ MyParcel = {
 
         mypajQuery.each(
             currentLocation.opening_hours, function(weekday, value){
+                console.log(MyParcel.data.translateENtoNL[weekday]);
                 html += '<span class="mypa-pickup-location-details-day">' + MyParcel.data.translateENtoNL[weekday] + "</span> ";
 
                 if(value[0] === undefined ){
