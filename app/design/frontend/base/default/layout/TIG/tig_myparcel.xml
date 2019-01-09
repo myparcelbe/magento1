@@ -26,14 +26,6 @@
                 <type>skin_css</type>
                 <file>css/TIG/MyParcelBE/myparcel_options.css</file>
             </action>
-            <action method="addItem">
-                <type>skin_js</type>
-                <file>js/TIG/MyParcelBE/myparcel.js</file>
-            </action>
-            <action method="addItem">
-                <type>skin_css</type>
-                <file>css/TIG/MyParcelBE/myparcel_options.css</file>
-            </action>
         </reference>
         <reference name="checkout.onepage.shipping_method.available">
             <action method="setTemplate">
@@ -83,7 +75,6 @@
 
     <!-- Idev OneStepCheckout-->
     <onestepcheckout_index_index>
-
         <reference name="head">
             <action method="addItem">
                 <type>skin_js</type>
@@ -96,14 +87,6 @@
             <action method="addItem">
                 <type>skin_js</type>
                 <file>js/TIG/MyParcelBE/checkout.js</file>
-            </action>
-            <action method="addItem">
-                <type>skin_js</type>
-                <file>js/TIG/MyParcelBE/myparcel.js</file>
-            </action>
-            <action method="addItem">
-                <type>skin_css</type>
-                <file>css/TIG/MyParcelBE/myparcel_options.css</file>
             </action>
             <action method="addItem">
                 <type>skin_js</type>
