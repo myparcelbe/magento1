@@ -28,7 +28,6 @@ class TIG_MyParcelBE_Model_Checkout_Service
         $request = Mage::app()->getRequest();
         if($request->isPost()){
 
-
             $addressHelper = Mage::helper('tig_myparcel/addressValidation');
             /** @var $quote Mage_Sales_Model_Quote */
             $quote = Mage::getModel('checkout/cart')->getQuote();

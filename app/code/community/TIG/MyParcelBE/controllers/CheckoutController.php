@@ -102,7 +102,7 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
         $checkoutText['friday'] =                       $this->__('Friday');
         $checkoutText['saturday'] =                     $this->__('Saturday');
         $checkoutText['sunday'] =                       $this->__('Sunday');
-        $data['checkout_text'] = (object)$checkoutText;
+        $data['text'] = (object)$checkoutText;
 
         $delivery['signature_active'] =             $helper->getConfig('signature_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
         $delivery['signature_fee'] =                $this->getShippingPrice($helper->getConfig('signature_fee', 'delivery'), $quote);

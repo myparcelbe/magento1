@@ -47,7 +47,7 @@ MyParcel = {
                 if (!address['postal_code'] || !address['city']) {
 
                     MyParcel.showMessage(
-                        '<h4>' + MyParcel.data.checkout_text['all_data_not_found'] + '</h4>'
+                        '<h4>' + MyParcel.data.text['all_data_not_found'] + '</h4>'
                     );
                     return;
                 }
@@ -91,29 +91,29 @@ MyParcel = {
                                 "dropoffDelay":data.general['dropoff_delay']
                             },
                             textToTranslate: {
-                                "deliveryTitel": data.checkout_text['delivery_title'],
-                                "deliveryStandardTitel": data.checkout_text['standard_delivery_titel'],
-                                "signatureTitel": data.checkout_text['signature_title'],
-                                "saturdayDeliveryTitle": data.checkout_text['saturday_delivery_title'],
-                                "pickupTitel": data.checkout_text['pickup_title'],
+                                "deliveryTitel": data.text['delivery_title'],
+                                "deliveryStandardTitel": data.text['standard_delivery_titel'],
+                                "signatureTitel": data.text['signature_title'],
+                                "saturdayDeliveryTitle": data.text['saturday_delivery_title'],
+                                "pickupTitel": data.text['pickup_title'],
 
-                                "allDataNotFound": data.checkout_text['all_data_not_found'],
-                                "pickUpFrom": data.checkout_text['pick_up_from'],
-                                "openingHours": data.checkout_text['opening_hours'],
-                                "closed": data.checkout_text['closed'],
-                                "postcode": data.checkout_text['postcode'],
-                                "houseNumber": data.checkout_text['house_number'],
-                                "city": data.checkout_text['city'],
-                                "again": data.checkout_text['again'],
-                                "wrongHouseNumberCity": data.checkout_text['wrong_house_number_city'],
+                                "allDataNotFound": data.text['all_data_not_found'],
+                                "pickUpFrom": data.text['pick_up_from'],
+                                "openingHours": data.text['opening_hours'],
+                                "closed": data.text['closed'],
+                                "postcode": data.text['postcode'],
+                                "houseNumber": data.text['house_number'],
+                                "city": data.text['city'],
+                                "again": data.text['again'],
+                                "wrongHouseNumberCity": data.text['wrong_house_number_city'],
 
-                                'sunday': data.checkout_text['sunday'],
-                                'monday': data.checkout_text['monday'],
-                                'tuesday': data.checkout_text['tuesday'],
-                                'wednesday': data.checkout_text['wednesday'],
-                                'thursday': data.checkout_text['thursday'],
-                                'friday': data.checkout_text['friday'],
-                                'saturday': data.checkout_text['saturday']
+                                'sunday': data.text['sunday'],
+                                'monday': data.text['monday'],
+                                'tuesday': data.text['tuesday'],
+                                'wednesday': data.text['wednesday'],
+                                'thursday': data.text['thursday'],
+                                'friday': data.text['friday'],
+                                'saturday': data.text['saturday']
                             }
                         };
 
