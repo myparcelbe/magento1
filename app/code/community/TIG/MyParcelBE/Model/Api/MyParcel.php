@@ -663,7 +663,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                 'company'       => (string) trim($shippingAddress->getCompany()),
                 'postal_code'  => trim($shippingAddress->getPostcode()),
                 'street'        => trim($streetData['streetname']),
-                'number'        => trim($streetData['housenumber']),
+                'number'        => trim($streetData['number']),
                 'box_number' => trim($streetData['housenumberExtension']),
                 'city'          => trim($shippingAddress->getCity()),
                 'email'         => $email,
@@ -764,7 +764,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                 'postal_code'       => trim($pgAddress->getPostcode()),
                 'street'            => trim($pgStreetData['streetname']),
                 'city'              => trim($pgAddress->getCity()),
-                'number'            => trim($pgStreetData['housenumber']),
+                'number'            => trim($pgStreetData['number']),
                 'location_name'     => trim($pgAddress->getCompany()),
             );
 

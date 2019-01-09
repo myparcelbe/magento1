@@ -367,7 +367,7 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
             $fullStreet = $this->_getInternationalFullStreet($address);
             $streetData = array(
                 'streetname' => $fullStreet,
-                'housenumber' => '',
+                'number' => '',
                 'housenumberExtension' => '',
                 'fullStreet' => $fullStreet,
             );
@@ -428,13 +428,13 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         $streetname = '';
-        $housenumber = '';
+        $number = '';
         if (isset($matches['street'])) {
             $streetname = $matches['street'];
         }
 
         if (isset($matches['number'])) {
-            $housenumber = $matches['number'];
+            $number = $matches['number'];
         }
 
         if (isset($matches['extension'])) {
@@ -445,7 +445,7 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
 
         $streetData = array(
             'streetname' => $streetname,
-            'housenumber' => $housenumber,
+            'number' => $number,
             'housenumberExtension' => $housenumberExtension,
             'fullStreet' => $fullStreet,
         );
