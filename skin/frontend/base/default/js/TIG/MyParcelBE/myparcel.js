@@ -105,6 +105,7 @@ MyParcel = {
                                 "city": data.text['city'],
                                 "again": data.text['again'],
                                 "wrongHouseNumberCity": data.text['wrong_house_number_city'],
+                                "quickDelivery":data.text['quick_delivery'],
 
                                 'sunday': data.text['sunday'],
                                 'monday': data.text['monday'],
@@ -759,7 +760,7 @@ MyParcel = {
         MyParcel.hideDelivery();
         mypajQuery('#mypa-select-date, #method-myparcel-normal').hide();
         mypajQuery('.mypa-is-pickup-element').hide();
-        mypajQuery('#mypa-select-delivery-titel').html('Zo snel mogelijk bezorgen');
+        mypajQuery('#mypa-select-delivery-titel').html(MyParcel.data.textToTranslate.quickDelivery);
     },
 
 

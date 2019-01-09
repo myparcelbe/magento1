@@ -90,10 +90,11 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
         $checkoutText['opening_hours'] =                $this->__('Opening hours');
         $checkoutText['closed'] =                       $this->__('Closed');
         $checkoutText['postcode'] =                     $this->__('Postcode');
-        $checkoutText['house_number'] =                  $this->__('House number');
+        $checkoutText['house_number'] =                 $this->__('House number');
         $checkoutText['city'] =                         $this->__('City');
         $checkoutText['again'] =                        $this->__('Again');
         $checkoutText['wrong_house_number_city'] =      $this->__('House number/city combination unknown');
+        $checkoutText['quick_delivery'] =               $this->__('Deliver as quickly as possible');
 
         $checkoutText['monday'] =                       $this->__('Monday');
         $checkoutText['tuesday'] =                      $this->__('Tuesday');

@@ -303,6 +303,7 @@ TIG_MyParcelBE::House number,Huisnummer
 TIG_MyParcelBE::City,Stad
 TIG_MyParcelBE::Again,Opnieuw
 TIG_MyParcelBE::House number/city combination unknown,Huisnummer/stad combinatie onbekend
+TIG_MyParcelBE::Deliver as quickly as possible,Zo snel mogelijk bezorgen
 
 TIG_MyParcelBE::Monday,maandag
 TIG_MyParcelBE::Tuesday,dinsdag
