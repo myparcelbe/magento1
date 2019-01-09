@@ -18,7 +18,6 @@ MyParcel = {
             success: function (response) {
 
                 data = response.data;
-
                 price = [];
 
                 price['default'] = '&#8364; ' + data.general['base_price'].toFixed(2).replace(".", ",");
@@ -393,7 +392,7 @@ MyParcel = {
 
         mypajQuery.each(dateArray['time'], function(key, value) {
             if (value.price_comment === deliveryMomentOfDay) {
-                currentDeliveryData = jQuery.extend({}, dateArray);
+                currentDeliveryData = dateArray;
                 currentDeliveryData['time'] = [value];
             }
         });
@@ -704,7 +703,6 @@ MyParcel = {
 
         mypajQuery.each(
             currentLocation.opening_hours, function(weekday, value){
-                console.log(MyParcel.data.textToTranslate[weekday]);
                 html += '<span class="mypa-pickup-location-details-day">' + MyParcel.data.textToTranslate[weekday] + "</span> ";
 
                 if(value[0] === undefined ){
