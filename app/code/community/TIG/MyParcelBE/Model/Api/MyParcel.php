@@ -664,7 +664,7 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
                 'postal_code'  => trim($shippingAddress->getPostcode()),
                 'street'        => trim($streetData['streetname']),
                 'number'        => trim($streetData['number']),
-                'box_number' => trim($streetData['housenumberExtension']),
+                'box_number' => trim($streetData['box_number']),
                 'city'          => trim($shippingAddress->getCity()),
                 'email'         => $email,
             ),
