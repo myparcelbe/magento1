@@ -13,7 +13,6 @@ TIG_MyParcelBE::Ship to Applicable Countries,Ship to Applicable Countries
 TIG_MyParcelBE::Ship to Specific Countries,Ship to Specific Countries
 TIG_MyParcelBE::Sort Order,Sort Order
 TIG_MyParcelBE::Default Shipment Settings,Default Shipment Settings
-TIG_MyParcelBE::Home address only,Home address only
 TIG_MyParcelBE::Signature on receipt,Signature on receipt
 TIG_MyParcelBE::Insured up to &euro; 500,Insured up to &euro; 500
 "TIG_MyParcelBE::For NL shipping only, shipments inside the EU insured default is &euro; 500","For NL shipping only, shipments inside the EU insured default is &euro; 500"
@@ -158,6 +157,7 @@ TIG_MyParcelBE::Close,Close
 TIG_MyParcelBE::Choose a bpost pickup location,Choose a bpost pickup location
 "TIG_MyParcelBE::The selected shipment-type cannot be used, Pakjegemak-shipments can only be created with the normal shipment type.","The selected shipment-type cannot be used, 'Ship to bpost location' can only be created with the normal shipment type."
 TIG_MyParcelBE::MyParcel - Create Magento shipments (no labels),MyParcel - Create Magento shipments (no labels)
+TIG_MyParcelBE::Create MyParcel BE shipment,Create MyParcel BE shipment
 TIG_MyParcelBE::Insured up to &euro;%s,Insured up to &euro;%s
 TIG_MyParcelBE::Post Office Address,Post Office Address
 "TIG_MyParcelBE::The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a MyParcel shipment, select a different shipment type or go to the shipment page to create a single MyParcel shipment. <a target=""_blank"" href=""%s"">View shipment</a>","The selected shipment type cannot be used. 'Ship to bpost location' shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a MyParcel shipment, select a different shipment type or go to the shipment page to create a single MyParcel shipment. <a target=""_blank"" href=""%s"">View shipment</a>"

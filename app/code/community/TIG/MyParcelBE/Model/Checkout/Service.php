@@ -33,7 +33,6 @@ class TIG_MyParcelBE_Model_Checkout_Service
             $quote = Mage::getModel('checkout/cart')->getQuote();
 
             $address = $addressHelper->getQuoteAddress($quote);
-
             if ($address['country'] !== TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC){
                 $quote->setMyparcelData(null)->save();
                 return true;
@@ -43,7 +42,6 @@ class TIG_MyParcelBE_Model_Checkout_Service
              * If shipping method is myparcel
              */
             if (strpos($request->getPost('shipping_method', ''), 'myparcel') !== false) {
-
                 if ($request->getPost('mypa-data') == null) {
                     $quote->setMyparcelData(null)->save();
                     return true;

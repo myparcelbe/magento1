@@ -307,7 +307,6 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
 
         /**
          * Get the dutch track & trace URL for dutch shipments or for the admin.
-         *
          */
         if ($forceBE
             || (!empty($countryCode)
@@ -438,16 +437,16 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
             $number = $matches['number'];
         }
 
-        if (isset($matches['box_number'])) {
-            $boxNumber = $matches['box_number'];
+        if (isset($matches['extension'])) {
+            $housenumberExtension = $matches['extension'];
         } else {
-            $boxNumber = '';
+            $housenumberExtension = '';
         }
 
         $streetData = array(
             'streetname' => $streetname,
             'number' => $number,
-            'box_number' => $boxNumber,
+            'box_number' => $housenumberExtension,
             'fullStreet' => $fullStreet,
         );
 
@@ -475,10 +474,13 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * @param bool $getAdminTitle
-     * @return int|string               package = 1, mailbox = 2, letter = 3
-     * @todo remove parameters from MyParcelBE
+     * @param        $items
+     * @param string $country
+     * @param bool   $getAdminTitle
+     * @param bool   $hasExtraOptions
+     * @param bool   $isFrontend If mailbox title is empty, don't show the mailbox option
      *
+     * @return int|string               package = 1, mailbox = 2, letter = 3
      */
     public function getPackageType($getAdminTitle = false)
     {
@@ -525,10 +527,6 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
      */
     protected function _getInternationalFullStreet($address)
     {
-        if (!$address->getStreet2()) {
-            return preg_replace("/[\n\r]/", " ", $address->getStreetFull());
-        }
-
         $numberBeforeStreetCountry = array('CN', 'FR', 'GR', 'IE', 'IL', 'JP', 'LU', 'MY', 'MA', 'NZ', 'SG', 'GB', 'US', 'VS');
         if (in_array($address->getCountry(), $numberBeforeStreetCountry)) {
             return $address->getStreet2() . ' ' . $address->getStreet1();
@@ -1107,7 +1105,22 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
     public function getReturnCountries()
     {
         return array(
-            TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC,
+            'NL',
+            'DE',
+            'EE',
+            'FI',
+            'FR',
+            'GR',
+            'GB',
+            'IT',
+            'LU',
+            'MT',
+            'AT',
+            'SI',
+            'SK',
+            'ES',
+            'CZ',
+            'IE',
         );
     }
 }

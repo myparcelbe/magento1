@@ -75,7 +75,6 @@
 
     <!-- Idev OneStepCheckout-->
     <onestepcheckout_index_index>
-
         <reference name="head">
             <action method="addItem">
                 <type>skin_js</type>
