@@ -1,0 +1,394 @@
+<script src="js/auto_menu.js"></script>
+<section class="page-header">
+    <p>
+        <img alt="" src="media/MyParcel_Belgie.png"/>
+        <img height="185" src="media/logo_magento.png" style="margin-left: -70px;"/>
+    </p>
+    <h1 class="project-name">Manuel d’installation utilisateur</h1>
+    <h2 class="project-tagline">Plug-in Magento MyParcel BE</h2>
+    <a target="_blank" class="btn" href="https://github.com/myparcelbe/magento1">GitHub</a>
+    <a target="_blank" class="btn" href="https://github.com/myparcelbe/magento1/releases">Toutes les mises à jour</a>
+    <a target="_blank" class="btn" href="https://github.com/myparcelbe/magento1/archive/master.zip">Dernière version stable</a>
+</section>
+<section class="main-content">
+    <h1>Introduction</h1>
+    <p>Ce manuel décrit les fonctionnalités de l’extension MyParcel BE et vous explique comment l’installer dans votre boutique en ligne.</p>
+
+    <p>Nous expliquons l’installation via SSH/FTP dans ce manuel. Si vous avez besoin d’aide, nous vous recommandons de contacter votre gestionnaire technique.</p>
+    <p>Cette extension Magento vous permet de créer deux types d’envois MyParcel BE:</p>
+    <ol>
+        <li>Normal (colis classiques et collecte à un point bpost)</li>
+        <li>Colis vers l’étranger, dans l’UE et hors UE.</li>
+    </ol>
+
+    <h1>Sommaire</h1>
+    <div class="menu"></div>
+    <div>
+        <h1 id="1">1 Installation</h1>
+        <p>Dans tous les cas, nous recommandons d’abord de procéder à une installation dans un environnement de test et d’effectuer une sauvegarde de votre boutique en ligne.</p>
+
+        <h2 id="1_1">1.1 Exigences techniques</h2>
+        <p>Pour utiliser l'extension MyParcel BE Magento, votre serveur doit répondre aux exigences suivantes:</p>
+        <ul>
+            <li>Version de PHP 5.3 minimum</li>
+            <li>Bibliothèques SOAP PHP</li>
+            <li>256 Mo de mémoire</li>
+        </ul>
+        <p>
+            Les versions de Magento suivantes sont supportées: <br>
+             Community 1.6, 1.7, 1.8, 1.9
+        </p>
+
+        <h2 id="1_2">1.2 Télécharger l’extension</h2>
+        <p>L’extension peut être téléchargée via le lien suivant:<br></p>
+        <ul>
+            <li> <a target="_blank" href="https://github.com/myparcelbe/magento1/releases">Github MyParcel</a> pour la version la plus récente (cliquez sur <span class="nice">source code</span> sous <span class="nice">Téléchargements</span> pour télécharger le fichier zip).<br></li>
+        </ul>
+
+        <h2 id="1_3">1.3 Désactiver le compilateur</h2>
+        <p>Avant de commencer l’installation, il est important que le compilateur soit désactivé (s'il est activé) dans votre installation Magento. Une fois connecté à votre environnement Magento, vous pouvez désactiver le compilateur via le menu: <span class="nice">Système → Outils → Compilation</span>.</p>
+
+        <h2 id="1_4">1.4 Télécharger des dossiers et des fichiers</h2>
+        <p>Le fichier .zip contient deux dossiers:</p>
+        <ul>
+            <li>app</li>
+            <li>skin</li>
+        </ul>
+        <p>
+            Téléchargez ces dossiers vers votre installation Magento. <br>
+            Aucun fichier ne sera écrasé. Si le programme SSH / FTP vous demande si vous souhaitez fusionner ou remplacer les dossiers, sélectionnez l'option fusionner.
+        </p>
+
+        <h2 id="1_5">1.5 Vider le cache et se reconnecter</h2>
+        <p>
+            Connectez-vous à votre environnement de gestion Magento et choisissez le menu  <span class="nice">Système → Gérer le cache</span>. Cliquez sur <span class="nice">Sélectionner tout</span>,
+            choisissez l’option ‘Rafraîchir’ dans le menu déroulant et cliquez sur ‘Confirmer’. <br>
+            Cliquez ensuite sur ‘Se déconnecter’ dans le coin supérieur droit, puis reconnectez-vous à votre environnement de gestion.
+        </p>
+
+        <h2 id="1_6">1.6 Vérification cron</h2>
+        <p>
+            L’extension MyParcel fait appel à certaines tâches cron. Celles-ci sont nécessaires afin d’adapter périodiquement les statuts des envois dans votre back-end. L’extension se fonde sur la fonctionnalité cron de Magento. <br>
+            Prenez contact avec votre développeur en cas de question à ce sujet.  <br><br>
+            <strong>Serveur tâches cron</strong><br>
+            La manière de paramétrer les tâches cron sur votre serveur diffère selon le fournisseur d’hébergement, car il existe plusieurs systèmes de gestion de serveur web. En voici quelques exemples : DirectAdmin, Plesk et Cpanel. Vous trouverez ci-dessous un exemple de configuration d’une tâche cron pour Magento dans DirectAdmin.
+        </p>
+        <ol>
+            <li>
+                Accédez au compte sur lequel l’environnement Magento est en cours d’exécution et cliquez sur <span class="nice">Cronjobs</span>.<br>
+                <img src="media/cron1.png">
+            </li>
+            <li>
+                Pour une boutique en ligne Magento Community, paramétrez que la tâche cron doit être activée toutes les 5 minutes (comme dans l’exemple ci-dessous).
+                <img src="media/cron2.png">
+            </li>
+            <li>
+                Vérifiez avec SSH si vous pouvez activer la tâche cron.<br>
+                Cela peut se faire en se connectant à une fenêtre du terminal et en entrant la commande. Dans notre exemple, il s’agit de <span class="nice">/home/magento/public_html/cron.sh</span>.
+                Vous devrez le faire avec les droits ‘root’. Si cela ne fonctionne pas ou si le serveur ne dispose pas d’une option ‘shell’, vous pouvez alors basculer vers le fichier cron.php. Dans ce cas, vous pouvez créer deux tâches cron. Vous pouvez préciser où PHP tourne pour les requêtes et localiser l’emplacement avec la constante PHP PHP_BINDIR. <br>
+                Vous devez placer un paramètre derrière les requêtes :
+
+                <ul>
+                    <li>Requête 1: cron.php -malways 1</li>
+                    <li>Requête 2: cron.php -mdefault 1</li>
+                </ul>
+
+                <small>La capture d'écran ci-dessous vous fournit un exemple. </small>
+                <img src="media/cron3.png">
+            </li>
+            <li>Assurez-vous que le fichier cron.sh (ou cron.php) dispose de 755 droits. Le serveur appelle maintenant la fonctionnalité cron de Magento, toutes les 5 minutes.</li>
+            <li> Magento cron
+                <ol>
+                    <li>Allez dans le menu <span class="nice">Système → Configuration → Avancé → Système → Cron (Tâches planifiées)</span> .</li>
+                    <li>Assurez-vous que les paramètres sont les mêmes que ceux repris dans l’image ci-dessous. <img src="media/cron4.png"></li>
+                </ol>
+
+                Il est préférable d’ouvrir la base de données et d’ouvrir la table <span class="nice">cron_schedule</span> pour vérifier que le cron s'exécute correctement. Il sera directement complété. Vous pourrez ainsi vérifier que les modifications sont bien effectives.
+            </li>
+        </ol>
+
+        <h1 id="2">2 Configuration</h1>
+        <p>
+            Allez dans le menu <span class="nice">Système → Configuration → Ventes → MyParcel </span> pour configurer l’extension MyParcel. <br>
+            Sous la rubrique ‘Version et Support’, vous pouvez voir quelle est la version de l’extension que vous utilisez.
+        </p>
+        <img src="media/image009.png">
+        <p>Vous aurez également le choix entre 2 onglets. Un onglet pour les paramètres généraux et un autre pour les paramètres de paiement.</p>
+
+        <h2 id="2_1">2.1 Paramètres généraux</h2>
+        <p>Dans l’onglet ‘Paramètres généraux’, vous pourrez modifier les ‘Paramètres API’, les ‘Paramètres de base’ et les ‘Paramètres d’expédition standards’, et / ou les ajuster selon vos souhaits.</p>
+
+        <h3 id="2.1.1">2.1.1 Paramètres API</h3>
+        <p>
+            Vous pouvez introduire ici votre nom d’utilisateur API et votre clé API. Ceux-ci sont nécessaires au transfert des envois vers MyParcel. <br>
+            Ces données peuvent être trouvées dans votre compte MyParcel BE sur <a href="https://backoffice.sendmyparcel.be" target="_blank">backoffice.sendmyparcel.be</a> en choisissant <span class="nice">Paramètres -> Général</span>
+        </p>
+        <img src="media/image002.png">
+
+        <h2 id="2_2">2.2 Paramètres de base</h2>
+        <p>Cette rubrique vous permet de saisir tous les paramètres relatifs à l’utilisation de l’extension MyParcel BE.</p>
+        <img src="media/image011.png">
+
+        <h3 id="2_2_1">2.2.1 Orientation de l’impression</h3>
+        <p>Sélectionnez orientation d'impression. Si vous choisissez le format A4, quatre étiquettes d’expédition seront imprimées par feuille A4. Si vous choisissez le format A6, vous aurez besoin d’étiquettes d’expédition qui sont compatibles avec une imprimante à étiquettes spéciales comme une Zebra ou une Dymo 4XL.</p>
+
+        <h3 id="2_2_2">2.2.2 Modèle d’e-mail Track & Trace</h3>
+        <p>Pour l’envoi des e-mails Track & Trace, vous avez le choix entre 2 options. Vous pouvez opter :</p>
+        <ol>
+            <li>pour l’envoi des e-mails Track & Trace via MyParcel BE ou</li>
+            <li>pour l’envoi de ceux-ci via votre boutique Magento.</li>
+        </ol>
+
+        <h4>Via MyParcel BE</h4>
+        <p>Suivez les étapes ci-dessous:</p>
+        <ol>
+            <li>Connectez-vous sur <span class="nice">sendmyparcel.be</span></span></li>
+            <li>Allez dans le menu <span class="nice">Paramètres → Track & Trace</span></li>
+            <li>Paramétrez vos e-mails Track & Trace selon vos souhaits.</li>
+        </ol>
+
+        <h4>Via votre boutique en ligne Magento:</h4>
+        <p>Suivez les étapes ci-dessous:</p>
+        <ol>
+            <li>Allez dans <span class="nice">Système → E-mails transactionnels</span></li>
+            <li>Cliquez sur le bouton <span class="nice">Ajouter un nouveau modèle</span></li>
+            <li>Sélectionnez le modèle <span class="nice">Mise à jour de l’envoi</span> et <span class="nice">chargez le modèle</span>.</li>
+            <li>Donnez un nom au modèle dans le champ <span class="nice">Nom du modèle</span>. Ceci est pour un usage interne.</li>
+            <li>Adaptez le contenu du modèle selon votre souhait. Pour ce faire, vous pouvez utiliser les variables <span class="nice">{{var tracktrace_url}}</span> et <span class="nice">{{var retourlabel_url}}</span>.</li>
+            <li>Pour vous assurer que seuls les textes sont affichés lorsque ces variables sont présentes, vous pouvez utiliser <span class="nice">{{depend tracktrace_url}}</span> et <span class="nice">{{depend retourlabel_url}}</span>.</li>
+            <li>Cliquez sur le bouton <span class="nice">Enregistrer le modèle</span>.</li>
+            <li>Allez dans le menu <span class="nice">Système → Configuration → MyParcel</span> et ensuite dans l’onglet <span class="nice">Paramètre généraux</span>.</li>
+            <li>Dans le menu déroulant <span class="nice">du modèle d’e-mail Track & Trace</span> sélectionnez le modèle que vous venez de créer.</li>
+        </ol>
+
+        <h3 id="2_2_3">2.2.3 Utiliser MyParcel pour tous les modes d’expédition</h3>
+        <p>
+            Choisissez l’option <span class="nice">Oui</span> pour transférer et utiliser dans MyParcel BE tous les modes d’expédition existants dans Magento.<br>
+            Si vous ne souhaitez pas utiliser cette option, choisissez <span class="nice">Non</span>. Vous pouvez maintenant choisir vous-même les modes d’expédition qui peuvent être utilisés par le plug-in MyParcel BE.
+        </p>
+
+        <h2 id="2_3">2.3 Paramètres d'expédition standards</h2>
+        <img src="media/image004BE.png">
+
+        <h3 id="2_3_1">2.3.1 Options d’expédition standards</h3>
+        <p>
+            Les options suivantes sont activées en fonction de la valeur de la commande. Exemple : si vous saisissez la valeur 100 dans
+            <span class="nice">Assurance jusqu’à 500 €</span>, les commandes d'une valeur d’achat supérieure à 100 € seront automatiquement assurées à concurrence de 500 €. Cette logique s’applique également pour le paramétrage de la<span class="nice">Signature pour réception</span>.
+        </p>
+
+        <p>Attention : l’option n’est pas activée si elle est à<span class="nice">0</span> L’option est active si une valeur de <span class="nice">1</span> ou supérieure est saisie.</p>
+
+        <h3 id="2_3_2">2.3.2 Type d’envoi douanier</h3>
+        <p>
+            Choisissez l’option qui s’applique à vos envois dans le menu déroulant du champ de configuration <span class="nice">Type d'envoi douanier</span>.<br>
+            Il s’agit d’un paramètre standard pour les envois ‘Reste du monde’. Lorsque vous transférez un envoi vers MyParcel BE, vous pouvez toujours adapter cet élément pour chaque envoi. Cette option ne s’applique pas si les étiquettes sont créées par lot.
+        </p>
+
+        <h4>Code HS des marchandises en douane</h4>
+        <p>
+            Introduisez le code HS souhaité dans le champ <span class="nice">Code HS des marchandises en douane. </span><br><br>
+
+            Les codes sont disponibles via ce lien: <a href="https://financien.belgium.be/nl/douane_accijnzen" target="_blank">https://financien.belgium.be/nl/douane_accijnzen</a><br>
+            Attention : le code HS doit comporter quatre chiffres exactement. <br><br>
+            Il s’agit d'un paramètre standard pour les envois ‘Reste du monde’. Lorsque vous transférez un envoi vers MyParcel BE, vous pouvez toujours adapter cet élément pour chaque envoi. Cette option ne s’applique pas si les étiquettes sont créées par lot. <br><br>
+            Il est également possible de donner un code HS propre à chaque catégorie de produits. Cette option peut être complétée au bas de la page de la catégorie souhaitée. Allez dans <span class="nice">Catalogue -> Gérer les catégories.</span>.
+        </p>
+        <img src="media/image010.png">
+        <h2 id="2_4">2.4 Configuration des modes d’envoi</h2>
+        <p>
+            Allez dans le menu <span class="nice">Système → Configuration → Vente → Modes d’envoi → MyParcel</span>.<br>
+            Activez le mode d’envoi. Choisissez ensuite un titre et un nom de mode.
+        </p>
+        <img src="media/configuratie.png">
+
+        <h3 id="2_4_1">2.4.1 Type de tarif</h3>
+        <p>Deux méthodes peuvent être utilisées pour calculer les frais d’expédition:</p>
+        <ul>
+            <li>Méthode simple : avec cette méthode, vous saisissez directement le type et le prix.</li>
+            <li>Méthode par tableau : vous utilisez les ‘Table Rates’ de Magento.
+                <ol>
+                    <li>Allez dans le menu <span class="nice">Système → Configuration → Modes d'expédition → Myparcel</span>.</li>
+                    <li>Choisissez le <span class="nice">Type de tarif</span> pour <span class="nice">Table</span> et paramétrez <span class="nice">Conditions</span> elon votre souhait.</li>
+                    <li>Désactivez vous-même le tableau des tarifs du mode d’expédition de Magento. Pour désactiver le mode d’expédition de Magento, rendez-vous sur <span class="nice">Mode d’expédition → Tableau des prix tarifs</span> et choisissez <span class="nice">Non</span> dans <span class="nice">Activé</span>.</li>
+                    <li>
+                        Créez un fichier CSV Table Rates. Cette page vous permet de générer un fichier CSV: <a href="https://www.elgentos.nl/tablerates/" target="_blank">www.elgentos.nl/tablerates</a>. <br>
+                        Astuce: pour fixer la gratuité des frais d’expédition à partir d'un certain montant, créez une ligne supplémentaire au niveau du pays concerné.
+                    </li>
+                    <li>Veillez à travailler au niveau du site internet. Sélectionnez ici le site internet principal.</li>
+                    <li>Téléchargez le CSV Table Rates dans le mode d'expédition Table Rates. L’extension MyParcel BE utilise les Table Rates de Magento.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h1 id="3">3 Paramètres de checkout</h1>
+        <p>Sous l’onglet ‘Paramètres de checkout’, vous pouvez appliquer tous les paramètres qui seront visibles au moment du checkout. Cet onglet est divisé en ‘Paramètres de base’, ‘Livraison’ et ‘Collecte à un point bpost’.</p>
+
+        <h2 id="3_1">3.1 Paramètres de base</h2>
+
+        <h3 id="3_1_1">3.1.1 Nombre de jours</h3>
+        <p>La fonction ‘nombre de jours à l'avance’ vous permet de définir combien de jours à l’avance votre client peut choisir sa livraison. Lorsque vous optez pour 7 jours, la dernière possibilité de choix sera donc exactement 7 jours plus tard. Les jours durant lesquels aucune livraison n’est possible ne sont pas affichés lors du checkout.</p>
+        <img src="media/checkout_maandagBE.png">
+        <p>Dans l’image ci-dessus, vous pouvez voir qu’il a été choisi d’afficher 7 jours à l'avance.  L’image ci-dessous vous présente ce que le client peut voir lors du checkout. Un total de 5 jours de livraison est affiché car le dimanche et le lundi ne sont pas des jours de livraison. Le dernier moment de livraison est exactement 7 jours plus tard.</p>
+        <img src="media/leverdagen.png">
+
+        <h3 id="3_1_2">3.1.2 Dernier moment de commande</h3>
+        <p> Vous pouvez définir ici jusqu’à quel moment il vous est possible de préparer une commande pour la livraison. Si vous saisissez 16:00, la première possibilité de livraison sera portée à un jour ultérieur pour tous les clients qui passeront commande après cette heure.<br>
+            Par exemple : votre délai de traitement est d’un jour et vous pouvez traiter les commandes jusqu’à 16h00. Pour une commande reçue le mardi 4 octobre à 16h02, la première possibilité de livraison pour votre client sera donc le jeudi 6 octobre. Cela signifie que vous devrez déposer votre colis le mercredi à un point bpost.
+        </p>
+
+        <h3 id="3_1_3">3.1.3 Jours d’envoi</h3>
+        <p>Dans ‘jours d'expédition’, vous pouvez indiquer les jours lors desquels il vous est possible de fournir des colis pour un enlèvement le jour même. Au niveau du checkout, cet élément sera pris en compte pour les options proposées à votre client.</p>
+
+        <h3 id="3_1_4">3.1.4 Retard</h3>
+        <p>Vous pouvez indiquer ici si vous avez besoin d’un délai de traitement plus long pour procéder à la livraison. Au niveau du checkout, cet élément sera pris en compte pour les jours de livraison possibles proposés à votre client.</p>
+
+        <h3 id="3_1_5">3.1.5 Couleurs</h3>
+        <p>Il est possible d’adapter la couleur de la fenêtre dans laquelle les options d’expédition sont affichées selon votre charte graphique.</p>
+
+        <h2 id="3_2">3.2 Livraison</h2>
+        <img src="media/image007BE.png">
+
+        <h3 id="3_2_1">3.2.1 Titre livraison</h3>
+        <p>Vous pouvez choisir le titre que vous donnez à la livraison. Nous vous conseillons d’indiquer ‘bpost’.</p>
+
+        <h3 id="3_2_2">3.2.2 Signature pour réception</h3>
+        <p>Vous pouvez indiquer si vos clients peuvent choisir cette option lors du checkout. Si vous souhaitez l’afficher, choisissez <span class="nice">Oui</span> Il est possible de renommer cette option ; dans l’exemple, elle s’appelle ‘Signature pour réception’. Vous pouvez également associer des frais complémentaires à cette option. Dans l’exemple cette option coûte 0,45 € supplémentaires.</p>
+        <p>Une option a été également créée pour un supplément combiné des choix<span class="nice">Livrer uniquement chez moi</span> et <span class="nice">Signature pour réception</span>. Vous pouvez remplir un prix à votre discrétion.</p>
+
+        <h3 id="3_2_3">3.2.3 Livraison le samedi</h3>
+        <p>Vous pouvez également choisir de faire livrer un colis le samedi. N'oubliez pas de sélectionner le vendredi comme jour d’envoi.</p>
+
+        <h2 id="3_3">3.3 Collecte dans un point bpost</h2>
+        <p>Avec cette option, vos clients peuvent choisir d’aller chercher leur colis dans un point bpost. Ils peuvent choisir le point en question lors du checkout. Vous avez la possibilité de facturer un supplément pour ceci, même si MyParcel BE ne facture pas de frais supplémentaires.</p>
+        <img src="media/ophalenBE.png">
+
+        <h1 id="4">4 Fonctionnalités back-end</h1>
+        <p>Pour utiliser les fonctionnalités de back-end, l’extension MyParcel BE doit être activée.</p>
+
+        <h2 id="4_1">4.1 Créer un envoi </h2>
+        <p>Vous pouvez créer un envoi MyParcel BE de deux manières:</p>
+
+        <h4>1. Méthode par lots via l’aperçu des commandes.</h4>
+        <ol>
+            <li>Sélectionnez les commandes que vous voulez exporter vers MyParcel BE.</li>
+            <li>Choisissez ‘Créer des étiquettes’ dans la barre d'actions MyParcel et cliquez ensuite sur ‘Envoyer’.</li>
+            <img src="media/batch1BE.png">
+            <li>Sélectionnez la position d'impression correcte si vous avez choisi ‘A4’.</li>
+            <img src="media/startprint.png">
+            <li>Le PDF apparaît sur votre ordinateur et est prêt à être imprimé.</li>
+        </ol>
+
+        <h4>2. Par commande, lorsque vous créez un envoi Magento.</h4>
+        <ol>
+            <li>Cliquez sur la commande correspondante.</li>
+            <li>Cliquez sur le bouton <span class="nice">Envoyer</span> en haut à droite.</li>
+            <img src="media/ship.png">
+            <li>Un cadre jaune apparaît dans le coin inférieur droit. Vous pouvez ici adapter le type d’envoi, de même que les options d’expédition disponibles par type d’envoi.</li>
+            <img src="media/shipoptions.png">
+            <li>Transférer l’envoi vers MyParcel BE.</li>
+        </ol>
+        <p>Il est également possible d'envoyer une commande via des livraisons partielles, par exemple lorsque la commande totale est trop lourde ou trop grande pour être envoyée dans un seul colis, ou qu’une partie de celle-ci est temporairement indisponible et que vous souhaitez l’envoyer ultérieurement.</p>
+        <ol>
+            <li>Vous pouvez afficher la commande à cet effet et choisir ‘Envoyer’ en haut à droite.</li>
+            <li>Modifiez la quantité dans <span class="nice">Articles à envoyer</span> et sélectionnez <span class="nice">Transférer l’envoi</span> en bas à droite. .</li>
+            <li>ous pouvez ensuite créer, de la même manière, une étiquette d’expédition pour la même commande. Les deux envois sont sauvegardés sous la même commande.</li>
+        </ol>
+
+        <h2 id="4_2">4.2 Générer une étiquette de retour</h2>
+        <p>
+            Dans l’aperçu des commandes, cliquez sur la commande correspondante. Sur l’écran de détails, cliquez sur l’onglet ‘Expéditions’ dans la partie gauche du menu. Cliquez ensuite sur l’envoi qui doit être retourné.
+            <img src="media/zendingen.png">
+            Vous êtes maintenant sur l’écran de détail d'expédition, avec le bouton ‘Générer une étiquette de retour’ dans le coin supérieur droit.<br><br>
+            <img src="media/retourlabel.png">
+
+            Si une adresse e-mail a été renseignée, votre client recevra ensuite un e-mail de MyParcel BE contenant un lien vers l’étiquette d’expédition. Vous avez aussi la possibilité de personnaliser votre e-mail pour les retours dans MyParcel. Il est également possible de définir une contribution propre du client.
+            Pour ce faire, connectez-vous à MyParcel BE et allez dans <span class="nice">Paramètres → Retour</span> , puis en bas de la page <span class="nice">Personnaliser l’e-mail</span>.
+        </p>
+
+        <h2 id="4_2_1">4.2.1 Générer une étiquette de retour non spécifiée</h2>
+        <p>
+            Vous pouvez envoyer une étiquette de retour à votre client depuis l’aperçu de vos commandes. Pour ce faire, cliquez sur le bouton <span class="nice">Envoyer une étiquette de retour</span><br>
+            <img src="media/mailretourlabel.png"><br><br>
+            Une fenêtre s’ouvrira ensuite pour vous permettre d’indiquer le nom et l'adresse e-mail de votre client. Il est également possible de fournir une référence pour identifier la commande. <br><br>
+            <img src="media/gegevensretourlabel.png">
+        </p>
+
+        <h1 id="5">5 Mise à niveau</h1>
+        <p>
+            <a target="_blank" href="https://github.com/myparcelbe/magento1/releases">Cliquez ici</a> pour la version la plus récente de l’extension MyParcel.<br>
+
+            Pour télécharger le fichier zip, cliquez sur ‘Source code’ sous  <span class="nice">Téléchargements</span>.<br><br>
+
+            <a target="_blank" href="https://github.com/myparcelbe/magento1/releases">Cliquez ici</a> pour plus d’informations sur les notes de mise à jour.
+
+        </p>
+
+        <h2 id="5_1">5.1 Étapes de la mise à niveau</h2>
+        <p>
+            <b>1 Désactiver le compilateur</b><br>
+            Désactiver le compilateur si celui-ci est activé. <br>
+            Pour ce faire, allez dans le menu <span class="nice">Système → Outils → Compilation</span>.
+        </p>
+
+        <p>
+            <b>2 Télécharger des dossiers et des fichiers </b><br>
+            Le fichier zip contient deux dossiers :
+        </p>
+        <ol>
+            <li>app</li>
+            <li>skin</li>
+        </ol>
+        <p>
+            Téléchargez ces dossiers vers votre installation Magento. <br>
+            Si le programme SSH / FTP vous demande si vous souhaitez fusionner ou remplacer les dossiers, sélectionnez l’option fusionner.
+        </p>
+        <p>
+            <b>3 Vider le cache et se reconnecter </b><br>
+            Connectez-vous à votre environnement de gestion Magento et choisissez le menu <span class="nice">Système → Gérer le cache</span>.
+            Cliquez sur <span class="nice">Sélectionner tout</span>, choisissez l’option <span class="nice">Rafraîchir</span> dans le menu déroulant et cliquez sur <span class="nice">Confirmer</span>.<br>
+            Cliquez ensuite sur <span class="nice">Se déconnecter</span> dans le coin supérieur droit, puis reconnectez-vous à votre environnement de gestion.<br>
+            L'extension a été mise à jour.
+        </p>
+
+        <h1 id="6">6 Questions fréquemment posées</h1>
+
+        <h2 id="6_1">6.1 Mon système de checkout est-il supporté?</h2>
+        <p>
+            Le mode d’expédition MyParcel BE utilise les fonctionnalités standards de Magento. Cela signifie que la méthode d’expédition fonctionne avec chaque système de checkout qui a été développé selon les directives de Magento.<br>
+            Les extensions de checkout suivantes sont compatibles avec la ‘Collecte à un point bpost’ :
+        </p>
+        <ul>
+            <li>OnePageCheckout, qui est le checkout standard de Magento.</li>
+            <li>IWD checkout</li>
+            <li>Idev OneStepCheckout, dqui peut être acheté via <a target="_blank" href="http://www.onestepcheckout.com">www.onestepcheckout.com</a>. Attention : vous ne devez jamais définir ‘Collecte à un point PostNL’ comme mode d’expédition par défaut.</li>
+            <li>Fire Checkout (support depuis Fire Checkout).</li>
+        </ul>
+
+        <h2 id="6_2">6.2 J’utilise une extension de vérification du code postal, est-ce un problème?</h2>
+        <p>
+            En principe, il est possible d’utiliser une extension de vérification de code postal en combinaison avec l’extension MyParcel Magento.
+        </p>
+
+        <h2 id="6_3">6.3 Comment puis-je configurer la livraison gratuite?</h2>
+        <p>A côté des Tables Rates, vous pouvez également définir des frais d’envoi gratuits via Promotions > Règles de prix du panier.</p>
+        <ol>
+            <li>Cliquez en haut à droite sur <span class="nice">Ajouter une nouvelle règle</span>.</li>
+            <li>Donnez un nom à la règle dans <span class="nice">Données de la règle</span> (par ex.: ‘Envoi gratuit à partir de 50’).Activez le statut et sélectionner toutes les options dans sites internet et groupes de clients.</li>
+            <li>En haut à gauche, cliquez sur <span class="nice">Conditions</span> et précisez vous-même la règle en cliquant sur <span class="nice">+</span>. (Par ex. ‘Sous-total est égal ou supérieur à 50’)</li>
+            <li>A l’étape suivante, indiquez ‘Seulement pour les articles concernés’ dans ‘Expédition gratuite’.</li>
+            <li>Cliquez sur ‘Enregistrer’ dans le coin supérieur droit.</li>
+        </ol>
+    </div>
+
+    <footer class="site-footer">
+        <p><span class="site-footer-owner">MyParcel Belgique</span></p>
+        <p>
+            <span class="site-footer-credits">
+                <strong>Adresse </strong>Adriaan Brouwerstraat 16, 2000 Antwerpen&nbsp;
+                <strong>Téléphone </strong>03 808 18 20&nbsp;
+                <strong>E-mail</strong> &nbsp;info@sendmyparcel.be<br/>
+                <strong>Site internet </strong>www.sendmyparcel.be&nbsp;
+            </span><br/>&nbsp;
+        </p>
+    </footer>
+</section>
