@@ -22,7 +22,7 @@ TIG_MyParcelBE::Edit options,Opties bewerken
 TIG_MyParcelBE::Retourlink e-mail Template,Retourlink e-mail Template
 TIG_MyParcelBE::PLACEHOLDER,PLACEHOLDER
 TIG_MyParcelBE::Track&amp;Trace email template,Track&amp;Trace e-mail Template
-"TIG_MyParcelBE::You can create a new transactional e-mail where the variables {{var tracktrace_url}} and {{var retourlabel_url}} are available. TIP: You can base them on the Order Update template, because {{var order}} is also available.","U kunt een nieuwe transactionele email aanmaken en daarin {{var tracktrace_url}} en {{var retourlabel_url}} gebruiken. Zie voor details de <a target=""_blank"" href=""http://kb.tig.nl/topic/98526863"">KB</a>"
+"TIG_MyParcelBE::You can create a new transactional email and use {{var tracktrace_url}} and {{var retourlabel_url}} in it. TIP: You can base them on the Order Update template, because {{var order}} is also available.","U kunt een nieuwe transactionele email aanmaken en daarin {{var tracktrace_url}} en {{var retourlabel_url}} gebruiken. Zie voor details de <a target=""_blank"" href=""http://kb.tig.nl/topic/98526863"">KB</a>"
 TIG_MyParcelBE::Print Orientation,Print ori&euml;ntatie
 TIG_MyParcelBE::Select a standard orientation for printing labels.,Selecteer een standaard print ori&euml;ntatie voor het printen van labels.
 TIG_MyParcelBE::Enable test modus,Activeer test modus
@@ -80,7 +80,7 @@ TIG_MyParcelBE::Pickup Belgium title,Ophalen België titel
 TIG_MyParcelBE::Pickup Belgium fee,Ophalen België prijs
 TIG_MyParcelBE::API Key,API Key,
 TIG_MyParcelBE::The API Key given by MyParcel BE.,Stel hier de API key in die is ontvangen vanuit MyParcel BE.
-TIG_MyParcelBE::To get your personal API credentials please contact MyParcel Belgium.,Neem contact op met MyParcel België om de API gegevens te ontvangen.
+TIG_MyParcelBE::Go to the general settings in the back office of MyParcel BE to generate the API Key.,Ga naar de algemene instellingen in de backoffice van MyParcel BE om de API Key te genereren.
 TIG_MyParcelBE::API settings,API Instellingen
 TIG_MyParcelBE::"Wrong API key. Go to MyParcel settings to set the API key.","Verkeerde API key. Ga naar de instellingen van de MyParcel plugin om de juiste API key in te vullen."
 TIG_MyParcelBE::Version &amp; Support,Versie &amp; Support

@@ -366,7 +366,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
-                    <comment>To get your personal API credentials please contact MyParcel Belgium.</comment>
+                    <comment>Go to the general settings in the back office of MyParcel BE to generate the API Key.</comment>
                     <fields>
                         <key translate="label comment">
                             <label>API Key</label>
@@ -399,7 +399,7 @@
                         </print_orientation>
                         <tracktrace_template translate="label comment tooltip">
                             <label>Track&amp;Trace email template</label>
-                            <comment>You can create a new transactional e-mail where the variables {{var tracktrace_url}} and {{var retourlabel_url}} are available. TIP: You can base them on the Order Update template, because {{var order}} is also available.</comment>
+                            <comment>You can create a new transactional email and use {{var tracktrace_url}} and {{var retourlabel_url}} in it. TIP: You can base them on the Order Update template, because {{var order}} is also available.</comment>
                             <tooltip>Select a transactional e-mail template to send the barcode</tooltip>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_email_template</source_model>
