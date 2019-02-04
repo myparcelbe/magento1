@@ -1106,6 +1106,7 @@ class TIG_MyParcelBE_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return array(
             'NL',
+            'BE',
             'DE',
             'EE',
             'FI',
