@@ -180,6 +180,7 @@ TIG_MyParcelBE::Street line #%s,Adresregel #%s
 TIG_MyParcelBE::The weight in Magento is specified in gram instead of kg,Het gewicht in Magento is opgegeven in gram i.p.v. kg
 TIG_MyParcelBE::Select 'Yes' if the weight is not properly picked up by the MyParcel plugin,Selecteer 'Ja' als het gewicht niet goed wordt opgepakt door de MyParcel plugin
 TIG_MyParcelBE::This will be added to the regular shipping price,Dit zal bij de normale verzendkosten worden opgeteld
+"TIG_MyParcelBE::Enter an amount that is either positive or negative. For example, do you want to give a discount for using this function or do you want to charge extra for this delivery option.","Vul hier een bedrag in dat zowel positief of negatief is. Wil je bijvoorbeeld korting geven voor het gebruiken van deze functie of wil je extra kosten rekenen voor deze bezorgoptie."
 TIG_MyParcelBE::Default shipment type for Cross Domestic shipments,Standaard verzend inhoud voor Cross Domestic verzendingen
 "TIG_MyParcelBE::When changing the address, you need to cancel the current MyParcel shipment(s) linked to this order and create new MyParcel shipments.","Wanneer het adres gewijzigd wordt, bent u genoodzaakt om de gekoppelde MyParcel verzendingen te crediteren en nieuwe MyParcel verzendingen aan te maken."
 "TIG_MyParcelBE::To read the instructions for the MyParcel BE Magento extension, click <a target=""_blank"" href=""%s"">here</a>.","Klik <a target=""_blank"" href=""%s"">hier</a> om de handleiding van de MyParcel BE Magento extensie te bekijken."
@@ -206,7 +207,6 @@ TIG_MyParcelBE::Track&amp;Trace link: %s,Track&amp;Trace link: %s
 TIG_MyParcelBE::Shipment type,Zendingtype
 TIG_MyParcelBE::Accordance with type consignment,Conform type zending
 TIG_MyParcelBE::Normal,Pakket
-TIG_MyParcelBE::Unstamped,Ongefrankeerd
 TIG_MyParcelBE::The MyParcel consignment is successfully created.,De MyParcel zending is succesvol aangemaakt.
 TIG_MyParcelBE::Choose a pickup location,Selecteer MyParcel Verzendopties
 TIG_MyParcelBE::Selected post office location:,Geselecteerde postkantoor locatie:
@@ -220,7 +220,6 @@ TIG_MyParcelBE::Housenumber,Huisnummer
 TIG_MyParcelBE::Search,Zoeken
 TIG_MyParcelBE::Nearest myparcel pickup points,Dichtstbijzijnde afhaal locaties
 TIG_MyParcelBE::bpost location Method name,bpost locatie methode naam
-TIG_MyParcelBE::Unpaid,Ongefrankeerd
 TIG_MyParcelBE::The consignment is already credited.,Deze zending is al gecrediteerd.
 TIG_MyParcelBE::MyParcel - Create labels,MyParcel - Cre&euml;er labels
 TIG_MyParcelBE::Print packing slip,Print pakbon

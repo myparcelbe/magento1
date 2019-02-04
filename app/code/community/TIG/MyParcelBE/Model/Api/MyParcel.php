@@ -797,9 +797,6 @@ class TIG_MyParcelBE_Model_Api_MyParcel extends Varien_Object
          * Add the shipment type parameter.
          */
         switch ($myParcelShipment->getShipmentType()) {
-            case $myParcelShipment::TYPE_UNPAID:
-                $packageType = 3;
-                break;
             case $myParcelShipment::TYPE_NORMAL:
             default:
                 $packageType = 1;

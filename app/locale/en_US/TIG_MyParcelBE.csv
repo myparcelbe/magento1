@@ -119,6 +119,7 @@ TIG_MyParcelBE::Split house number parts,Split house number parts
 TIG_MyParcelBE::Housenr. extension field,Housenr. extension field
 TIG_MyParcelBE::Street line #%s,Street line #%s
 TIG_MyParcelBE::This will be added to the regular shipping price,This will be added to the regular shipping price
+"TIG_MyParcelBE::Enter an amount that is either positive or negative. For example, do you want to give a discount for using this function or do you want to charge extra for this delivery option.","Enter an amount that is either positive or negative. For example, do you want to give a discount for using this function or do you want to charge extra for this delivery option."
 TIG_MyParcelBE::Default shipment type for Cross Domestic shipments,Default shipment type for Cross Domestic shipments
 "TIG_MyParcelBE::When changing the address, you need to cancel the current MyParcel shipment(s) linked to this order and create new MyParcel shipments.","When changing the address, you need to cancel the current MyParcel shipment(s) linked to this order and create new MyParcel shipments."
 "TIG_MyParcelBE::To read the instructions for the MyParcel BE Magento extension, click <a target=""_blank"" href=""%s"">here</a>.","To read the instructions for the MyParcel BE Magento extension, click <a target=""_blank"" href=""%s"">here</a>."
@@ -139,7 +140,6 @@ TIG_MyParcelBE::Create MyParcel Consignment,Create MyParcel Consignment
 TIG_MyParcelBE::Track&amp;Trace link: %s,Track&amp;Trace link: %s
 TIG_MyParcelBE::Shipment type,Shipment type
 TIG_MyParcelBE::Normal,Normal
-TIG_MyParcelBE::Unstamped,Unstamped
 TIG_MyParcelBE::The MyParcel consignment is successfully created.,The MyParcel consignment is successfully created.
 TIG_MyParcelBE::Choose a pickup location,Choose a pickup location
 TIG_MyParcelBE::Zipcode,Zipcode
@@ -148,7 +148,6 @@ TIG_MyParcelBE::Housenumber,Housenumber
 TIG_MyParcelBE::Search,Search
 TIG_MyParcelBE::Nearest myparcel pickup points,Nearest myparcel pickup points
 TIG_MyParcelBE::bpost location Method Name,bpost location Method Name
-TIG_MyParcelBE::Unpaid,Unpaid
 TIG_MyParcelBE::The consignment is already credited.,The consignment is already credited.
 TIG_MyParcelBE::MyParcel BE - Create labels,MyParcel BE - Create labels
 TIG_MyParcelBE::Select,Select

@@ -86,7 +86,6 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
      */
     const TYPE_LETTER_BOX   = 'letter_box';
     const TYPE_NORMAL       = 'normal';
-    const TYPE_UNPAID       = 'unstamped';
 
     /** @var TIG_MyParcelBE_Helper_Data $helper */
     public $helper;
@@ -655,7 +654,6 @@ class TIG_MyParcelBE_Model_Shipment extends Mage_Core_Model_Abstract
         $isValid = false;
         switch ($type) {
             case self::TYPE_NORMAL: //no break
-            case self::TYPE_UNPAID:
                 $isValid = true;
                 break;
             //no default
