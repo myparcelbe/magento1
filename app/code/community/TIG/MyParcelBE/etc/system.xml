@@ -347,7 +347,7 @@
                         </pickup_title>
                         <pickup_fee translate="label,comment" module="tig_myparcel">
                             <label>Pickup fee</label>
-                            <comment>This will be added to the regular shipping price</comment>
+                            <comment>Enter an amount that is either positive or negative. For example, do you want to give a discount for using this function or do you want to charge extra for this delivery option.</comment>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
                             <sort_order>110</sort_order>
