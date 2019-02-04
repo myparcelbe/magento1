@@ -93,7 +93,7 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
         $text['house_number'] =                 $this->__('House number');
         $text['city'] =                         $this->__('City');
         $text['again'] =                        $this->__('Again');
-        $text['wrong_house_number_city'] =      $this->__('House number/city combination unknown');
+        $text['wrong_house_number_city'] =      $this->__('Postcode/city combination unknown');
         $text['quick_delivery'] =               $this->__('Deliver as quickly as possible');
 
         $text['monday'] =                       $this->__('Monday');
