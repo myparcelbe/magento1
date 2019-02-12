@@ -1,0 +1,313 @@
+TIG_MyParcelBE::Enabled,Activé
+TIG_MyParcelBE::Title,Titre
+TIG_MyParcelBE::Method Name,Nom du mode
+TIG_MyParcelBE::Rate Type,Type de tarification
+TIG_MyParcelBE::Type,Type
+TIG_MyParcelBE::Price,Prix
+TIG_MyParcelBE::bpost location active,point bpost actif
+TIG_MyParcelBE::bpost location fee,frais de traitement point bpost
+TIG_MyParcelBE::Condition,Condition
+TIG_MyParcelBE::Calculate Handling Fee,Mode de calcul des frais d'envoi
+TIG_MyParcelBE::Handling Fee,Frais de traitement
+TIG_MyParcelBE::Ship to Applicable Countries,Expédition vers les pays applicables
+TIG_MyParcelBE::Ship to Specific Countries,Expédition vers des pays spécifiques
+TIG_MyParcelBE::Sort Order,Trier les commandes
+TIG_MyParcelBE::Default Shipment Settings,Paramètres d'expédition standards
+TIG_MyParcelBE::Signature on receipt,Signature pour réception
+TIG_MyParcelBE::Insured up to &euro; 500,Assuré jusqu'à &euro; 500
+TIG_MyParcelBE::Automatically next status,Statut suivant automatisé
+TIG_MyParcelBE::Turn the order automatically to the next status after creating a label, La commande passe automatiquement au statut suivant lors de la création de l'étiquette
+TIG_MyParcelBE::Edit options,Modifier les options
+"TIG_MyParcelBE::Fill in your preferences for a shipment. These settings will only apply for the mass actions in the order grid. When creating a single shipment, these settings can be changed manually.<br/>These settings will activate based on the order total amount.","Précisez ici vos préférences par défaut pour les options d'envoi. Le cas échéant, ces paramètres seront appliqués de manière standard à tous vos envois. Par la suite, ces options peuvent évidemment encore être adaptées lors du traitement par envoi.<br/><br/> Les valeurs peuvent donc encore être modifiées lorsque vous traitez votre envoi."
+TIG_MyParcelBE::Retourlink e-mail Template,Modèle d'e-mail avec lien retour
+TIG_MyParcelBE::PLACEHOLDER,PLACEHOLDER
+TIG_MyParcelBE::Track&amp;Trace email template,Track&amp;Modèle d'e-mail de suivi
+"TIG_MyParcelBE::You can create a new transactional email and use {{var tracktrace_url}} and {{var retourlabel_url}} in it. TIP: You can base them on the Order Update template, because {{var order}} is also available.","Vous pouvez créer une nouvel e-mail transactionnel et y placer {{var tracktrace_url}} et {{var retourlabel_url}}."
+TIG_MyParcelBE::Print Orientation,Orientation de l'impression
+TIG_MyParcelBE::Select a standard orientation for printing labels.,Selectionnez une orientation standard pour l'impression des étiquettes.
+TIG_MyParcelBE::Enable test modus,Activer le mode test
+TIG_MyParcelBE::Enable to test the extension,Activez cette option pour effectuer des envois test
+TIG_MyParcelBE::Selecting 'No' will overrule all individual settings.,Lorsque vous sélectionnez 'non', les paramètres individuels seront annulés.
+TIG_MyParcelBE::General settings,Paramètres généraux
+TIG_MyParcelBE::Basic settings,Paramètres de base
+TIG_MyParcelBE::Checkout settings,Paramètres du checkout
+TIG_MyParcelBE::Cut-off time,Heure limite de commande
+TIG_MyParcelBE::Show delivery date,Afficher la date de livraison
+"TIG_MyParcelBE::If a request is made for the delivery options between Friday after, and Monday before, cut-off time then Tuesday will be shown as the next possible delivery date.,Lorsqu'une commande est passée après la dernière heure de commande le vendredi et avant celle-ci le lundi, c'est donc le mardi qui sera affiché comme premier jour de livraison."
+TIG_MyParcelBE::day,jour
+TIG_MyParcelBE::days,jours
+TIG_MyParcelBE::Hide days,Masquer les jours
+TIG_MyParcelBE::Drop-off days,Jours de dépôt
+TIG_MyParcelBE::Saturday delivery,Livraison le samedi
+TIG_MyParcelBE::Saturday delivery title,Livraison le samedi - titre
+TIG_MyParcelBE::Saturday delivery fee,Livraison le samedi - prix
+TIG_MyParcelBE::Monday delivery cut-off time,Dernière heure commande pour une livraison le lundi
+"TIG_MyParcelBE::If a request is made before this time on Saturday, Monday will be shown as the next possible delivery date. ","Si la commande est passée le samedi avant cette heure, le lundi sera indiqué comme premier jour de livraison."
+TIG_MyParcelBE::Dropoff-delay,Délai d'envoi
+"TIG_MyParcelBE::This options allows you to set the number of days it takes you to pick, pack and hand in your parcels at bpost when ordered before the cutoff time.","Cette option vous permet de définir le nombre de jours dont vous avez besoin pour (recevoir,) emballer et présenter le produit à bpost, à partir du moment de la commande."
+TIG_MyParcelBE::No delay,Pas de délai
+TIG_MyParcelBE::Base color,Couleur de base
+TIG_MyParcelBE::Color for selected items,Couleur pour les éléments sélectionnés
+TIG_MyParcelBE::Add style to the checkout,Ajouter un fichier css au checkout
+TIG_MyParcelBE::Font size,Taille de la police de caractères
+TIG_MyParcelBE::Leave blank to automatically determine the font size,Laissez vide pour définir automatiquement la police
+TIG_MyParcelBE::Delivery,Livraison
+TIG_MyParcelBE::Delivery title,Livraison - titre
+TIG_MyParcelBE::To determine the base price you have to navigate in the menu to <a id=""shipping_method_link"">Shipping Methods</a>.,Pour définir le prix de base, allez dans <a id=""shipping_method_link"">Modes d'expédition</a>
+TIG_MyParcelBE::Deliver the package only at address of the intended recipient,Livraison du colis uniquement à l'adresse personnelle du destinataire.
+TIG_MyParcelBE::Signature on receipt title,Signature pour réception - titre
+TIG_MyParcelBE::Signature on receipt fee,Signature pour réception - prix
+TIG_MyParcelBE::Saturday delivery,Livraison le samedi
+TIG_MyParcelBE::Saturday delivery title,Livraison le samedi - titre
+TIG_MyParcelBE::Saturday delivery fee,Livraison le samedi - prix
+TIG_MyParcelBE::If both have been selected this price will be added to the regular shipping price. Leave empty for not using it.,Si les deux options sont sélectionnées, ce prix s'ajoutera aux frais d'expédition habituels. Laissez vide pour ne pas utiliser cette option.
+TIG_MyParcelBE::Morning delivery,Livraison le matin
+TIG_MyParcelBE::Morning delivery active,Livraison le matin active
+TIG_MyParcelBE::Morning delivery fee,Livraison le matin - prix
+TIG_MyParcelBE::Evening delivery,Livraison en soirée 
+TIG_MyParcelBE::Evening delivery active,Livraison en soirée active
+TIG_MyParcelBE::Evening delivery fee,Livraison en soirée - prix
+TIG_MyParcelBE::Pickup at bpost location,Collecte dans un point bpost
+TIG_MyParcelBE::Pickup active,Collecte active
+TIG_MyParcelBE::Pickup title,Collecte - titre
+TIG_MyParcelBE::Pickup fee,Collecte - prix
+TIG_MyParcelBE::Pickup Express at bpost location,Collecte anticipée dans un point bpost
+TIG_MyParcelBE::Pickup Express active,Collecte anticipée active
+TIG_MyParcelBE::Pickup Express fee,Collecte anticipée - prix
+TIG_MyParcelBE::Pickup at Belgium bpost location,Collecte dans un point bpost en Belgique
+TIG_MyParcelBE::Pickup Belgium active,Collecte en Belgique active
+TIG_MyParcelBE::Pickup Belgium title,Collecte en Belgique - titre
+TIG_MyParcelBE::Pickup Belgium fee,Collecte en Belgique - prix
+TIG_MyParcelBE::API Key,Clé API,
+TIG_MyParcelBE::The API Key given by MyParcel BE.,Introduisez ici la clé API que vous avez reçue de MyParcel BE.
+TIG_MyParcelBE::Go to the general settings in the back office of MyParcel BE to generate the API Key.,Pour générer la clé API, rendez-vous dans les paramètres généraux du backoffice de MyParcel BE.
+TIG_MyParcelBE::API settings,Paramètres API
+TIG_MyParcelBE::"Wrong API key. Go to MyParcel settings to set the API key.","Clé API invalide. Rendez-vous dans les paramètres du plug-in MyParcel pour configurer une clé API correcte."
+TIG_MyParcelBE::Version &amp; Support,Support version &amp;
+TIG_MyParcelBE::The log files cannot be downloaded.,Les fichiers de logs ne peuvent être téléchargés.
+TIG_MyParcelBE::An error occurred while processing this action.,Une erreur s'est produite lors du traitement de cette action.
+TIG_MyParcelBE::The shipments were successfully created.,Les envois ont été créés avec succès
+TIG_MyParcelBE::None of the shipments could be created. Please check the error messages for more details.,Aucun envoi n'a pu être créé. Vérifiez les messages d'erreur dans le fichier de logs pour plus de détails.
+TIG_MyParcelBE::Please select one or more shipments.,Sélectionnez un ou plusieurs envois.
+TIG_MyParcelBE::Please select one or more orders.,Sélectionnez une ou plusieurs commandes.
+TIG_MyParcelBE::MyParcel replied with the following warnings:,MyParcel a fourni les avertissements suivants :
+TIG_MyParcelBE::The following shipments or orders could not be processed:,Les envois suivants n'ont pu être traités :
+TIG_MyParcelBE::Order #%s cannot be shipped at this time.,La commande #%s ne peut être envoyée à ce moment
+TIG_MyParcelBE::Invalid full street supplied: %s.,Le nom de rue fourni n'est pas valable : %s.
+TIG_MyParcelBE::Address is too long. Make the delivery address less than 40 characters. Click on send (in the order detail page) to create a concept. And then edit the shipment in the backoffice of MyParcel.,L'adresse est trop longue. L'adresse de livraison doit comporter moins de 40 caractères. Cliquez sur envoyer (sur la page des détails de commande) afin de créer un concept. Modifiez ensuite l'envoi dans le backoffice de MyParcel BE.
+TIG_MyParcelBE::Something went wrong with splitting up address %s.,Une erreur s'est produite lors de la scission de l'adresse %s. Ajoutez l'adresse manuellement dans le backoffice de MyParcel BE.
+TIG_MyParcelBE::Something went wrong with splitting up housenumber %s.,Une erreur s'est produite lors de la scission du numéro de rue %s. Ajoutez l'adresse manuellement dans le backoffice de MyParcel BE.
+TIG_MyParcelBE::Invalid housnumber supplied: %s.,Le numéro de rue fourni n'est pas valable : %s
+TIG_MyParcelBE::Invalid session requested.,Demande de session invalide.
+TIG_MyParcelBE::Invalid message type requested: %s.,Type de message invalide demandé : %s
+TIG_MyParcelBE::No message supplied.,Aucun message fourni
+TIG_MyParcelBE::No message type supplied.,Aucun type de message fourni
+TIG_MyParcelBE::Click here for more information from the TiG knowledgebase.,Cliquez ici pour plus d'informations dans la base de connaissances TIG.
+TIG_MyParcelBE::An error occurred while processing your request: ,Une erreur s'est produite lors du traitement de votre demande :
+TIG_MyParcelBE::The createConsignment action is currently unavailable.,L'action createConsigment n'est actuellement pas disponible
+TIG_MyParcelBE::Invalid createConsignment response.,Réponse createConsignment invalide
+TIG_MyParcelBE::Streetname is to long: %s.,Le nom de rue est trop long : %s (40 lettre max.)
+TIG_MyParcelBE::Shipping status,Statut de l'envoi
+TIG_MyParcelBE::MyParcel - Create Shipments,MyParcel - Créer des envois
+TIG_MyParcelBE::MyParcel - Print shipping labels,MyParcel - Imprimer des étiquettes d'expédition
+TIG_MyParcelBE::Download log files,Télécharger les fichiers de log
+TIG_MyParcelBE::Unknown rate type specified: %s.,Type de tarif inconnu spécifié : %s.
+TIG_MyParcelBE::Flat,Uniforme
+TIG_MyParcelBE::Table,Tableau
+TIG_MyParcelBE::Invalid PakjeGemak address.,Adresse du point bpost invalide.
+TIG_MyParcelBE::Invalid phone number.,Numéro de téléphone invalide.
+TIG_MyParcelBE::Invalid housenumber extension.,Extension du numéro invalide.
+TIG_MyParcelBE::A4,A4
+TIG_MyParcelBE::A6,A6
+TIG_MyParcelBE::Commercial Goods,Marchandises commerciales
+TIG_MyParcelBE::Commercial Sample,Echantillon commercial
+TIG_MyParcelBE::Documents,Documents
+TIG_MyParcelBE::Gift,Cadeau
+TIG_MyParcelBE::Returned Goods,Marchandises retournées
+TIG_MyParcelBE::Yes,Oui
+TIG_MyParcelBE::No,Non
+TIG_MyParcelBE::Myparcel Consignment Options,Options d'envoi MyParcel
+TIG_MyParcelBE::Insured amount,Montant assuré
+TIG_MyParcelBE::Insured,Assuré
+TIG_MyParcelBE::MyParcel BE version %s,MyParcel BE version %s
+TIG_MyParcelBE::Magento &amp; 3rd party version compatibility,Compatibilité tierces parties Magento &amp;
+TIG_MyParcelBE::Magento Community Edition version,Version Magento Community Edition
+TIG_MyParcelBE::Magento Enterprise Edition version,Version Magento Enterprise Edition
+TIG_MyParcelBE::Idev's OneStepCheckout version,Version Idev's OneStepCheckout
+TIG_MyParcelBE::IWD's OnePageCheckout version,Version IWD's OnePageCheckout
+TIG_MyParcelBE::Support,Support
+TIG_MyParcelBE::The extension is developed by Total Internet Group.,Cette extension a été développée par Total Internet Group.
+TIG_MyParcelBE::MyParcel account questions and information,Questions et informations sur le compte MyParcel
+"TIG_MyParcelBE::For questions related to your MyParcel BE account, configuration problems, extension conflicts and bugs, please contact MyParcel BE.","En cas de questions relatives à votre compte MyParcel BE, de problèmes de configuration, de conflits d'extension ou de bogue, merci de contacter MyParcel BE."
+TIG_MyParcelBE::Phone,Téléphone
+TIG_MyParcelBE::Online knowledgebase,Base de connaissances en ligne
+TIG_MyParcelBE::Request help directly,Demandez une assistance maintenant
+TIG_MyParcelBE::Email,E-mail
+TIG_MyParcelBE::Documentation,Documentation
+TIG_MyParcelBE::A list of documents regarding the extension.,Une liste des documents relatifs à l'extension.
+TIG_MyParcelBE::View the installation and configuration manual.,Consultez le manuel d'installation et de configuration.
+TIG_MyParcelBE::Installation and configuration manual,Manuel d'installation et de configuration
+TIG_MyParcelBE::View the user manual.,Consultez le manuel d'utilisation
+TIG_MyParcelBE::User manual,Manuel d'utilisation
+TIG_MyParcelBE::View the complete changelog of the extension.,Consultez toutes les notes de mise à jour de l'extension
+TIG_MyParcelBE::Latest stable release,Dernière version stable
+TIG_MyParcelBE::Full changelog,Toutes les notes de mise à jour
+TIG_MyParcelBE::MyParcel PgAddress class missing.,MyParcel PgAddress class manquante
+TIG_MyParcelBE::Select a transactional e-mail template to send the retourlink,Sélectionnez un modèle d'e-mail transactionnel pour l'envoi du lien retour.
+TIG_MyParcelBE::Select a transactional e-mail template to send the barcode,Sélectionnez un modèle d'e-mail transactionnel pour l'envoi du code Track & Trace
+TIG_MyParcelBE::You can create a new transactional e-mail where the variables {{var retourlink}} is available.,Vous pouvez créer un e-mail transactionnel qui reprend les variables {{var retourlink}} pour l'envoi du lien retour.
+TIG_MyParcelBE::Unable to send track and trace email for shipment #,Impossible d'envoyer l'e-mail Track & Trace #
+TIG_MyParcelBE::Track&amp;Trace e-mail is sent: %s,L'e-mail Track & Trace a été envoyé : %s
+TIG_MyParcelBE::Credit Consignment,Créditer l'envoi
+TIG_MyParcelBE::Mail return label,E-mail étiquette de retour
+TIG_MyParcelBE::Retour label mailed,L'étiquette retour a été envoyée au client
+TIG_MyParcelBE::This only works for Dutch addresses,Cette option n'est d'application que pour les adresses néerlandaises
+TIG_MyParcelBE::Name client,Nom du client
+TIG_MyParcelBE::Email client,E-mail du client
+TIG_MyParcelBE::Label description,Référence propre
+TIG_MyParcelBE::You did not specify a name,Vous n'avez indiqué aucun nom
+TIG_MyParcelBE::You did not specify a email,Vous n'avez indiqué aucun e-mail
+TIG_MyParcelBE::Mail send to,E-mail envoyé à
+"TIG_MyParcelBE::Credit has not been created, check MyParcel backend for details","Le crédit n'a pas été créé, merci de consulter le backend de MyParcel pour plus d'informations."
+TIG_MyParcelBE::Consignment %s is credited at MyParcel,L'envoi %s est crédité auprès de MyParcel.
+"TIG_MyParcelBE::Select 'no' if you have problems with addresses on the labels","Sélectionnez 'non' si vous rencontrez des problèmes avec les adresses sur les étiquettes."
+TIG_MyParcelBE::Split street parts,Scinder les champs relatifs au nom de la rue
+TIG_MyParcelBE::Streetname field,Champ Nom de la rue
+TIG_MyParcelBE::Housenr. field,Champ Numéro de rue
+TIG_MyParcelBE::Split house number parts,Scinder les champs relatifs au numéro de rue
+TIG_MyParcelBE::Housenr. extension field,Champ Extension du numéro de rue
+TIG_MyParcelBE::Street line #%s,Ligne adresse #%s
+TIG_MyParcelBE::The weight in Magento is specified in gram instead of kg,Dans Magento, le poids est indiqué en grammes en non en kilogrammes
+TIG_MyParcelBE::Select 'Yes' if the weight is not properly picked up by the MyParcel plugin,Sélectionnez 'Oui' si le poids n'est pas repris correctement via le plug-in MyParcel
+TIG_MyParcelBE::This will be added to the regular shipping price,Ceci sera ajouté au frais d'envoi habituels
+"TIG_MyParcelBE::Enter an amount that is either positive or negative. For example, do you want to give a discount for using this function or do you want to charge extra for this delivery option.","Introduisez ici un montant positif ou négatif. Si vous souhaitez par exemple proposer une réduction pour cette fonction ou décompter des frais supplémentaires pour cette option de livraison."
+TIG_MyParcelBE::Default shipment type for Cross Domestic shipments,Mode d'expédition standard pour les envois transfrontaliers
+"TIG_MyParcelBE::When changing the address, you need to cancel the current MyParcel shipment(s) linked to this order and create new MyParcel shipments.","Lorsque l'adresse est modifiée, vous devez annuler les envois MyParcel couplés à la commande en cours et créer de nouveaux envois MyParcel."
+"TIG_MyParcelBE::To read the instructions for the MyParcel BE Magento extension, click <a target=""_blank"" href=""%s"">here</a>.","Cliquez <a target=""_blank"" href=""%s"">ici</a> pour consulter le manuel de l'extension MyParcel BE Magento."
+TIG_MyParcelBE::When using the extension please note:,Portez attention aux points suivants lorsque vous utilisez cette extension :
+TIG_MyParcelBE::To be able to configure the extension you need to possess and use an active MyParcel BE account.,Pour pouvoir configurer l'extension, vous devez disposer d'un compte MyParcel BE actif.
+"TIG_MyParcelBE::During the transition phase the old Magento MyParcel BE extension can remain active. However, you do need to turn off PakjeGemak in the old MyParcel BE extension.",Si vous utilisez l'ancienne extension MyParcel BE, celle-ci peut demeurer active durant la phase de transition. Vous devez cependant désactiver PakjeGemak dans l'ancienne extension MyParcel BE.
+TIG_MyParcelBE::We cannot guarantee perfect functionality of the MyParcel BE extension when you intend to use the extension on a version of Magento that is not supported or when you intend to use the extension together with a 3rd part extension that is not supported. If you have any questions please contact MyParcel BE.<br><br>Supported extensions:,"Nous ne pouvons garantir le fonctionnement sans faille de l'extension MyParcel BE si vous souhaitez utiliser celle-ci sur une version ou une édition non supportée de Magento, ou si vous souhaitez l'utiliser avec une extension de tiers qui n'est pas compatible. En cas de question, merci de contacter MyParcel BE.<br><br>Les extensions compatibles sont :"
+TIG_MyParcelBE::Installation and configuration instructions,Manuel d'installation et de configuration
+TIG_MyParcelBE::Overview articles in knowledge base,Questions fréquemment posées
+TIG_MyParcelBE::Questions and information about your MyParcel BE account,Questions et informations relatives au compte MyParcel BE
+"TIG_MyParcelBE::Shipments will not be delivered at the neighbours, only on house address.","Les envois ne sont pas livrés chez les voisins, ils sont uniquement livrés à l'adresse du destinataire."
+TIG_MyParcelBE::Shipments will not go the a pickup point but will be returned directly after multiple delivery attempts.,Les envois ne seront pas déposés à un point de collecte et seront retournés après plusieurs tentatives de livraison.
+TIG_MyParcelBE::Unable to save check_status cron expression: %s,Impossible de sauvegarder l'expression cron check_status : %s
+TIG_MyParcelBE::Some of the shipments could not be created or could not be created at MyParcel from the selected orders. See below for detailed information.,Une erreur s'est produite pour certaines commandes sélectionnées lors de la création de l'envoi. Vous trouverez plus de détails ci-dessous.
+TIG_MyParcelBE::Select A4 print start position,Sélectionnez la position de départ pour l'impression A4
+"TIG_MyParcelBE::Select content type for Cross Domestic products, see <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a>","Introduisez le code de marchandises pour les envois hors de l'UE. Consultez <a href=""http://gebruikstarief.douane.nl"" target=""_blank"">http://gebruikstarief.douane.nl</a> pour connaître les codes d'application."
+TIG_MyParcelBE::Create MyParcel Consignment,Créer un envoi MyParcel
+TIG_MyParcelBE::Orders until today,Toutes les commandes jusqu'à aujourd'hui
+TIG_MyParcelBE::Send today,Envoi ce jour uniquement
+TIG_MyParcelBE::Send until tomorrow,Toutes les commandes jusqu'à demain
+TIG_MyParcelBE::Send later,Envoi plus tard
+TIG_MyParcelBE::Old orders,Toutes les commandes jusqu'à hier
+TIG_MyParcelBE::Track&amp;Trace link: %s,Lien Track&amp;Trace : %s
+TIG_MyParcelBE::Shipment type,Mode d'expédition
+TIG_MyParcelBE::Accordance with type consignment,Conformité avec le type d'envoi
+TIG_MyParcelBE::Normal,Colis
+TIG_MyParcelBE::The MyParcel consignment is successfully created.,L'envoi MyParcel a été créé avec succès.
+TIG_MyParcelBE::Choose a pickup location,Sélectionnez les options d'envoi MyParcel
+TIG_MyParcelBE::Selected post office location:,Localisation du bureau de poste sélectionné :
+TIG_MyParcelBE::Zipcode,Code postal
+TIG_MyParcelBE::Search by zipcode, address or city,Chercher selon le code postal, l'adresse ou la localité
+TIG_MyParcelBE::Search by zipcode and housenumber,Chercher selon le code postal et le numéro de rue
+"TIG_MyParcelBE::Search by zipcode, address or city","Chercher selon le code postal, l'adresse ou la localité"
+"TIG_MyParcelBE::Search by zipcode and housenumber","Chercher selon le code postal et le numéro de rue"
+"TIG_MyParcelBE::Unfortunately no locations could be found. Please check your postcode and house number combination.","Aucun résultat n'a été trouvé. Essayez une autre combinaison de code postal et de numéro de rue et/ou supprimez l'extension du numéro de rue."
+TIG_MyParcelBE::Housenumber,Numéro de rue
+TIG_MyParcelBE::Search,Chercher
+TIG_MyParcelBE::Nearest myparcel pickup points,Points de collecte les plus proches
+TIG_MyParcelBE::bpost location Method name,Nom du mode pour le point bpost
+TIG_MyParcelBE::The consignment is already credited.,Cet envoi est déjà crédité.
+TIG_MyParcelBE::MyParcel - Create labels,MyParcel - Créer des étiquettes
+TIG_MyParcelBE::Print packing slip,Imprimer le bordereau d'expédition
+TIG_MyParcelBE::Send,Envoyer
+TIG_MyParcelBE::Today,Aujourd'hui
+TIG_MyParcelBE::Select,Sélectionnez
+TIG_MyParcelBE::Insured up to,Assuré jusqu'à
+TIG_MyParcelBE::Close,Fermer
+TIG_MyParcelBE::International shipments can not be sent by,Les envois internationaux ne peuvent être envoyés avec
+TIG_MyParcelBE::Choose a bpost pickup location,Choisissez un point de collecte bpost
+"TIG_MyParcelBE::The selected shipment-type cannot be used, Pakjegemak-shipments can only be created with the normal shipment type.","Le type d'envoi sélectionné ne peut être utilisé, les envois 'points bpost' ne peuvent être créés que sous le type d'expédition normal."
+TIG_MyParcelBE::Create shipments (no labels),Créer des envois (pas d'étiquettes)
+TIG_MyParcelBE::Create MyParcel BE shipment,Créer un envoi MyParcel BE 
+TIG_MyParcelBE::Insured up to &euro;%s,Assuré jusqu'à &euro;%s
+TIG_MyParcelBE::Total order value: &euro; %s,Montant total de la commande : &euro; %s
+TIG_MyParcelBE::Shipment insured up to &euro; %s purchase value,Assuré jusqu'à un montant d'achat de , %s,-
+"TIG_MyParcelBE::By creating this shipment, you create a concept in MyParcel.<br>In the backoffice of MyParcel you can further customize the options.","Un envoi 'concept' est créé pour cet envoi.<br>Vous avez la possibilité de le modifier dans le backoffice de MyParcel BE."
+TIG_MyParcelBE::Post Office Address,Point de collecte choisi
+"TIG_MyParcelBE::The selected shipment type cannot be used. Pakjegemak shipments can only be created with the normal shipment type.<br/> The Magento shipment has been created without a MyParcel shipment, select a different shipment type or go to the shipment page to create a single MyParcel shipment. <a target=""_blank"" href=""%s"">View shipment</a>","L'envoi sélectionné ne peut être utilisé. Les envois 'points bpost' ne peuvent être créés que sous le type d'expédition normal. <br/>L'envoi Magento est créé sans envoi MyParcel ; sélectionnez un autre type d'envoi et allez sur la page d'envoi Magento pour y créer un envoi MyParcel. <a target=""_blank"" href=""%s"">Consultez l'envoi</a>"
+TIG_MyParcelBE::Only for dutch shipments,Uniquement pour les envois néerlandais
+"TIG_MyParcelBE::Only for dutch shipments, shipments to outside of the EU are standard ensured up to &euro 200","Uniquement pour les envois néerlandais. Par défaut, les envois vers les pays hors de l'UE sont assurés jusqu'à 200 &euro;"
+TIG_MyParcelBE::Always use MyParcel BE,Utiliser MyParcel BE pour tous les modes d'expédition
+"TIG_MyParcelBE::Select 'No' in order to set the shipping methods that must be regarded as MyParcel BE.","Sélectionnez 'Non' pour paramétrer les modes d'expédition qui doivent être considérés comme ceux de MyParcel BE."
+TIG_MyParcelBE::Use shipment address for bpost location,Ajouter le point bpost à l'adresse de livraison
+TIG_MyParcelBE::Use shipment address for 'Ophalen op een bpost locatie'. The customer will see the address on the invoice. Set to 'No' if you are using AfterPay.,Utilisez l'adresse de livraison pour la 'Collecte à un point bpost'. Le client verra l'adresse sur la facture. Choisissez 'Non' si vous utilisez AfterPay par exemple.
+TIG_MyParcelBE::Use filter in order overview,Utiliser le filtre dans l'aperçu des commandes
+"TIG_MyParcelBE::Select 'No' if you are using a plugin that is present in the order summary and therefore experience problems.","Sélectionnez 'non' si vous utilisez un plug-in présent dans l'aperçu des commandes et qui pose problème."
+
+TIG_MyParcelBE::status_1,Concept
+TIG_MyParcelBE::status_2,Prénotifié
+TIG_MyParcelBE::status_3,Présenté à bpost
+TIG_MyParcelBE::status_4,Au tri
+TIG_MyParcelBE::status_5,En cours de distribution
+TIG_MyParcelBE::status_6,Envoi à la douane
+TIG_MyParcelBE::status_7,Envoi livré
+TIG_MyParcelBE::status_8,Envoi au point de collecte
+TIG_MyParcelBE::status_9,Envoi retiré au point de collecte
+TIG_MyParcelBE::status_10,Envoi retour livré
+TIG_MyParcelBE::status_11,Envoi retour au point de collecte
+TIG_MyParcelBE::status_12,Etiquette en franchise de port imprimée
+TIG_MyParcelBE::status_13,Crédité
+TIG_MyParcelBE::status_30,Inactif - Concept
+TIG_MyParcelBE::status_31,Inactif - Prénotifié
+TIG_MyParcelBE::status_32,Inactif - Présenté à bpost
+TIG_MyParcelBE::status_33,Inactif - Au tri
+TIG_MyParcelBE::status_34,Inactif - En cours de distribution
+TIG_MyParcelBE::status_35,Inactif - Envoi à la douane
+TIG_MyParcelBE::status_36,Inactif - Envoi livré
+TIG_MyParcelBE::status_37,Inactif - Envoi au point de collecte
+TIG_MyParcelBE::status_38,Inactif - Envoi retiré au point de collecte
+TIG_MyParcelBE::status_39,Inactif - Envoi retour livré
+TIG_MyParcelBE::status_40,Inactif - Envoi retour au point de collecte
+TIG_MyParcelBE::status_99,Inactif - Statut inconnu
+
+"All Allowed Countries","Tous les pays autorisés"
+"Specific Countries","Pays spécifiques"
+"The configuration has been saved.","La configuration a été sauvegardée."
+"Weight vs. Destination","Poids vs. Destination"
+"Price vs. Destination","Prix vs. Destination"
+"# of Items vs. Destination","# Items vs. Destination"
+"Fixed","Fixe"
+"Percent","Pourcent"
+"TIG_MyParcelBE::There are no log files to be downloaded.","Il n'y a pas de fichier de logs à télécharger."
+TIG_MyParcelBE::bpost location minimum order total enabled,Montant total minimum pour point bpost activé
+"TIG_MyParcelBE::bpost location minimum order total, incl. BTW","Montant total minimum pour point bpost, TVA incl."
+"TIG_MyParcelBE::Besides assigning weights to all products, you can also specify a volume of each product.","Pour utiliser cette fonction de manière optimale, spécifiez d'abord le poids ou le volume de vos produits."
+"TIG_MyParcelBE::bpost location will not be visible if the subtotal of an order is below this value","La 'Collecte à un point bpost' ne sera pas visible si le montant de la commande est inférieur à cette valeur"
+
+TIG_MyParcelBE::bpost location:,point bpost:
+TIG_MyParcelBE::deliver:,livrer:
+TIG_MyParcelBE::TYPE_standard,Livraison le midi
+
+TIG_MyParcelBE::Opening hours,Heures d'ouverture
+TIG_MyParcelBE::Address details are not entered,Les données relatives à l'adresse ne sont pas complétées
+TIG_MyParcelBE::Pick up from,Collecte à partir de
+TIG_MyParcelBE::Opening hours,Heures d'ouverture
+TIG_MyParcelBE::Closed,Fermé
+TIG_MyParcelBE::Postcode,Code postal
+TIG_MyParcelBE::House number,Numéro de rue
+TIG_MyParcelBE::City,Ville
+TIG_MyParcelBE::Again,A nouveau
+TIG_MyParcelBE::Postcode/city combination unknown,Combinaison inconnue du code postal et de la ville
+TIG_MyParcelBE::Deliver as quickly as possible,Livraison le plus vite possible
+
+TIG_MyParcelBE::Monday,lundi
+TIG_MyParcelBE::Tuesday,mardi
+TIG_MyParcelBE::Wednesday,mercredi
+TIG_MyParcelBE::Thursday,jeudi
+TIG_MyParcelBE::Friday,vendredi
+TIG_MyParcelBE::Saturday,samedi
+TIG_MyParcelBE::Sunday,dimanche
