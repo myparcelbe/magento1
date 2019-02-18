@@ -1,31 +1,12 @@
 <?php
 /**
- *                  ___________       __            __
- *                  \__    ___/____ _/  |_ _____   |  |
- *                    |    |  /  _ \\   __\\__  \  |  |
- *                    |    | |  |_| ||  |   / __ \_|  |__
- *                    |____|  \____/ |__|  (____  /|____/
- *                                              \/
- *          ___          __                                   __
- *         |   |  ____ _/  |_   ____ _______   ____    ____ _/  |_
- *         |   | /    \\   __\_/ __ \\_  __ \ /    \ _/ __ \\   __\
- *         |   ||   |  \|  |  \  ___/ |  | \/|   |  \\  ___/ |  |
- *         |___||___|  /|__|   \_____>|__|   |___|  / \_____>|__|
- *                  \/                           \/
- *                  ________
- *                 /  _____/_______   ____   __ __ ______
- *                /   \  ___\_  __ \ /  _ \ |  |  \\____ \
- *                \    \_\  \|  | \/|  |_| ||  |  /|  |_| |
- *                 \______  /|__|    \____/ |____/ |   __/
- *                        \/                       |__|
- *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Creative Commons License.
  * It is available through the world-wide-web at this URL:
  * http://creativecommons.org/licenses/by-nc-nd/3.0/nl/deed.en_US
  * If you are unable to obtain it through the world-wide-web, please send an email
- * to servicedesk@tig.nl so we can send you a copy immediately.
+ * to info@sendmyparcel.be so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -69,7 +50,7 @@ if(true == $_isPakjegemak){
 ?>
 <div id="tig_myparcel_consignment_options">
     <p>
-        <label for="tig_myparcel_create_consignment" class="normal"><strong>Maak MyParcel zending aan</strong></label>
+        <label for="tig_myparcel_create_consignment" class="normal"><strong><?php echo $this->__('Create MyParcel BE shipment');?></strong></label>
         <input id="tig_myparcel_create_consignment" type="checkbox" value="1" name="tig_myparcel[create_consignment]" checked="true" />
     </p>
     <div id="tig_myparcel_form_container">
@@ -77,7 +58,6 @@ if(true == $_isPakjegemak){
                 <label for="tig_myparcel_shipment_type" class="normal" ><?php echo $this->__('Shipment type');?></label>
                 <select id="tig_myparcel_shipment_type" name="tig_myparcel[shipment_type]">
                     <option value="normal" <?php echo $type == 1 ? 'selected="selected"' : '';?>><?php echo $this->__('Normal'); ?></option>
-                    <option value="unstamped" <?php echo $_disabled;?> ><?php echo $this->__('Unpaid'); ?></option>
                 </select>
             </p>
         <div id="myparcel_consignment_options">

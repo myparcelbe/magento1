@@ -2,7 +2,7 @@
 <config>
     <modules>
         <TIG_MyParcelBE>
-            <version>1.15.0</version>
+            <version>1.17.2</version>
         </TIG_MyParcelBE>
     </modules>
     <global>
@@ -256,7 +256,6 @@
                 <signature_on_receipt>0</signature_on_receipt>
                 <automatically_next_status>1</automatically_next_status>
                 <insured_500>0</insured_500>
-                <customs_hstariffnr></customs_hstariffnr>
             </shipment>
             <checkout>
                 <deliverydays_window>5</deliverydays_window>
@@ -266,6 +265,7 @@
             </checkout>
             <delivery>
                 <delivery_title>Thuis of op het werk bezorgd</delivery_title>
+                <standard_delivery_titel></standard_delivery_titel>
                 <signature_active>1</signature_active>
                 <signature_title>Handtekening voor ontvangst</signature_title>
                 <signature_fee>0.36</signature_fee>

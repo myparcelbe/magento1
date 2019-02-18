@@ -107,7 +107,7 @@ class TIG_MyParcelBE_Block_Adminhtml_Widget_Grid_Column_Renderer_ShippingStatus
 
             $orderSendUrl = Mage::helper('adminhtml')->getUrl("adminhtml/sales_order_shipment/start", array('order_id' => $row->getId()));
             $data = json_decode($order->getMyparcelData(), true);
-            if ($data !== null && key_exists('date', $data) && $data['date'] !== null && $countryCode != 'BE') {
+            if ($data !== null && key_exists('date', $data) && $data['date'] !== null) {
                 $dateTime = strtotime($data['date'] . ' 00:00:00');
                 $dropOffDate = $helper->getDropOffDay($dateTime);
                 $sDropOff = Mage::app()->getLocale()->date($dropOffDate)->toString('d MMM');

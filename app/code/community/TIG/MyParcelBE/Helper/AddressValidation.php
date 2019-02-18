@@ -133,6 +133,7 @@ class TIG_MyParcelBE_Helper_AddressValidation extends TIG_MyParcelBE_Helper_Data
                 $address['street'] = $streetData['fullStreet'];
                 $address['number'] = $streetData['number'];
                 $address['city'] = $quote->getBillingAddress()->getCity();
+
             }
         } else {
 			$address['full_street'] = $quote->getShippingAddress()->getStreetFull();

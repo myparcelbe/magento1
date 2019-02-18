@@ -71,24 +71,48 @@ class TIG_MyParcelBE_CheckoutController extends Mage_Core_Controller_Front_Actio
 
         $general['base_price'] =                    $basePrice;
         $general['cutoff_time'] =                   str_replace(',', ':', $helper->getConfig('cutoff_time', 'checkout'));
+        $general['deliverydays_window'] = (int)$helper->getConfig('deliverydays_window', 'checkout') == 'hide' && $data['address']['country'] == 'BE'? 0 : $helper->getConfig('deliverydays_window', 'checkout');
         $general['dropoff_days'] =                  str_replace(',', ';', $helper->getConfig('dropoff_days', 'checkout'));
         $general['saturday_delivery_active'] =      $helper->getConfig('saturday_delivery_active', 'checkout') == "1" ? true : false;
         $general['saturday_delivery_fee'] =         $this->getExtraPrice($basePrice, $this->getShippingPrice($helper->getConfig('saturday_delivery_fee', 'checkout'), $quote));
         $general['dropoff_delay'] =                 $helper->getConfig('dropoff_delay', 'checkout');
         $data['general'] = (object)$general;
 
-        $delivery['delivery_title'] =               $helper->getConfig('delivery_title', 'delivery');
+
+        $text['delivery_title'] =               $helper->getConfig('delivery_title', 'delivery');
+        $text['standard_delivery_titel'] =      $helper->getConfig('standard_delivery_titel', 'delivery');
+        $text['signature_title'] =              $helper->getConfig('signature_title', 'delivery');
+        $text['saturday_delivery_title'] =      $helper->getConfig('saturday_delivery_title', 'delivery');
+        $text['pickup_title'] =                 $helper->getConfig('pickup_title', 'pickup');
+
+        $text['all_data_not_found'] =           $this->__('Address details are not entered');
+        $text['pick_up_from'] =                 $this->__('Pick up from');
+        $text['opening_hours'] =                $this->__('Opening hours');
+        $text['closed'] =                       $this->__('Closed');
+        $text['postcode'] =                     $this->__('Postcode');
+        $text['house_number'] =                 $this->__('House number');
+        $text['city'] =                         $this->__('City');
+        $text['again'] =                        $this->__('Again');
+        $text['wrong_house_number_city'] =      $this->__('Postcode/city combination unknown');
+        $text['quick_delivery'] =               $this->__('Deliver as quickly as possible');
+
+        $text['monday'] =                       $this->__('Monday');
+        $text['tuesday'] =                      $this->__('Tuesday');
+        $text['wednesday'] =                    $this->__('Wednesday');
+        $text['thursday'] =                     $this->__('Thursday');
+        $text['friday'] =                       $this->__('Friday');
+        $text['saturday'] =                     $this->__('Saturday');
+        $text['sunday'] =                       $this->__('Sunday');
+        $data['text'] = (object)$text;
+
         $delivery['signature_active'] =             $helper->getConfig('signature_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
-        $delivery['signature_title'] =              $helper->getConfig('signature_title', 'delivery');
         $delivery['signature_fee'] =                $this->getShippingPrice($helper->getConfig('signature_fee', 'delivery'), $quote);
         $delivery['saturday_delivery_active'] =     $helper->getConfig('saturday_delivery_active', 'delivery') == "1" && $data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC ? true : false;
-        $delivery['saturday_delivery_title'] =      $helper->getConfig('saturday_delivery_title', 'delivery');
         $delivery['saturday_delivery_fee'] =        $this->getShippingPrice($helper->getConfig('saturday_delivery_fee', 'delivery'), $quote);
         $data['delivery'] = (object)$delivery;
 
         if ($data['address']['country'] == TIG_MyParcelBE_Model_Carrier_MyParcel::LOCAL_CC) {
             $pickup['active'] = $helper->getConfig('pickup_active', 'pickup') == "1" ? true : false;
-            $pickup['title'] = $helper->getConfig('pickup_title', 'pickup');
             $pickup['fee'] = $this->getShippingPrice($helper->getConfig('pickup_fee', 'pickup'), $quote);
             $data['pickup'] = (object)$pickup;
         }

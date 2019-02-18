@@ -10,7 +10,8 @@ var fnCheckout = {
         var frm = mypajQuery('form');
         clearTimeout(timeout);
         timeout = setTimeout(function () {
-            if (xhr && xhr.readyState != 4) {
+            window.stop();
+            if (xhr) {
                 xhr.abort();
             }
             xhr = mypajQuery.ajax({
@@ -21,7 +22,12 @@ var fnCheckout = {
             window.setTimeout(checkPendingRequest, 200);
         }, 500);
     },
-    'hideLoader': function () {}
+    'hideLoader': function () {},
+    'paymentRefresh': function () {
+        setTimeout(function () {
+            paymentrefresh(BASE_URL + 'onestepcheckout/ajax/set_methods_separate');
+        }, 500);
+    }
 };
 window.mypa.fn.fnCheckout = fnCheckout;
 
@@ -45,8 +51,7 @@ function myparcelSaveBilling() {
                 get_save_billing_function(BASE_URL + 'onestepcheckout/ajax/save_billing', BASE_URL + 'onestepcheckout/ajax/set_methods_separate', true, true)();
                 latestData = currentData;
             }
-        }
-        , 300);
+    }, 300);
 }
 
 function getMyParcelLatestData() {
@@ -72,11 +77,14 @@ function getMyParcelLatestData() {
     if(mypajQuery("input[id='shipping:city']").length && mypajQuery("input[id='shipping:city']").val().length) {
         data += mypajQuery("input[id='shipping:city']").val();
     }
-    if($('billing:country_id').length && $('billing:country_id').getValue()){
-        data += $('billing:country_id').getValue();
+    if(mypajQuery('billing:country_id').length && mypajQuery('billing:country_id').getValue()){
+        data += mypajQuery('billing:country_id').getValue();
     }
-    if($('shipping:country_id').length && $('shipping:country_id').getValue()){
-        data += $('shipping:country_id').getValue();
+    if(mypajQuery('billing:country_id').length && mypajQuery('billing:country_id').getValue()){
+        data += mypajQuery('billing:country_id').getValue();
+    }
+    if(mypajQuery('shipping:country_id').length && mypajQuery('shipping:country_id').getValue()){
+        data += mypajQuery$('shipping:country_id').getValue();
     }
 
     return data;
@@ -109,4 +117,4 @@ setTimeout(function () {
     ].join()).on('change', function () {
         myparcelSaveBilling();
     });
-}, 2000);
+}, 1000);

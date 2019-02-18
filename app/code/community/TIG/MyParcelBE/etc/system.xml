@@ -170,6 +170,15 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
+                        <deliverydays_window translate="label" module="tig_myparcel">
+                            <label>Show delivery date</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tig_myparcel/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </deliverydays_window>
                         <cutoff_time translate="label comment">
                             <label>Cut-off time</label>
                             <comment>If a request is made for the delivery options between Friday after, and Monday before, cut-off time then Tuesday will be shown as the next possible delivery date.</comment>
@@ -231,6 +240,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </delivery_title>
+                        <standard_delivery_titel translate="label" module="tig_myparcel">
+                            <label>Standard delivery title</label>
+                            <comment>The times will be visible when nothing is filled in</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>158</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </standard_delivery_titel>
                         <signature_active translate="label" module="tig_myparcel">
                             <label>Signature on receipt</label>
                             <frontend_type>select</frontend_type>
@@ -264,39 +282,40 @@
                                 <signature_active>1</signature_active>
                             </depends>
                         </signature_fee>
-                        <saturday_delivery_active translate="label comment" module="tig_myparcel">
-                            <label>Saturday delivery</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>tig_myparcel/system_config_source_yesno</source_model>
-                            <sort_order>220</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </saturday_delivery_active>
-                        <saturday_delivery_title translate="label" module="tig_myparcel">
-                            <label>Saturday delivery title</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>221</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <depends>
-                                <saturday_delivery_active>1</saturday_delivery_active>
-                            </depends>
-                        </saturday_delivery_title>
-                        <saturday_delivery_fee translate="label,comment" module="tig_myparcel">
-                            <label>Saturday delivery fee</label>
-                            <comment>This will be added to the regular shipping price</comment>
-                            <frontend_type>text</frontend_type>
-                            <validate>validate-number</validate>
-                            <sort_order>222</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <depends>
-                                <saturday_delivery_active>1</saturday_delivery_active>
-                            </depends>
-                        </saturday_delivery_fee>
+                        <!--This option will come back later as soon as it is possible to select delivery days-->
+                        <!--<saturday_delivery_active translate="label comment" module="tig_myparcel">-->
+                            <!--<label>Saturday delivery</label>-->
+                            <!--<frontend_type>select</frontend_type>-->
+                            <!--<source_model>tig_myparcel/system_config_source_yesno</source_model>-->
+                            <!--<sort_order>220</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                        <!--</saturday_delivery_active>-->
+                        <!--<saturday_delivery_title translate="label" module="tig_myparcel">-->
+                            <!--<label>Saturday delivery title</label>-->
+                            <!--<frontend_type>text</frontend_type>-->
+                            <!--<sort_order>221</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                            <!--<depends>-->
+                                <!--<saturday_delivery_active>1</saturday_delivery_active>-->
+                            <!--</depends>-->
+                        <!--</saturday_delivery_title>-->
+                        <!--<saturday_delivery_fee translate="label,comment" module="tig_myparcel">-->
+                            <!--<label>Saturday delivery fee</label>-->
+                            <!--<comment>This will be added to the regular shipping price</comment>-->
+                            <!--<frontend_type>text</frontend_type>-->
+                            <!--<validate>validate-number</validate>-->
+                            <!--<sort_order>222</sort_order>-->
+                            <!--<show_in_default>1</show_in_default>-->
+                            <!--<show_in_website>1</show_in_website>-->
+                            <!--<show_in_store>1</show_in_store>-->
+                            <!--<depends>-->
+                                <!--<saturday_delivery_active>1</saturday_delivery_active>-->
+                            <!--</depends>-->
+                        <!--</saturday_delivery_fee>-->
                     </fields>
                 </delivery>
                 <pickup translate="label comment" module="tig_myparcel">
@@ -328,7 +347,7 @@
                         </pickup_title>
                         <pickup_fee translate="label,comment" module="tig_myparcel">
                             <label>Pickup fee</label>
-                            <comment>This will be added to the regular shipping price</comment>
+                            <comment>Enter an amount that is either positive or negative. For example, do you want to give a discount for using this function or do you want to charge extra for this delivery option.</comment>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
                             <sort_order>110</sort_order>
@@ -347,7 +366,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
-                    <comment>To get your personal API credentials please contact MyParcel Belgium.</comment>
+                    <comment>Go to the general settings in the back office of MyParcel BE to generate the API Key.</comment>
                     <fields>
                         <key translate="label comment">
                             <label>API Key</label>
@@ -380,7 +399,7 @@
                         </print_orientation>
                         <tracktrace_template translate="label comment tooltip">
                             <label>Track&amp;Trace email template</label>
-                            <comment>You can create a new transactional e-mail where the variables {{var tracktrace_url}} and {{var retourlabel_url}} are available. TIP: You can base them on the Order Update template, because {{var order}} is also available.</comment>
+                            <comment>You can create a new transactional email and use {{var tracktrace_url}} and {{var retourlabel_url}} in it. TIP: You can base them on the Order Update template, because {{var order}} is also available.</comment>
                             <tooltip>Select a transactional e-mail template to send the barcode</tooltip>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_email_template</source_model>
